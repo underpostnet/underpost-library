@@ -130,7 +130,14 @@ function fullScreenOut(){
 
 }
 
+function rep(r, s){
 
+	console.log(r);
+	console.log(s);
+
+	return '&nbsp;';
+
+}
 
 async function ajax(type, url, obj, end){
 
@@ -184,7 +191,7 @@ async function postData(url = '', data = {}) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   });
-  return response.json(); 
+  return response.json();
 }
 
 /*
