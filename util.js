@@ -107,6 +107,53 @@ function regulartxt(txt){
 
 }
 
+function tl(str){
+ return str.toLowerCase();
+}
+
+function tu(str){
+	return str.toUpperCase();
+}
+
+function cap(str){
+
+	return str
+	 .toLowerCase()
+	 .split(' ')
+	 .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+	 .join(' ');
+
+}
+
+function spr(str, repeat){
+
+	let str_r = str;
+
+	/* ----------- */
+	/* ----------- */
+
+	if(str==' '){
+
+		str_r = '&nbsp;';
+
+	}
+
+	/* ----------- */
+	/* ----------- */
+
+	let res = '';
+
+	for(let i=1;i<=repeat;i++){
+
+		res = res + str_r;
+
+	}
+
+	return res;
+
+	/* spr('test<br>', 3) */
+
+}
 
 var str_test = {
   charLength: function(str) {

@@ -1,4 +1,24 @@
-
+/* <input type='text' class='subInputChat' spellcheck='false' autocomplete='new-password' onfocusout="mod_session.outUserNameInput();" placeholder=' . . .' value='' />
+.split() .join()
+ replace(/reemplazar todos los lugares en que este esto/g, 'por esto');
+ location.reload();
+ location.href = "https://www.w3schools.com";
+obtener contenido  .value
+incitar focus  .focus() fuera focus .blur()
+ .attr = ''
+.includes('php') detectar string en string
+async function load_foro_sietechakras() {
+	const foro_sietechakras = await import('https://www.somosindia.cl/sv/gestor/foro_sietechakras.js');
+}
+load_foro_sietechakras(data);
+JSON.parse() JSON.stringify()
+str.trim() limpiar string
+this.className.split('_')
+s().onevent = function(){}; sobree escritura de evento
+parseFloat(Math.round( num * 100) / 100).toFixed(2);
+&nbsp; &nbsp;
+s('.chat-history').scrollTop = s('.chat-history').scrollHeight;
+s('.'+name+'-input-focus').onmouseout */
 
 function s(div){
 
@@ -127,15 +147,6 @@ function fullScreenIn(){
 function fullScreenOut(){
 
 	document.exitFullscreen();
-
-}
-
-function rep(r, s){
-
-	console.log(r);
-	console.log(s);
-
-	return '&nbsp;';
 
 }
 
