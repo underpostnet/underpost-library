@@ -229,3 +229,57 @@ function notclick(div, id, state){
 	}
 
 }
+
+/*
+
+(function(){
+
+  console.log('home init');
+
+  function rr(){
+
+    if( (data.lastW!=s('body').clientWidth) || (data.lastH!=s('body').clientHeight) ){
+
+      data.lastW=s('body').clientWidth;
+      data.lastH=s('body').clientHeight;
+
+      if(data.lastW>500){
+
+        data.movil = false;
+
+      }else{
+
+        data.movil = true;
+
+      }
+
+      console.log('movil -> '+data.movil);
+
+      //--------------------------------------------------------------------------
+      //--------------------------------------------------------------------------
+
+
+
+      //--------------------------------------------------------------------------
+      //--------------------------------------------------------------------------
+
+    }
+
+  }
+
+  var data = {
+
+    movil: false,
+    lastH: null,
+    lastW: null
+
+  };
+  rr();
+  setInterval(function(e){
+    rr();
+  }, 100);
+
+
+}())
+
+*/
