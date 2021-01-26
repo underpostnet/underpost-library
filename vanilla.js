@@ -18,7 +18,9 @@ s().onevent = function(){}; sobree escritura de evento
 parseFloat(Math.round( num * 100) / 100).toFixed(2);
 &nbsp; &nbsp;
 s('.chat-history').scrollTop = s('.chat-history').scrollHeight;
-s('.'+name+'-input-focus').onmouseout */
+s('.'+name+'-input-focus').onmouseout
+typeof -> que tipo de var es o si existe
+*/
 
 function s(div){
 
