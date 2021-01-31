@@ -20,6 +20,9 @@ parseFloat(Math.round( num * 100) / 100).toFixed(2);
 s('.chat-history').scrollTop = s('.chat-history').scrollHeight;
 s('.'+name+'-input-focus').onmouseout
 typeof -> que tipo de var es o si existe
+s('body').onkeydown = function() {
+		let aux_key = window.event.keyCode;
+};
 */
 
 function s(div){
