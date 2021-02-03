@@ -24,6 +24,7 @@ s('body').onkeydown = function() {
 		let aux_key = window.event.keyCode;
 };
 .splice(i, 1);
+.push();
 */
 
 function s(div){
