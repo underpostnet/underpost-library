@@ -23,6 +23,7 @@ typeof -> que tipo de var es o si existe
 s('body').onkeydown = function() {
 		let aux_key = window.event.keyCode;
 };
+.splice(i, 1);
 */
 
 function s(div){
