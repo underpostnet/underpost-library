@@ -82,6 +82,25 @@ function fadeIn(el, display){
 	})();
 };
 
+function fadeGlobal(fadein, div, time, from_dis, to_dis){
+  const total_iter = 100;
+  let time_interval = time/total_iter;
+  let total_time = total_iter*time_interval;
+  let time_cont = 0;
+  for(let i=1;i<=total_iter;i++){
+    setTimeout(()=>{
+			let por;
+      if(fadein){por = (i/total_iter);}
+			else{por = 1 - (i/total_iter);}
+      //console.log(por);
+      s(div).style.opacity = (''+por);
+      if(i==1){s(div).style.display = from_dis;}
+			if(i==total_iter){s(div).style.display = to_dis;}
+    },time_cont);
+    time_cont = time_cont + time_interval;
+  }
+};
+
 function setScrollTouchX(el){
 
 	const slider = s(el);
