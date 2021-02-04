@@ -92,7 +92,6 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
 			let por;
       if(fadein){por = (i/total_iter);}
 			else{por = 1 - (i/total_iter);}
-      //console.log(por);
       s(div).style.opacity = (''+por);
       if(i==1){s(div).style.display = from_dis;}
 			if(i==total_iter){s(div).style.display = to_dis;}
