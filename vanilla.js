@@ -27,6 +27,8 @@ s('body').onkeydown = function() {
 .push();
 const timer = ms => new Promise(res => setTimeout(res, ms));
 async function loop(time) { await timer(time); }
+<input type='checkbox' class='factura' />
+.checked
 */
 
 function s(div){
