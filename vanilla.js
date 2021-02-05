@@ -25,6 +25,8 @@ s('body').onkeydown = function() {
 };
 .splice(i, 1);
 .push();
+const timer = ms => new Promise(res => setTimeout(res, ms));
+async function loop(time) { await timer(time); }
 */
 
 function s(div){
@@ -99,6 +101,8 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
     time_cont = time_cont + time_interval;
   }
 };
+
+const timer = ms => new Promise(res => setTimeout(res, ms));
 
 function setScrollTouchX(el){
 
