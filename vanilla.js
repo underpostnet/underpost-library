@@ -30,7 +30,7 @@ async function loop(time) { await timer(time); }
 <input type='checkbox' class='factura' />
 .checked
 <textarea placeholder=' Ingrese Una Nota'></textarea>
-▼►◄△▽▷◁
+▲▼►◄△▽▷◁
 */
 
 function s(div){
