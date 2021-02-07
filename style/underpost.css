@@ -110,7 +110,7 @@ h1, h2 {
 
 }
 
-input {
+input, textarea {
 
 	outline: none !important;
 	border: none;
