@@ -10,7 +10,7 @@ html, body {
 	cursor: default;
 	font-family: 'retro-font', arial;
 	color: white;
-	overflow: hidden;
+	overflow-x: hidden;
 	font-size: 14px;
 
 }
