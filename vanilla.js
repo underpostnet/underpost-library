@@ -31,6 +31,13 @@ async function loop(time) { await timer(time); }
 .checked
 <textarea placeholder=' Ingrese Una Nota'></textarea>
 ▲▼►◄△▽▷◁
+<select name='select'>
+	<option value='value2' selected disabled style='display: none;'>
+		LISTA
+	</option>
+	<option value='value1'>OP 1</option>
+	<option value='value3'>OP 2</option>
+</select>
 */
 
 function s(div){
