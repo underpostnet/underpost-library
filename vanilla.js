@@ -32,11 +32,11 @@ async function loop(time) { await timer(time); }
 <textarea placeholder=' Ingrese Una Nota'></textarea>
 ▲▼►◄△▽▷◁
 <select name='select'>
-	<option value='value2' selected disabled style='display: none;'>
+	<option value='' selected disabled style='display: none;'>
 		LISTA
 	</option>
-	<option value='value1'>OP 1</option>
-	<option value='value3'>OP 2</option>
+	<option value='OP 1'>OP 1</option>
+	<option value='OP 1'>OP 2</option>
 </select>
 */
 
@@ -61,6 +61,12 @@ function prepend(div, html){
 function htmls(div, html){
 
 	s(div).innerHTML = html;
+
+}
+
+function getHtml(div){
+
+	return s(div).innerHTML.trim();
 
 }
 
