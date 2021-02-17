@@ -38,6 +38,7 @@ async function loop(time) { await timer(time); }
 	<option value='OP 1'>OP 1</option>
 	<option value='OP 1'>OP 2</option>
 </select>
+let lang = req.body.lang=='es' ? 1 : 0;
 */
 
 function s(div){
