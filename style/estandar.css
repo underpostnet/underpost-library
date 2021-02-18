@@ -54,7 +54,7 @@ a {
 .in {
 
 	position: relative;
-	display: table-cell;
+	display: block;
 
 }
 
