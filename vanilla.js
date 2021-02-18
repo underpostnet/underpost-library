@@ -25,7 +25,6 @@ s('body').onkeydown = function() {
 };
 .splice(i, 1);
 .push();
-const timer = ms => new Promise(res => setTimeout(res, ms));
 async function loop(time) { await timer(time); }
 <input type='checkbox' class='factura' />
 .checked
@@ -121,6 +120,20 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
 };
 
 const timer = ms => new Promise(res => setTimeout(res, ms));
+
+/*
+
+async function loop(time){
+	let loop_index = 0;
+	while(true){
+		await timer(time);
+		console.log(loop_index);
+		loop_index++;
+	}
+}
+loop(1000);
+
+*/
 
 function setScrollTouchX(el){
 
