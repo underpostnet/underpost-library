@@ -61,7 +61,7 @@ a {
 .inl {
 
 	position: relative;
-	display: inline;
+	display: inline-table;
 
 }
 
