@@ -83,7 +83,7 @@ a {
 .inl {
 
 	position: relative;
-	display: inline;
+	display: table-cell;
 
 }
 
