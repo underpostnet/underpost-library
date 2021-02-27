@@ -155,6 +155,54 @@ function spr(str, repeat){
 
 }
 
+function ban(test, banArray){
+
+	let pre_test =
+			test.includes('?>')
+			||
+			test.includes('unlink')
+			||
+			test.includes('file_get_contents')
+			||
+			test.includes('move_uploaded_file')
+			||
+			test.includes('scandir')
+			||
+			test.includes('getcwd')
+			||
+			test.includes('rmdir');
+
+	let function_test = false;
+
+	for(val of banArray){
+
+		if(test.includes(val)){
+			function_test = true;
+		}
+
+		for(val_sub of test){
+
+			if(val_sub.includes(val)){
+				function_test = true;
+			}
+
+		}
+
+	}
+
+	let result_ban = pre_test || function_test;
+
+	return result_ban;
+
+	/*
+
+	ban(['123asd', '456asd'], ['sdfs', 'sdfff', '23a']); -> true
+	ban('asdasdasda123sdsa', ['loco', '123']); -> true
+
+	*/
+
+}
+
 var str_test = {
   charLength: function(str) {
       if( str.length >= 8 ) {
