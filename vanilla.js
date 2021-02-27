@@ -37,6 +37,7 @@ async function loop(time) { await timer(time); }
 	<option value='OP 1'>OP 1</option>
 	<option value='OP 1'>OP 2</option>
 </select>
+https://google-map-generator.com/
 let lang = req.body.lang=='es' ? 1 : 0;
 */
 
@@ -73,6 +74,143 @@ function getHtml(div){
 function sremove(div){
 
 	s(div).parentNode.removeChild(s(div));
+
+}
+
+function renderMedia(obj){
+
+	/*
+
+	video/mp4
+	audio/mpeg
+
+	*/
+
+	let type = '';
+	if(obj.tag=='audio'){
+
+		type = 'video/mp4';
+
+	}
+	if(obj.tag=='video'){
+
+		type = 'audio/mpeg';
+
+	}
+
+	/*--------------------*/
+	/*--------------------*/
+
+	let poster = '';
+	if(obj.src_poster!=''){
+
+		poster = `poster='`+obj.src_poster+`'`;
+
+	}
+
+	/*--------------------*/
+	/*--------------------*/
+
+	let source = '';
+	if(obj.source){
+
+		source = `
+
+			<source src='`+obj.src+`' type='`+type+`'>
+
+
+		`;
+
+	}
+
+	/*--------------------*/
+	/*--------------------*/
+
+	let download = '';
+
+	if(!obj.download){
+
+		download=`controlsList='nodownload'`;
+
+	}
+
+	/*--------------------*/
+	/*--------------------*/
+
+ 	let render = `
+
+			<`+obj.tag+`
+			`+obj.controls+` `+obj.autoplay+` `+obj.muted+` `+obj.loop+` class='`+obj.class+`' style='`+obj.style+`'
+			`+download+`
+			`+poster+`
+			>
+
+					`+source+`
+
+			</`+obj.tag+`>
+
+		`;
+
+	return render;
+
+	/*
+
+	append('body', renderMedia({
+		tag: 'video',
+		source: true,
+		controls: 'controls',
+		download: true,
+		autoplay: '',
+		muted: '',
+		loop: '',
+		class: 'in',
+		src_poster: 'https://www.nexodev.org/assets/social.jpg',
+		src: 'http://techslides.com/demos/sample-videos/small.mp4',
+		style: `
+
+		width: 400px;
+		height: 300px;
+		margin: auto;
+
+		`
+	}));
+
+	*/
+
+};
+
+function renderYouTube(obj){
+
+	let id = YoutubeUrl(obj.url).split('/');
+	let ind = l(id)-1;
+	id = id[ind];
+
+	let render = `
+
+
+	<iframe style='`+obj.style+`' width='`+obj.w+`' height='`+obj.h+`' class='`+obj.class+`'
+	src='https://www.youtube.com/embed/`+id+`?autoplay=`+obj.autoplay+`'
+	frameborder='0'
+	allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
+	</iframe>
+
+
+	`;
+
+	return render;
+
+	/*
+
+	append('body', renderYouTube({
+		url: 'https://www.youtube.com/watch?v=jgHfPgcFsOM&list=RD_NGdzZfJi-4&index=4',
+		autoplay: '0',
+		w: '300px',
+		h: '200px',
+		class: 'in',
+		style: 'margin: auto;'
+	}));
+
+	*/
 
 }
 
