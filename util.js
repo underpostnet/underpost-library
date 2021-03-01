@@ -11,6 +11,12 @@ function random(min, max){
 
 }
 
+function randomExep(min, max, failOn) {
+    failOn = Array.isArray(failOn) ? failOn : [failOn]
+    var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return failOn.includes(num) ? randomExep(min, max, failOn) : num;
+}
+
 function l(size){
 
 	return size.length;
