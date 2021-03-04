@@ -39,6 +39,13 @@ async function loop(time) { await timer(time); }
 </select>
 https://google-map-generator.com/
 let lang = req.body.lang=='es' ? 1 : 0;
+
+navigator.clipboard.writeText(newClip).then(function() {
+	 clipboard successfully set
+}, function() {
+	 clipboard write failed
+});
+
 */
 
 function s(div){
