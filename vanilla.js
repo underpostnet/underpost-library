@@ -283,6 +283,27 @@ loop(1000);
 
 */
 
+let mod_key = {
+	keyState: [],
+	init: function(){
+		window.addEventListener('keydown',function(e){
+			mod_key.keyState[e.keyCode] = true;
+		},true);
+		window.addEventListener('keyup',function(e){
+			mod_key.keyState[e.keyCode] = false;
+		},true);
+	}
+	/*
+	mod_key.init();
+	setInterval(()=>{
+		if(mod_key.keyState[38]){
+			console.log('test');
+		}
+
+	},50);
+	*/
+};
+
 function setScrollTouchX(el){
 
 	const slider = s(el);
