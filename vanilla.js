@@ -352,6 +352,23 @@ function lang(){
 
 }
 
+function typeWriter(obj){
+	const child = obj.child;
+	const id_stop_save = obj.id;
+	const arrayCharacter = obj.arrayCharacter;
+	let interval_init_time = parseInt(obj.interval_init_time+'');
+	const interval_character = obj.interval_character;
+	htmls(child, '');
+	for(let character of arrayCharacter){
+		setTimeout(()=>{
+			if(id_stop_save==obj.id){
+				append(child, character);
+			}
+		}, interval_init_time);
+		interval_init_time = interval_init_time + interval_character;
+	}
+}
+
 function fullScreenIn(){
 
 	let el = document.documentElement;
