@@ -45,7 +45,7 @@ navigator.clipboard.writeText(newClip).then(function() {
 }, function() {
 	 clipboard write failed
 });
-
+window.print();
 .innerText
 .innerHTML
 
