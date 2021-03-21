@@ -476,6 +476,14 @@ function notclick(div, id, state){
 
 }
 
+function allNotClick(div){
+	let el = div;
+	if(el == null){el = 'body'}
+	notclick(el, 0, false);
+	notclick(el, 1, false);
+	notclick(el, 2, false);
+}
+
 /*
 
 (function(){
