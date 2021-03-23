@@ -48,7 +48,8 @@ navigator.clipboard.writeText(newClip).then(function() {
 window.print();
 .innerText
 .innerHTML
-
+var w = window.innerWidth;
+var h = window.innerHeight;
 */
 
 function s(div){
