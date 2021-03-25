@@ -268,22 +268,6 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
   }
 };
 
-const timer = ms => new Promise(res => setTimeout(res, ms));
-
-/*
-
-async function loop(time){
-	let loop_index = 0;
-	while(true){
-		await timer(time);
-		console.log(loop_index);
-		loop_index++;
-	}
-}
-loop(1000);
-
-*/
-
 let mod_key = {
 	keyState: [],
 	init: function(){

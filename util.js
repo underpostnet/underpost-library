@@ -23,6 +23,24 @@ function l(size){
 
 }
 
+const timer = ms => new Promise(res => setTimeout(res, ms));
+
+/*
+
+await new Promise(resolve => setTimeout(resolve, 1000));
+
+async function loop(time){
+	let loop_index = 0;
+	while(true){
+		await timer(time);
+		console.log(loop_index);
+		loop_index++;
+	}
+}
+loop(1000);
+
+*/
+
 function getHash(){
 	function chr4(){
 		return Math.random().toString(16).slice(-4);
