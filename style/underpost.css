@@ -17,6 +17,16 @@ html, body {
 
 /*
 
+Hide scrollbar for Chrome, Safari and Opera
+.car::-webkit-scrollbar {
+  display: none;
+}
+Hide scrollbar for IE, Edge and Firefox
+.car {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 @font-face {
 	font-family: 'retro-font';
 	src: URL('/assets/fonts/PressStart2P.ttf') format('truetype');
