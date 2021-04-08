@@ -269,3 +269,9 @@ function reduce(str){
 	return str.replace(/\n|\t/g, ' ');
 
 }
+
+function jsonLog(json){
+
+	console.log(JSON.stringify(json, null, 4));
+
+}
