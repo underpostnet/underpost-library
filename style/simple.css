@@ -4,12 +4,14 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: arial;
+	background: black;
+	color: white;
 
 }
 
 a {
 
-	color: blue;
+	color: magenta;
 
 }
 
