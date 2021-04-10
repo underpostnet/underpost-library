@@ -23,6 +23,13 @@ function l(size){
 
 }
 
+function gitUrl(data){
+	let url = `
+	https://raw.githubusercontent.com/`+data.user+`
+	/`+data.repo+`/master`+data.path;
+	return url;	
+}
+
 const timer = ms => new Promise(res => setTimeout(res, ms));
 
 /*
