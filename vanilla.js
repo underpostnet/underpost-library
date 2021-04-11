@@ -17,7 +17,7 @@ this.className.split('_')
 s().onevent = function(){}; sobree escritura de evento
 parseFloat(Math.round( num * 100) / 100).toFixed(2);
 &nbsp; &nbsp;
-s('.chat-history').scrollTop = s('.chat-history').scrollHeight;
+s('html').scrollTop = s('html').scrollHeight;
 s('.'+name+'-input-focus').onmouseout
 typeof -> que tipo de var es o si existe
 s('body').onkeydown = function() {
