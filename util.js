@@ -27,7 +27,7 @@ function gitUrl(data){
 	let url = `
 	https://raw.githubusercontent.com/`+data.user+`
 	/`+data.repo+`/master`+data.path;
-	return url;	
+	return url;
 }
 
 const timer = ms => new Promise(res => setTimeout(res, ms));
@@ -85,6 +85,17 @@ function YoutubeUrl(url) {
 }
 
 function getDate(){
+
+	/*
+	let date_ = new Date();
+	console.log(date_);
+	console.log((+ new Date()));
+	console.log(date_.getTime());
+	console.log(date_.toLocaleString());
+	let custom_date =
+	new Date(new Date().getTime() - (new Date().getTimezoneOffset()*60*1000));
+	console.log(custom_date.toLocaleString());
+	*/
 
 	var f = new Date();
 

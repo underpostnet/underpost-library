@@ -46,8 +46,6 @@ navigator.clipboard.writeText(newClip).then(function() {
 	 clipboard write failed
 });
 window.print();
-.innerText
-.innerHTML
 var w = window.innerWidth;
 var h = window.innerHeight;
 */
@@ -55,6 +53,27 @@ var h = window.innerHeight;
 function s(div){
 
 	return document.querySelector(div);
+
+}
+
+function sa(div){
+
+	return document.querySelectorAll(div);
+	/* document.querySelectorAll(".btn-group")[3].style.display = 'none'; */
+
+}
+
+function intxt(div, content){
+
+	return div.innerText = content;
+	/* intxt(sa('.test-1')[0], 'test'); */
+
+}
+
+function outs(div, content){
+
+	return div.outerHTML = content;
+	/* content includes tag -> outs(sa('div')[1], 'asdasd'); */
 
 }
 
