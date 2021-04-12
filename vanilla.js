@@ -18,6 +18,7 @@ s().onevent = function(){}; sobree escritura de evento
 parseFloat(Math.round( num * 100) / 100).toFixed(2);
 &nbsp; &nbsp;
 s('html').scrollTop = s('html').scrollHeight;
+s('html').scrollTop = s(('.preg-id-'+id_last_false)).offsetTop;
 s('.'+name+'-input-focus').onmouseout
 typeof -> que tipo de var es o si existe
 s('body').onkeydown = function() {
