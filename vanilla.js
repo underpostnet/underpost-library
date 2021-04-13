@@ -288,6 +288,35 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
   }
 };
 
+var mod_scroll = {
+  scrollPos: 0,
+  init: (div, log, fn)=>{
+    window.onscroll = ()=>{
+      let aux_scroll = -1*div.getBoundingClientRect().top;
+      if(log){
+        if (aux_scroll > this.scrollPos){
+          console.log(('scroll ↓ '+(aux_scroll)+' + innerHeight: '+window.innerHeight));
+        }else{
+          console.log(('scroll ↑ '+(aux_scroll)+' + innerHeight: '+window.innerHeight));
+        }
+      }
+      this.scrollPos = aux_scroll;
+      fn(this.scrollPos);
+    };
+  }
+  /*
+  let a_ = false;
+  mod_scroll.init(s('body'), false, (scroll)=>{
+      //testear con log la altura
+      if(scroll>2400 && !a_){
+        console.warn('display scroll -> .a');
+        a_ = true;
+        fadeGlobal(true, '.a', 2000, 'inline-table', 'inline-table');
+      }
+  });
+  */
+};
+
 let mod_key = {
 	keyState: [],
 	init: function(){

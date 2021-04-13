@@ -32,8 +32,6 @@ Hide scrollbar for IE, Edge and Firefox
 	src: URL('/assets/fonts/PressStart2P.ttf') format('truetype');
 }
 
-html {
-
 cursor : url('/assets/smart.cur') 0 0, auto;
 
 text-shadow: X px Y px BLUR px #color;
@@ -62,8 +60,6 @@ box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 30px 0 rgba(0, 0, 0, 0.3);
 	 100% {top: 100px;}
 	 to {background: green}
  }
-
-}
 
 */
 
