@@ -78,6 +78,12 @@ function outs(div, content){
 
 }
 
+function siframe(iframe, div){
+
+	return s(iframe).contentWindow.document.querySelector(div);
+
+}
+
 function append(div, html){
 
 	s(div).insertAdjacentHTML('beforeend', html);
