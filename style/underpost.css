@@ -61,6 +61,17 @@ box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 30px 0 rgba(0, 0, 0, 0.3);
 	 to {background: green}
  }
 
+ .noti-circle {
+  background: #FDB200;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  width: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+}
+
 */
 
 a {
