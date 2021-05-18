@@ -1,3 +1,10 @@
+/*
+
+npx kill-port [port]
+nvm list
+nvm use [version]
+
+*/
 
 function aprox(num, dec){
 
@@ -326,7 +333,14 @@ function LightenDarkenColor(col,amt) {
   return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
 }
 
+function maxArr(arr){
+	return Math.max.apply(null, arr);
+}
+
+function minArr(arr){
+	return Math.min.apply(null, arr);
+}
 /*
 var min = Math.min( ...arr ),
-max = Math.max( ...arr );
+var max = Math.max( ...arr );
 */
