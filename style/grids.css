@@ -1,0 +1,54 @@
+
+  /*
+
+   CSS PURE GRIDS
+   By UNDERpost.net
+
+   */
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+row {
+  display: flex;
+}
+.g-center {
+  justify-content: center;
+}
+.g-end {
+  justify-content: flex-end;
+}
+.g-start {
+  justify-content: flex-start;
+}
+.g-sa {
+  justify-content: space-around;
+}
+.g-sb {
+  justify-content: space-between;
+}
+/*
+
+justify-content:
+
+    center           0|0
+    flex-end         00|
+    flex-start      |00
+
+    space-around  | 0 0 |
+    space-evenly  | 0 0 |
+
+    space-between  |0 0|
+
+    <row class='g-sa'>
+      <div style='width: 30%; background: red; height: 20px;'></div>
+      <div style='width: 50%; background: blue; height: 50px;'></div>
+    </row>
+
+    <row class='g-sa'>
+      <div style='width: 50%; background: blue; height: 50px;'></div>
+      <div style='width: 30%; background: red; height: 20px;'></div>
+    </row>
+
+*/
