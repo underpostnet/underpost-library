@@ -306,6 +306,12 @@ function jsonLog(json){
 
 }
 
+function JSONstr(json){
+
+	return JSON.stringify(json);
+
+}
+
 function LightenDarkenColor(col,amt) {
   var usePound = false;
   if ( col[0] == "#" ) {
