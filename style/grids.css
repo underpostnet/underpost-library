@@ -42,7 +42,7 @@ justify-content:
     space-between  |0 0|
 
     <row class='g-sa'>
-      <div style='width: 30%; background: red; height: 20px;'></div>
+      <div style='width: 30%; background: red; height: 20px;  min-width: 200px;'></div>
       <div style='width: 50%; background: blue; height: 50px;'></div>
     </row>
 
