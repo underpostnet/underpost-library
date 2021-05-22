@@ -99,6 +99,7 @@ function getDate(){
 	console.log((+ new Date()));
 	console.log(date_.getTime());
 	console.log(date_.toLocaleString());
+	.toString() -> para string en bases de datos
 	let custom_date =
 	new Date(new Date().getTime() - (new Date().getTimezoneOffset()*60*1000));
 	console.log(custom_date.toLocaleString());
