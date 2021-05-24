@@ -37,7 +37,7 @@
         minw: '',
         maxw: '',
         minh: '',
-        maxw: '',
+        maxh: '',
       });
 
       */
