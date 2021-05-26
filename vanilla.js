@@ -49,6 +49,12 @@ navigator.clipboard.writeText(newClip).then(function() {
 window.print();
 var w = window.innerWidth;
 var h = window.innerHeight;
+fetch&ajax CRUD module & (cors) ->
+GETS
+GET(OBTAIN PULL POLL)
+PUT(UPDATE)
+POST(CREATE)
+DELETE(REMOVE)
 */
 
 function s(div){

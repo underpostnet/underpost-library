@@ -17,6 +17,11 @@ html, body {
 
 /*
 
+
+-desk-id
+-mob-id
+
+
 Hide scrollbar for Chrome, Safari and Opera
 .car::-webkit-scrollbar {
   display: none;
