@@ -55,6 +55,7 @@ GET(OBTAIN PULL POLL)
 PUT(UPDATE)
 POST(CREATE)
 DELETE(REMOVE)
+WYSIWYG text editor
 */
 
 function s(div){
