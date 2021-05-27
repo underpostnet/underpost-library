@@ -297,6 +297,31 @@ var str_test = {
   }
 };
 
+/*
+
+metodo sor y sort reverse
+var numArray = [140000, 10, 104, 99];
+.sort((a, b)=> {
+      return a - b;
+    });
+.reverse();
+a -> b | menor -> mayor
+b -> a | mayor -> menor
+
+*/
+
+function sortArrAsc(arr){
+	return arr.sort((a, b)=> {
+	      return a - b;
+	});
+}
+
+function sortArrDesc(arr){
+	return arr.sort((a, b)=> {
+	      return b - a;
+	});
+}
+
 function reduce(str){
 
 	return str.replace(/\n|\t/g, ' ');

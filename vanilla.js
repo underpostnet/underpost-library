@@ -300,6 +300,47 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
   }
 };
 
+function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y){
+	let stop_ = false;
+	let sli = 0;
+	let change_ = true;
+	function nextV1(t_a, t_b, sum){
+		if(!stop_){
+			change_ = false;
+			setTimeout(()=>{
+				change_ = true;
+			}, Math.max.apply(null, tim_x));
+		}
+		fadeGlobal(false, (name+sli), t_a, 'block', 'none');
+		if(sum){sli++;}else{sli--;}
+		if(sli>sli_l){
+			sli = 0;
+		}
+		if(sli<0){
+			sli = sli_l;
+		}
+		fadeGlobal(true, (name+sli), t_b, 'block', 'block');
+	}
+	setInterval(function(){
+		if(!stop_){
+			nextV1(tim_x[0], tim_x[1], true);
+		}
+	}, time);
+	s(arrow_der).onclick = () => {
+		if(change_){
+			nextV1(tim_y[0], tim_y[1], true);
+		}
+		stop_ = true;
+	};
+	s(arrow_izq).onclick = () => {
+		if(change_){
+			nextV1(tim_y[0], tim_y[1], false);
+		}
+		stop_ = true;
+	};
+	/* sliderV1(5, '.testi-', 4000, '.s8-izq', '.s8-der', [1000, 2000], [500, 500]); */
+}
+
 var mod_scroll = {
   scrollPos: 0,
   init: (div, log, fn)=>{
