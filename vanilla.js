@@ -301,7 +301,7 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
   }
 };
 
-function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y){
+function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y, animate_loop){
 	let stop_ = false;
 	let sli = 0;
 	let change_ = true;
@@ -322,11 +322,13 @@ function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y){
 		}
 		fadeGlobal(true, (name+sli), t_b, 'block', 'block');
 	}
-	setInterval(function(){
-		if(!stop_){
-			nextV1(tim_x[0], tim_x[1], true);
-		}
-	}, time);
+	if(animate_loop){
+		setInterval(function(){
+			if(!stop_){
+				nextV1(tim_x[0], tim_x[1], true);
+			}
+		}, time);
+	}
 	s(arrow_der).onclick = () => {
 		if(change_){
 			nextV1(tim_y[0], tim_y[1], true);
