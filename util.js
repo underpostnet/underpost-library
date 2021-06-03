@@ -4,6 +4,8 @@ npx kill-port [port]
 nvm list
 nvm use [version]
 
+delete person.age;  // or delete person["age"];
+
 */
 
 function aprox(num, dec){
