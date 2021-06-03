@@ -110,6 +110,16 @@ req.body = ticket;
 console.log('formmatter file ->');
 console.log(req.body);
 
+downloadDoc(item){
+  console.log("downloadDoc ->");
+  console.log(item);
+  const source = `data:`+item.MimeType+`;base64,`+item.Base64;
+  const link = document.createElement("a");
+  link.href = source;
+  link.download = item.Name;
+  link.click();
+}
+
 */
 
 function s(div){
