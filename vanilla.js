@@ -59,12 +59,19 @@ DELETE(REMOVE)
 
 WYSIWYG text editor
 
-<a href="data:image/png;base64,iVBORw0K........"
+<a href="data:image/png;base64,iVBORw0K........">Name</a>
+
+<iframe src="data:base64...">
+
+<object data="data:base64...">
 
 MimeType: {
   type: String
 },
 Base64: {
+  type: String
+},
+Name: {
   type: String
 }
 
@@ -88,7 +95,8 @@ for (let i = 0; i < parseInt(req.body.NumberFiles); i++) {
   //console.log(current_file_64);
   file_messages.push({
     MimeType: current_file_mimetype,
-    Base64: current_file_64
+    Base64: current_file_64,
+    Name: current_file.name
   });
 }
 
