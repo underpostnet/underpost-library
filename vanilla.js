@@ -24,7 +24,12 @@ typeof -> que tipo de var es o si existe
 s('body').onkeydown = function() {
 		let aux_key = window.event.keyCode;
 };
+
 .splice(i, 1);
+console.log(arr.join()); // Jani,Hege,Stale,Kai Jim,Borge
+arr.splice(2, 0, "Lene");
+console.log(arr.join()); // Jani,Hege,Lene,Stale,Kai Jim,Borge
+
 .push();
 async function loop(time) { await timer(time); }
 <input type='checkbox' class='factura' />
