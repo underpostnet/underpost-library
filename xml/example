@@ -1,0 +1,22 @@
+<url>
+
+        <loc>https://underpost.net/snake</loc>
+
+        <lastmod>2019-12-11</lastmod>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.5</priority>
+
+</url>
+
+
+changefreq:
+
+always
+hourly
+daily
+weekly
+monthly
+yearly
+never
