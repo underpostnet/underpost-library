@@ -85,6 +85,27 @@ left margin is 100px
 
 trbl
 
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+  .test_ {
+    color: red;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: green;
+  }
+  .test_ {
+    color: blue;
+  }
+}
+
+
 */
 
 a {
