@@ -93,6 +93,9 @@ downloadDoc(item){
   link.click();
 }
 
+Object.keys({data: "asd", jola:33})
+(2) ["data", "jola"]
+
 */
 
 function aprox(num, dec){
