@@ -133,12 +133,12 @@ function renderMedia(obj){
 	let type = '';
 	if(obj.tag=='audio'){
 
-		type = 'video/mp4';
+		type = 'audio/mpeg';
 
 	}
 	if(obj.tag=='video'){
 
-		type = 'audio/mpeg';
+		type = 'video/mp4';
 
 	}
 
