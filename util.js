@@ -96,6 +96,8 @@ downloadDoc(item){
 Object.keys({data: "asd", jola:33})
 (2) ["data", "jola"]
 
+import { a, b, c } from 'file/abc';
+
 */
 
 function aprox(num, dec){
