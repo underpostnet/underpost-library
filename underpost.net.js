@@ -4,6 +4,24 @@
   // MODULES
   //----------------------------------------------------------------------------
 
+  const component = {
+    loader: async () =>{
+      component.init.renderCss();
+      component.init.renderHtml();
+      component.init.onEvent();
+    },
+    init: {
+      renderHtml: async ()=>{},
+      renderCss: async ()=>{},
+      onEvent: async ()=>{}
+    },
+    service: {},
+    render: async () =>{}
+  }
+
+  //----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+
   const base = {
     loader: async () =>{
       base.init.renderCss();
