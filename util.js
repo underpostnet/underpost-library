@@ -185,6 +185,15 @@ function YoutubeUrl(url) {
 	 return false;
 }
 
+function fDate(s) {
+  var d = new Date();
+  s = s.split('/');
+  d.setFullYear(s[2]);
+  d.setMonth((s[1]-1));
+  d.setDate(s[0]);
+  return d;
+}
+
 function getDate(){
 
 	/*
