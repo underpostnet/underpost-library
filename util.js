@@ -98,6 +98,17 @@ Object.keys({data: "asd", jola:33})
 
 import { a, b, c } from 'file/abc';
 
+
+const path = require('path');
+var fs = require('fs');
+
+fs.writeFileSync(
+				 (path.join(__dirname, '../../base64')+'/'+token),
+				 formatBase64, 'utf-8');
+
+ const data = fs.readFileSync('./input2.txt',
+               {encoding:'utf8', flag:'r'});
+
 */
 
 function aprox(num, dec){
