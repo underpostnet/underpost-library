@@ -109,6 +109,8 @@ fs.writeFileSync(
  const data = fs.readFileSync('./input2.txt',
                {encoding:'utf8', flag:'r'});
 
+util = util.replace(/function/g, '');
+
 */
 
 function aprox(num, dec){
