@@ -111,6 +111,14 @@ fs.writeFileSync(
 
 util = util.replace(/function/g, '');
 
+import { Keys } from 'file:///C:/dd/underpost.net/src/node/src/keys/class/Keys.js';
+
+if (!fs.existsSync(dir+'modules')){
+
+	fs.mkdirSync(dir+'modules');
+
+}
+
 */
 
 function aprox(num, dec){
@@ -455,7 +463,7 @@ function jsonLog(json){
 function jsonSave(json){
 
 	return JSON.stringify(json, null, 4);
-	
+
 }
 
 function JSONstr(json){
