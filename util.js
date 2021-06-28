@@ -376,6 +376,7 @@ function ban(test, banArray){
 
 }
 
+/* fix */
 var str_test = {
   charLength: function(str) {
       if( str.length >= 8 ) {
@@ -412,6 +413,7 @@ var str_test = {
 			}
   }
 };
+/* fix */
 
 /*
 
@@ -448,6 +450,12 @@ function jsonLog(json){
 
 	console.log(JSON.stringify(json, null, 4));
 
+}
+
+function jsonSave(json){
+
+	return JSON.stringify(json, null, 4);
+	
 }
 
 function JSONstr(json){
