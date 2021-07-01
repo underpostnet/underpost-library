@@ -1,0 +1,93 @@
+
+
+.button-drop:hover .content-drop {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease-in;
+}
+
+.content-drop {
+   visibility: hidden;
+   opacity: 0;
+   transition: all 0.3s ease-out;
+}
+
+/*
+
+
+
+*/
+
+.button-drop-0:hover .content-drop-0 {
+
+  display: block;
+
+}
+
+.content-drop-0 {
+
+  display: none;
+
+  animation: fadeIn 0.5s;
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  -o-animation: fadeIn 0.5s;
+  -ms-animation: fadeIn 0.5s;
+
+}
+
+@keyframes fadeIn {
+ 0% {display: none}
+ 0.01% {opacity:0;}
+ 99.99% {opacity:1;}
+ 100% {display: block}
+}
+
+@keyframes fadeOut {
+ 0% {display: block}
+ 0.01% {opacity:1;}
+ 99.99% {opacity:0;}
+ 100% {display: none}
+}
+
+
+/*
+
+<div class='inl button-drop-0' style='padding: 10px; border: 2px solid white; cursor: pointer;'>
+
+  test
+
+  <div class='abs content-drop-0' style='background: red; top: 0px; left: 0px; width: 80px;'>
+
+        test <br>
+        test <br>
+        test <br>
+        test <br>
+
+  </div>
+
+</div>
+
+
+
+<br><br>
+
+
+
+<div class='inl button-drop' style='padding: 10px; border: 2px solid white; cursor: pointer;'>
+
+test
+
+<div class='abs content-drop' style='background: red; top: 0px; left: 0px; width: 80px;'>
+
+      test <br>
+      test <br>
+      test <br>
+      test <br>
+
+</div>
+
+</div>
+
+
+*/
