@@ -568,3 +568,11 @@ function minArr(arr){
 var min = Math.min( ...arr ),
 var max = Math.max( ...arr );
 */
+
+function range(ini, fin){
+	let list_ = [];
+	for(let i_=ini; i_<=fin; i_++){
+		list_.push(i_);
+	}
+	return list_;
+}
