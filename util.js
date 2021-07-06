@@ -112,6 +112,8 @@ fs.writeFileSync(
 util = util.replace(/function/g, '');
 
 import { Keys } from 'file:///C:/dd/underpost.net/src/node/src/keys/class/Keys.js';
+const { startTimestamp: start, stopTimestamp: stop } =
+      this.programmingPumpForm.value;
 
 if (!fs.existsSync(dir+'modules')){
 
