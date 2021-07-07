@@ -56,6 +56,26 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 
 
+
+
+
+
+<input type="datetime-local" class='dateTime'>
+<input type="time" class='dateTime1'>
+<input type="date" class='dateTime2'>
+
+s('.dateTime').onchange = (event)=>{
+
+  console.log(event);
+  console.log(s('.dateTime').value);
+  console.log(new Date(s('.dateTime').value));
+  console.log(new Date(s('.dateTime').value).getTime());
+
+};
+
+
+
+
 */
 
 function s(div){
