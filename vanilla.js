@@ -60,7 +60,9 @@ var h = window.innerHeight;
 
 
 
-<input type="datetime-local" class='dateTime'>
+<input type="datetime-local" class='dateTime'
+value=" new Date(time_email).toISOString().split(".")[0]  "
+>
 <input type="time" class='dateTime1'>
 <input type="date" class='dateTime2'>
 
