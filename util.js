@@ -179,6 +179,42 @@ console.log(newArray);
 
 
 
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// expected output: "array1:" Array ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log('reversed:', reversed);
+// expected output: "reversed:" Array ["three", "two", "one"]
+
+
+
+
+
+
+
+
+MERGE Object
+
+
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    ssn: '123-456-2356'
+};
+
+
+let job = {
+    jobTitle: 'JavaScript Developer',
+    country: 'USA'
+};
+
+
+let employee = Object.assign(person, job);
+console.log(employee);
+
+
 */
 
 function aprox(num, dec){
