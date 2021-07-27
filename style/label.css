@@ -1,0 +1,61 @@
+
+dl label {
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+  z-index: 9;
+
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+dl input:valid + label, dl input:focus + label {
+
+
+  -webkit-transform: translate3d(0, -20px, 0);
+          transform: translate3d(0, -20px, 0);
+}
+
+.dynamicLabel {
+
+  z-index: 10;
+  border: 0px solid white;
+  background: none;
+  color: white;
+
+}
+
+dl {
+
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: gray;
+
+}
+
+
+/*
+
+
+<dl class="inl">
+    <input class="inl dynamicLabel" required="">
+    <label >Your bank account number</label>
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
