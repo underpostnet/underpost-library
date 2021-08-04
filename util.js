@@ -621,10 +621,10 @@ function pad(num, size) {
 	return num;
 };
 
-
 function checkRut(rut) {
+
     // Despejar Puntos
-    let valor = rut.replace('.','');
+    let valor = (''+rut).replaceAll('.','');
     // Despejar Guión
     valor = valor.replace('-','');
 
@@ -636,7 +636,7 @@ function checkRut(rut) {
     // rut.value = cuerpo + '-'+ dv
 
     // Si no cumple con el mínimo ej. (n.nnn.nnn)
-    if(cuerpo.length < 7) { return false;}
+    if(cuerpo.length < 7) { return { success: false }; }
 
     // Calcular Dígito Verificador
     let suma = 0;
@@ -664,8 +664,14 @@ function checkRut(rut) {
     dv = (dv == 0)?11:dv;
 
     // Validar que el Cuerpo coincide con su Dígito Verificador
-    if(dvEsperado != dv) { return false; }
+    if(dvEsperado != dv) { return { success: false }; }
+
+		dv == 10 ? dv = 'k' : null;
+		dv == 11 ? dv =  0  : null;
 
     // Si todo sale bien, eliminar errores (decretar que es válido)
-    return true;
+    return {
+			success: true,
+			value: (cuerpo+'-'+dv)
+		};
   }

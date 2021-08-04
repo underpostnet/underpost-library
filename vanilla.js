@@ -1,6 +1,7 @@
 /* <input type='text' class='subInputChat' spellcheck='false' autocomplete='new-password' onfocusout="mod_session.outUserNameInput();" placeholder=' . . .' value='' />
 .split() .join()
  replace(/reemplazar todos los lugares en que este esto/g, 'por esto');
+ .replaceAll('.','');
  location.reload();
  location.href = "https://www.w3schools.com";
 obtener contenido  .value
