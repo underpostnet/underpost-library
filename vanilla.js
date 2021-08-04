@@ -2,20 +2,23 @@
 .split() .join()
  replace(/reemplazar todos los lugares en que este esto/g, 'por esto');
  .replaceAll('.','');
+{a,b} -> {a: a, b: b}
  location.reload();
  location.href = "https://www.w3schools.com";
 obtener contenido  .value
 incitar focus  .focus() fuera focus .blur()
  .attr = ''
 .includes('php') detectar string en string
+
 async function load_foro_sietechakras() {
 	const foro_sietechakras = await import('https://www.somosindia.cl/sv/gestor/foro_sietechakras.js');
 }
-load_foro_sietechakras(data);
+load_foro_sietechakras();
+
 JSON.parse() JSON.stringify()
 str.trim() limpiar string
 this.className.split('_')
-s().onevent = function(){}; sobree escritura de evento
+s().onevent = ()=>{}; sobree escritura de evento
 parseFloat(Math.round( num * 100) / 100).toFixed(2);
 &nbsp; &nbsp;
 s('html').scrollTop = s('html').scrollHeight;
