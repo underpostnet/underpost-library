@@ -118,4 +118,40 @@ dynamicBtn({
  });
 
 
+ append('body', `
+
+   <style class='dynamic-css' >
+
+       h1, h2 {
+
+         display: none;
+
+       }
+
+       body {
+
+         background: white;
+         color: black;
+
+       }
+
+   </style>
+
+   test
+
+ `);
+ setTimeout(()=>{
+     htmls('.dynamic-css', `
+
+     body {
+
+       background: pink;
+       color: white;
+
+     }
+
+     `);
+ }, 2000);
+
+
 */
