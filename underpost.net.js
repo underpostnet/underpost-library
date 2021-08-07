@@ -6,16 +6,19 @@
 
   const component = {
     loader: async () =>{
-      component.init.renderCss();
-      component.init.renderHtml();
-      component.init.onEvent();
+      component.init.renderMain();
     },
     init: {
-      renderHtml: async ()=>{},
-      renderCss: async ()=>{},
-      onEvent: async ()=>{}
+      renderMain: async ()=>{}
     },
-    service: {},
+    service: {
+      data: {
+
+      },
+      rest: {
+
+      }
+    },
     render: async () =>{}
   }
 

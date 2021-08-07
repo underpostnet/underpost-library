@@ -1,0 +1,86 @@
+
+
+   .label-custom {
+
+           width: 100px;
+           height: 100px;
+           background: gray;
+   }
+
+   .label-div-custom {
+
+     width: 90px;
+     height: 5px;
+     transition: .3s;
+     background: white;
+
+   }
+
+   .label-custom div:nth-child(1)
+   {
+
+     top: 30%;
+
+   }
+
+   .label-custom div:nth-child(2)
+   {
+
+   }
+
+   .label-custom div:nth-child(3)
+   {
+
+     top: 70%;
+
+   }
+
+   #menu_checkbox:checked + .label-custom div:nth-child(1)
+   {
+     transform: rotateZ(45deg);
+     top: 46%;
+     left: 9%;
+   }
+
+   #menu_checkbox:checked + .label-custom div:nth-child(2)
+   {
+     display: none;
+   }
+
+   #menu_checkbox:checked + .label-custom div:nth-child(3)
+   {
+     top: 46%;
+     transform: rotateZ(-45deg);
+     left: 9%;
+   }
+
+
+   /*
+
+
+   <input
+   type="checkbox"
+   id="menu_checkbox"
+   style='display: none;'
+   >
+   <label class='abs center label-custom' for="menu_checkbox">
+
+           <div class='abs center label-div-custom'></div>
+           <div class='abs center label-div-custom'></div>
+           <div class='abs center label-div-custom'></div>
+
+   </label>
+
+ <script>
+
+ // https://codepen.io/himalayasingh/pen/mNOJPM
+
+ s('#menu_checkbox').onclick = () => {
+   console.log(s('#menu_checkbox').checked);
+ }
+
+ </script>
+
+
+
+   */
