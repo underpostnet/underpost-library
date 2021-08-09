@@ -37,6 +37,7 @@ console.log(arr.join()); // Jani,Hege,Lene,Stale,Kai Jim,Borge
 .push();
 async function loop(time) { await timer(time); }
 <input type='checkbox' class='factura' />
+type="number"
 .checked
 <textarea placeholder=' Ingrese Una Nota'></textarea>
 ▲▼►◄△▽▷◁
