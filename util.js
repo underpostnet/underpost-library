@@ -675,3 +675,8 @@ function checkRut(rut) {
 			value: (cuerpo+'-'+dv)
 		};
   }
+
+	// existe attr sea cual sea el valor
+	function existAttr(obj, attr){
+		return obj.hasOwnProperty(attr);
+	}
