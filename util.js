@@ -680,3 +680,18 @@ function checkRut(rut) {
 	function existAttr(obj, attr){
 		return obj.hasOwnProperty(attr);
 	}
+
+// Object.keys({data: "asd", jola:33})
+// (2) ["data", "jola"]
+
+  function getKeys(obj){
+		return Object.keys(obj);
+	}
+
+	function fusionObj(listObj){
+		let returnObj = {};
+		for(let obj of listObj){
+			returnObj = Object.assign(returnObj, obj);
+		}
+		return returnObj;
+	}
