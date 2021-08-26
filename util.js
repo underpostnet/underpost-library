@@ -695,3 +695,50 @@ function checkRut(rut) {
 		}
 		return returnObj;
 	}
+
+	/*
+
+	var a = [
+		{
+		  a:23,
+		  b:10
+		},
+		{
+		  a:24,
+		  b:11
+		},
+		{
+		  a:24,
+		  b:11
+		},
+		{
+		  a:true,
+		  b:false
+		}
+	];
+
+*/
+
+	function uniqueArray(arr){
+		return arr.filter( (item, pos) => {
+		    return arr.indexOf(item) == pos;
+		});
+	}
+
+	function getAttrArrayFromArray(attr, arr){
+		let arrReturn = [];
+		for(let obj_ of arr){
+			arrReturn.push(obj_[attr]);
+		}
+		return arrReturn;
+	}
+
+	function uniqueAttrArray(attr, arr){
+		let arrReturn = [];
+		for(let obj_ of arr){
+			arrReturn.push(obj_[attr]);
+		}
+		return arrReturn.filter( (item, pos) => {
+				return arrReturn.indexOf(item) == pos;
+		});
+	}
