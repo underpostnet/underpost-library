@@ -730,28 +730,18 @@ function checkRut(rut) {
 	}
 
 	function getAttrArrayFromArray(attr, arr){
-		let arrReturn = [];
-		for(let obj_ of arr){
-			arrReturn.push(obj_[attr]);
-		}
-		return arrReturn;
+		return arr.map( ( x )=>{ return x[attr] } );
 	}
 
 	function uniqueAttrArray(attr, arr){
-		let arrReturn = [];
-		for(let obj_ of arr){
-			arrReturn.push(obj_[attr]);
-		}
+		let arrReturn = arr.map( ( x )=>{ return x[attr] } );
 		return arrReturn.filter( (item, pos) => {
 				return arrReturn.indexOf(item) == pos;
 		});
 	}
 
 	function orderArrayFromAttrInt(arr, attr, type){
-		let arr_index_order = [];
-		for(let obj_ of arr){
-			arr_index_order.push(obj_[attr]);
-		}
+		let arr_index_order = arr.map( ( x )=>{ return x[attr] } );
 		// type -> true asc
 		// type-> false desc
 		if(type){
