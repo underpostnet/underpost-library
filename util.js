@@ -768,3 +768,12 @@ function checkRut(rut) {
 		}
 		return returnArr;
 	}
+
+
+	function arrJoin(arr){
+		returnArr = [];
+		for(let arr_ of arr){
+			returnArr = returnArr.concat(arr_);
+		}
+		return returnArr;
+	}
