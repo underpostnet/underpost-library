@@ -214,6 +214,8 @@ let job = {
 let employee = Object.assign(person, job);
 console.log(employee);
 
+.pop() -> devuelve ultimo elemento de arreglo y lo elimina
+
 
 */
 
@@ -776,4 +778,8 @@ function checkRut(rut) {
 			returnArr = returnArr.concat(arr_);
 		}
 		return returnArr;
+	}
+
+	function getLastElement(arr){
+		return arr[arr.length-1];
 	}
