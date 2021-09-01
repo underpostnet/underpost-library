@@ -805,6 +805,6 @@ function checkRut(rut) {
 
     // recursive object equality check
     var p = Object.keys(x);
-    return Object.keys(y).every(function (i) { return p.indexOf(i) !== -1; }) &&
-        p.every(function (i) { return objEq(x[i], y[i]); });
+    return Object.keys(y).every(i => { return p.indexOf(i) !== -1; }) &&
+        p.every(i => { return objEq(x[i], y[i]); });
 	}
