@@ -217,6 +217,11 @@ console.log(employee);
 .pop() -> devuelve ultimo elemento de arreglo y lo elimina
 Array.from([1, 2, 3], x => x + x) -> Array [2, 4, 6]
 
+obj.paths.filter((el)=>{
+              return (el.type=='Transaction')
+            }) -> devuelve elemento en base a condicion
+
+
 */
 
 function aprox(num, dec){
