@@ -221,6 +221,10 @@ obj.paths.filter((el)=>{
               return (el.type=='Transaction')
             }) -> devuelve elemento en base a condicion
 
+[1,2,3].forEach(element => console.log(element));
+
+number validator ->
+isNaN("asd")
 
 */
 
@@ -328,6 +332,14 @@ function getDate(){
 	new Date().getDay()+'-'+new Date().getMonth()+'-'+new Date().getFullYear();
 
 	new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds()+':'+ new Date().getMilliseconds();
+
+	roundTime(time){
+    let current_time = new Date(time);
+    current_time.setMinutes(0);
+    current_time.setMilliseconds(0);
+    current_time.setSeconds(0);
+    return current_time.getTime();
+  }
 
 	*/
 
@@ -687,6 +699,20 @@ function checkRut(rut) {
 		return Object.keys(obj);
 	}
 
+	function iterateKeys(obj, fn){
+		for(let key_ of Object.keys(obj)){
+			fn(key_, obj[key_]);
+		}
+	}
+
+	function isLen(obj){
+		return obj.hasOwnProperty("length");
+	}
+
+	function isObj(obj){
+		return (typeof(obj)=='object');
+	}
+
 	function fusionObj(listObj){
 		let returnObj = {};
 		for(let obj of listObj){
@@ -833,3 +859,11 @@ function checkRut(rut) {
     value = value.toString().split('e');
     return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
   }
+
+	function validateIP(ipaddress){
+		 if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress))
+		  {
+		    return true;
+		  }
+		return false;
+		}
