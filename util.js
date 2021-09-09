@@ -699,6 +699,37 @@ function checkRut(rut) {
 		return Object.keys(obj);
 	}
 
+	/*
+
+		getAllKeys({
+			a: "a",
+			b: { a_a: "a_a"}
+		});
+
+	*/
+
+	function getAllKeys(obj){
+					let allListKeys = [];
+					const listKeys_ = obj_ => {
+						Object.keys(obj_).forEach( key_ => {
+							allListKeys.push(key_);
+							console.log(key_);
+							if(typeof(obj_[key_])=='object'){
+								listKeys_(obj_[key_]);
+							}
+						});
+					};
+					listKeys_(obj);
+					return allListKeys;
+	}
+
+/*
+
+.slice(index, pos) > 0  pos != 0
+.slice(pos, index) < 0  index != 0
+
+*/
+
 	function iterateKeys(obj, fn){
 		for(let key_ of Object.keys(obj)){
 			fn(key_, obj[key_]);
