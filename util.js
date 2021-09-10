@@ -561,6 +561,17 @@ function reduce(str){
 
 }
 
+function getSizeJSON(obj){
+	const size_ = new TextEncoder().encode(JSON.stringify(obj)).length;
+	const kiloBytes_ = size_ / 1024;
+	const megaBytes_ = kiloBytes_ / 1024;
+	return {
+		size: size_,
+		kiloBytes: kiloBytes_,
+		megaBytes: megaBytes_
+	}
+}
+
 function jsonLog(json){
 
 	console.log(JSON.stringify(json, null, 4));
