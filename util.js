@@ -708,12 +708,17 @@ function checkRut(rut) {
 
 	*/
 
-	function getAllKeys(obj){
+	function getAllKeys(obj, numbers_){
 					let allListKeys = [];
 					const listKeys_ = obj_ => {
 						Object.keys(obj_).forEach( key_ => {
-							allListKeys.push(key_);
-							console.log(key_);
+							if(numbers_){
+								allListKeys.push(key_);
+							}else{
+								if(isNaN(key_)){
+									allListKeys.push(key_);
+								}
+							}
 							if(typeof(obj_[key_])=='object'){
 								listKeys_(obj_[key_]);
 							}
