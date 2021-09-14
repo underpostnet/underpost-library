@@ -341,6 +341,19 @@ function getDate(){
     return current_time.getTime();
   }
 
+
+ troleo del toLocaleDateString():
+	time_order = time_order.map(x=>new Date(x).toLocaleDateString());
+	 time_order = time_order.map(x=>new Date(
+
+		 (x.split('/')[1]+'/'+
+		 x.split('/')[0]+'/'+
+		 x.split('/')[2])
+
+
+	 ).getTime());
+
+
 	*/
 
 	var f = new Date();
@@ -914,3 +927,8 @@ function checkRut(rut) {
 		  }
 		return false;
 		}
+
+
+	function newInstance(obj){
+		return JSON.parse(JSON.stringify(obj));
+	}
