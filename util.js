@@ -31,6 +31,19 @@ Name: {
   type: String
 }
 
+ecadenamiento opcional solo ts? ->
+arr?.length || 0;
+
+MAP VIA:
+
+[true, true, false]
+	.map( (v,i,a)=>{
+	console.log(v);
+	console.log(i);
+	console.log(a);
+	console.log('-')
+}  );
+
 console.log('req file ->');
 console.log(req.file);
 console.log('req files ->');
