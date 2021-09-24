@@ -51,12 +51,20 @@ type="number"
 https://google-map-generator.com/
 let lang = req.body.lang=='es' ? 1 : 0;
 
+
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/clipboard
 navigator.clipboard.writeText(newClip).then(function() {
 	 clipboard successfully set
 }, function() {
 	 clipboard write failed
 });
+navigator.clipboard.readText().then(
+  clipText => console.log(clipText) );
+
+
+printer impresora
 window.print();
+
 var w = window.innerWidth;
 var h = window.innerHeight;
 
