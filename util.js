@@ -44,6 +44,9 @@ MAP VIA:
 	console.log('-')
 }  );
 
+
+ARRAY.includes(UNIQUE ELEMENT)
+
 parseFloat((89324.344545).toFixed(2));
 
 console.log('req file ->');
