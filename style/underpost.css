@@ -163,6 +163,10 @@ a {
 
 }
 
+.w-fit {
+	width: fit-content;
+}
+
 .center {
 
 	transform: translate(-50%,-50%);

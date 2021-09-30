@@ -82,6 +82,10 @@ a {
 
 }
 
+.w-fit {
+	width: fit-content;
+}
+
 h1, h2 {
 
 	display: none;
