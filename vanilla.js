@@ -657,6 +657,19 @@ async function sha256(message) {
 		/* let result = await sha256('test'); */
 }
 
+
+function displayContentSlice(id_content, ref, transition){
+	s(id_content).style.transition = transition;
+	s(id_content).style.opacity = "0";
+	s(id_content).style.height = "auto";
+	const h_ = s(ref).clientHeight +"px";
+	s(id_content).style.height = "0px";
+	setTimeout(()=>{
+		s(id_content).style.opacity = "1";
+		s(id_content).style.height = h_;
+	}, 10);
+}
+
 function dragDrop(div){
 
   var object = s(div),
