@@ -396,15 +396,46 @@ var mod_scroll = {
     };
   }
   /*
-  let a_ = false;
-  mod_scroll.init(s('body'), false, (scroll)=>{
-      //testear con log la altura
-      if(scroll>2400 && !a_){
-        console.warn('display scroll -> .a');
-        a_ = true;
-        fadeGlobal(true, '.a', 2000, 'inline-table', 'inline-table');
-      }
-  });
+
+	setTimeout(()=>{
+		 let display_ball = false;
+		 mod_scroll.init(s('body'), false, scroll => {
+			 // console.log(s('.content-main-ball-content').offsetTop*0.95);
+				 if(scroll>s('.content-main-ball-content').offsetTop*0.95 && !display_ball){
+					 setTimeout(()=>{
+						 console.warn('display scroll -> display_ball');
+						 display_ball = true;
+						 // fadeGlobal(true, '.main-ball-content', 200, 'block', 'block');
+						 s('.main-ball-content').style.opacity = '1';
+						 animateStaticsBall();
+
+					 }, 400);
+				 }
+		 });
+	 }, 2000);
+
+	 require TweenMax Lib ->
+
+	 Counter:
+
+	 function count(nameClass, limit){
+		 let counter = { var: 0 };
+		 TweenMax.to(counter, 5, {
+			 var: limit,
+			 onUpdate: function () {
+				 let number = Math.ceil(counter.var);
+				 htmls(nameClass, number);
+				 // if(number === counter.var){ count.kill(); }
+			 },
+			 onComplete: function(){
+				 setTimeout(()=>{
+					 count(nameClass, limit);
+				 }, 3000);
+			 },
+			 ease:Circ.easeOut
+		 });
+	 };
+
   */
 };
 
