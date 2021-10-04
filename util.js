@@ -4,6 +4,8 @@ npx kill-port [port]
 nvm list
 nvm use [version]
 
+null==undefined -> true
+
 delete person.age;  // or delete person["age"];
 
 fetch&ajax CRUD module & (cors) ->
