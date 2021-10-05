@@ -952,3 +952,29 @@ function checkRut(rut) {
 	function newInstance(obj){
 		return JSON.parse(JSON.stringify(obj));
 	}
+
+	function setValueAllKeys(obj, setValue){
+		const listKeys_ = obj_ => {
+			Object.keys(obj_).forEach( key_ => {
+				if(typeof(obj_[key_])=='object'){
+					listKeys_(obj_[key_]);
+				}else{
+					obj_[key_] = setValue;
+				}
+			});
+		};
+		listKeys_(obj);
+		return obj;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	// end
