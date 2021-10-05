@@ -956,7 +956,7 @@ function checkRut(rut) {
 	function setValueAllKeys(obj, setValue){
 		const listKeys_ = obj_ => {
 			Object.keys(obj_).forEach( key_ => {
-				if(typeof(obj_[key_])=='object'){
+				if((typeof(obj_[key_])=='object') && (obj_[key_]!=null)){
 					listKeys_(obj_[key_]);
 				}else{
 					obj_[key_] = setValue;
