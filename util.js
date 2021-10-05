@@ -763,7 +763,7 @@ function checkRut(rut) {
 									allListKeys.push(key_);
 								}
 							}
-							if(typeof(obj_[key_])=='object'){
+							if((typeof(obj_[key_])=='object') && (obj_[key_]!=null)){
 								listKeys_(obj_[key_]);
 							}
 						});
