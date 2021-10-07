@@ -606,9 +606,9 @@ function getSizeJSON(obj){
 }
 
 function getSumSizeJSON(arrObj){
-	size_sum = 0;
-	kiloBytes_sum = 0;
-	megaBytes_sum = 0;
+	let size_sum = 0;
+	let kiloBytes_sum = 0;
+	let megaBytes_sum = 0;
 	for(let obj_ of arrObj){
 
 		size_ = new TextEncoder().encode(JSON.stringify(obj_)).length;
@@ -618,7 +618,7 @@ function getSumSizeJSON(arrObj){
 		size_sum += size_;
 		kiloBytes_sum += kiloBytes_;
 		megaBytes_sum += megaBytes_;
-		
+
 	}
 	return {
 		size: size_sum,
