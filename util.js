@@ -611,9 +611,9 @@ function getSumSizeJSON(arrObj){
 	let megaBytes_sum = 0;
 	for(let obj_ of arrObj){
 
-		size_ = new TextEncoder().encode(JSON.stringify(obj_)).length;
-		kiloBytes_ = size_ / 1024;
-		megaBytes_ = kiloBytes_ / 1024;
+		const size_ = new TextEncoder().encode(JSON.stringify(obj_)).length;
+		const kiloBytes_ = size_ / 1024;
+		const megaBytes_ = kiloBytes_ / 1024;
 
 		size_sum += size_;
 		kiloBytes_sum += kiloBytes_;
