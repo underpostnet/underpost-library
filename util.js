@@ -991,6 +991,11 @@ function checkRut(rut) {
 	}
 
 
+	function isFunction(obj_){
+		return typeof(obj_)=='function';
+	}
+
+
 
 
 
