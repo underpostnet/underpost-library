@@ -53,7 +53,7 @@
       s('html').lang = ['en','es'][data.const.lang];
       s('html').dir = data.const.dir;
       console.log('init template system lang -> '+['en','es'][data.const.lang]);
-      global.init();
+      await global.init();
       await main.render();
       s('html').scrollTop = 0;
     },
@@ -62,11 +62,11 @@
         data.var.w=window.innerWidth;
         data.var.h=window.innerHeight;
         console.log('-> render | w:'+data.var.w+' h:'+data.var.h);
-        global.render();
+        await global.render();
       }
       console.log('callback');
       await timer(data.const.callback);
-      main.render();
+      await main.render();
     }
   };
 
