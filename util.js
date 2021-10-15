@@ -337,6 +337,11 @@ function fDate(s) {
 function getDate(){
 
 	/*
+
+	get Day() -> 1,2,3,4,5,6,0
+	let currenDay_ = this.startTime.getDay();
+	currenDay_ == 0 ? currenDay_ = 7 :null;
+
 	let date_ = new Date();
 	console.log(date_);
 	console.log((+ new Date()));
