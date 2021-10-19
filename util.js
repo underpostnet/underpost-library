@@ -353,7 +353,9 @@ function getDate(){
 	console.log(custom_date.toLocaleString());
 
 	ultimo date de un mes
-	new Date([year], [month-1] + 1, 0);
+	var date = new Date();
+	var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+	var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
 	new Date().toISOString(); -> '2021-05-24T22:22:00.948Z'
 
