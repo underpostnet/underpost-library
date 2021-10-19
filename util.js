@@ -352,6 +352,9 @@ function getDate(){
 	new Date(new Date().getTime() - (new Date().getTimezoneOffset()*60*1000));
 	console.log(custom_date.toLocaleString());
 
+	ultimo date de un mes
+	new Date([year], [month-1] + 1, 0);
+
 	new Date().toISOString(); -> '2021-05-24T22:22:00.948Z'
 
 	new Date().getDay()+'-'+new Date().getMonth()+'-'+new Date().getFullYear();
