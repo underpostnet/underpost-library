@@ -786,6 +786,11 @@ function renderInput(obj){
 						-webkit-transform: translate3d(0, `+obj.endLabelPos+`px, 0);
 						transform: translate3d(0, `+obj.endLabelPos+`px, 0);
 					}
+
+					.`+obj.id_input+`::placeholder {
+					  `+obj.style_placeholder+`
+					}
+
 	</style>
 
 	`+(isOpenFalse(obj.topContent)?'':obj.topContent)+`
@@ -826,44 +831,48 @@ function renderInput(obj){
 	/*
 
 	let style_content_input = `
-		border: 2px solid red;
-		padding: 10px;
+	border: 2px solid red;
+	padding: 10px;
 	`;
 	let style_input = `
-		background: green;
-		font-size: 20px;
+	background: green;
+	font-size: 20px;
 	`;
 	let style_label = `
-		color: red;
-		font-size: 20px;
+	color: red;
+	font-size: 20px;
+	`;
+	let style_placeholder = `
+	color: orange;
 	`;
 	let top_content = `<br>top content<br><br>`;
 	let bot_content = `<br>bot content<br><br>`;
 	let dataInputs = [
-		{
-			underpostClass: 'in',
-			id_content_input: 'ttt',
-			id_input: 'aaa',
-			type: 'text',
-			required: true,
-			style_content_input: style_content_input,
-			style_input: style_input,
-			style_label: style_label,
-			style_outline: true,
-			textarea: false,
-			active_label: true,
-			initLabelPos: 10,
-			endLabelPos: -30,
-			text_label: 'place text',
-			tag_label: 'asdasd',
-			fnOnClick: async () => {
-				console.log('click input');
-			},
-			value: ``,
-			topContent: top_content,
-			botContent: bot_content,
-			placeholder: ''
-		}
+	{
+		underpostClass: 'in',
+		id_content_input: 'ttt',
+		id_input: 'aaa',
+		type: 'text',
+		required: true,
+		style_content_input: style_content_input,
+		style_input: style_input,
+		style_label: style_label,
+		style_outline: true,
+		style_placeholder: style_placeholder,
+		textarea: false,
+		active_label: true,
+		initLabelPos: 10,
+		endLabelPos: -30,
+		text_label: 'place text',
+		tag_label: 'asdasd',
+		fnOnClick: async () => {
+			console.log('click input');
+		},
+		value: `asd`,
+		topContent: top_content,
+		botContent: bot_content,
+		placeholder: 'test placeholder'
+	}
 	];
 	for(let di of dataInputs){
 		append('body', renderInput(di));
