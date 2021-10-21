@@ -1007,7 +1007,15 @@ function checkRut(rut) {
 
 
 
-
+function isOpenFalse(value){
+		return ((value == null ) ||
+		(value == undefined ) ||
+		(value == '' ) ||
+		(value == "" ) ||
+		(value == `` ) ||
+		(value == 0 ) ||
+		(value == false));
+}
 
 
 

@@ -734,3 +734,157 @@ var downloader = {
 		downloadAnchorNode.remove();
 	}
 }
+
+
+
+function renderInput(obj){
+	/*
+
+	<div contenteditable="true">This is the first line.<br>
+
+	<input type="button">
+	<input type="checkbox">
+	<input type="color">
+	<input type="date">
+	<input type="datetime-local">
+	<input type="email">
+	<input type="file">
+	<input type="hidden">
+	<input type="image">
+	<input type="month">
+	<input type="number">
+	<input type="password">
+	<input type="radio">
+	<input type="range">
+	<input type="reset">
+	<input type="search">
+	<input type="submit">
+	<input type="tel">
+	<input type="text">
+	<input type="time">
+	<input type="url">
+	<input type="week">
+
+	*/
+	let value = (isOpenFalse(obj.value)?'':`value="`+obj.value+`"`);
+	let render = `
+	<style>
+					.`+obj.id_content_input+` `+obj.tag_label+` {
+
+							position: absolute;
+							top: `+obj.initLabelPos+`px;
+							left: `+obj.initLabelPos+`px;
+							-webkit-transform: translate3d(0, 0, 0);
+							transform: translate3d(0, 0, 0);
+							-webkit-transition: all 0.2s ease-in-out;
+							transition: all 0.2s ease-in-out;
+
+						}
+
+					.`+obj.id_content_input+` input:valid + `+obj.tag_label+`, .`+obj.id_content_input+` input:focus + `+obj.tag_label+` {
+
+						-webkit-transform: translate3d(0, `+obj.endLabelPos+`px, 0);
+						transform: translate3d(0, `+obj.endLabelPos+`px, 0);
+					}
+	</style>
+
+	`+(isOpenFalse(obj.topContent)?'':obj.topContent)+`
+
+	<div class="`+obj.underpostClass+` `+obj.id_content_input+`"
+	    style="`+obj.style_content_input+`">
+			<`+(obj.textarea?'textarea':'input')+`
+			`+((!isOpenFalse(obj.placeholder))?`placeholder="`+obj.placeholder+`"`:'')+`
+			`+value+`
+			type="`+obj.type+`" class="`+obj.underpostClass+` `+obj.id_input+`"
+			`+(obj.required?'required':'')+` style="
+			`+(obj.style_outline?`
+			outline: none !important;
+			border: none;`:'')+`
+			`+obj.style_input+`">`+(obj.textarea?(
+				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
+			)+'</textarea>':(obj.active_label?`<`+obj.tag_label+` style="`+obj.style_label+`" >
+					`+obj.text_label+`
+		  </`+obj.tag_label+`>`:''))+`
+	</div>
+
+	`+(isOpenFalse(obj.botContent)?'':obj.botContent)+`
+
+	`;
+
+	// espacions uperios br content
+
+	setTimeout(() => {
+
+		s('.'+obj.id_content_input).onclick = async () => {
+			s('.'+obj.id_input).focus();
+			await obj.fnOnClick();
+		};
+
+	}, 0);
+
+
+	/*
+
+	let style_content_input = `
+		border: 2px solid red;
+		padding: 10px;
+	`;
+	let style_input = `
+		background: green;
+		font-size: 20px;
+	`;
+	let style_label = `
+		color: red;
+		font-size: 20px;
+	`;
+	let top_content = `<br>top content<br><br>`;
+	let bot_content = `<br>bot content<br><br>`;
+	let dataInputs = [
+		{
+			underpostClass: 'in',
+			id_content_input: 'ttt',
+			id_input: 'aaa',
+			type: 'text',
+			required: true,
+			style_content_input: style_content_input,
+			style_input: style_input,
+			style_label: style_label,
+			style_outline: true,
+			textarea: false,
+			active_label: true,
+			initLabelPos: 10,
+			endLabelPos: -30,
+			text_label: 'place text',
+			tag_label: 'asdasd',
+			fnOnClick: async () => {
+				console.log('click input');
+			},
+			value: ``,
+			topContent: top_content,
+			botContent: bot_content,
+			placeholder: ''
+		}
+	];
+	for(let di of dataInputs){
+		append('body', renderInput(di));
+	}
+
+	*/
+
+
+	return render;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end
