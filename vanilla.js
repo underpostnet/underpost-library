@@ -800,7 +800,7 @@ function renderInput(obj){
 			<`+(obj.textarea?'textarea':'input')+`
 			`+((!isOpenFalse(obj.placeholder))?`placeholder="`+obj.placeholder+`"`:'')+`
 			`+value+`
-			type="`+obj.type+`" class="`+obj.underpostClass+` `+obj.id_input+`"
+			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill `+obj.id_input+`"
 			`+(obj.required?'required':'')+` style="
 			`+(obj.style_outline?`
 			outline: none !important;
@@ -831,27 +831,31 @@ function renderInput(obj){
 	/*
 
 	let style_content_input = `
-	border: 2px solid red;
-	padding: 10px;
+			border: 2px solid red;
+			padding: 5px;
+			width: 250px;
+			margin: auto;
 	`;
 	let style_input = `
-	background: green;
-	font-size: 20px;
+			background: green;
+			font-size: 20px;
+			height: 40px;
+			padding: 5px;
 	`;
 	let style_label = `
-	color: red;
-	font-size: 20px;
+			color: red;
+			font-size: 20px;
 	`;
 	let style_placeholder = `
-	color: orange;
+			color: orange;
 	`;
-	let top_content = `<br>top content<br><br>`;
-	let bot_content = `<br>bot content<br><br>`;
+	let top_content = spr('<br>', 1);
+	let bot_content = ``;
 	let dataInputs = [
 	{
 		underpostClass: 'in',
-		id_content_input: 'ttt',
-		id_input: 'aaa',
+		id_content_input: 'a1',
+		id_input: 'a2',
 		type: 'text',
 		required: true,
 		style_content_input: style_content_input,
@@ -861,17 +865,17 @@ function renderInput(obj){
 		style_placeholder: style_placeholder,
 		textarea: false,
 		active_label: true,
-		initLabelPos: 10,
+		initLabelPos: 15,
 		endLabelPos: -30,
-		text_label: 'place text',
-		tag_label: 'asdasd',
+		text_label: 'Ingrese Email',
+		tag_label: 'a3',
 		fnOnClick: async () => {
 			console.log('click input');
 		},
-		value: `asd`,
+		value: ``,
 		topContent: top_content,
 		botContent: bot_content,
-		placeholder: 'test placeholder'
+		placeholder: ''
 	}
 	];
 	for(let di of dataInputs){

@@ -66,6 +66,10 @@ a {
 	width: fit-content;
 }
 
+.w-fill {
+	width: -webkit-fill-available;
+}
+
 .center {
 
 	transform: translate(-50%,-50%);

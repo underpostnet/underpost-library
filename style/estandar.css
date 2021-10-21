@@ -86,6 +86,10 @@ a {
 	width: fit-content;
 }
 
+.w-fill {
+	width: -webkit-fill-available;
+}
+
 h1, h2 {
 
 	display: none;
