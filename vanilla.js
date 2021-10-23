@@ -890,7 +890,302 @@ function renderInput(obj){
 
 
 
+async function renderSchedule(obj){
+	  let data_ = {
+    availability: () => {
+      let availability = [];
+      for(let rn of range(1, 7)){
+        let from_ = (+ new Date())+([-1,1][random(0,1)]*60*60*1000*random(0, 9999));
+        let to_ = from_ + (60*60*1000*random(1, 3));
+        availability.push({
+          from: new Date(from_),
+          to: new Date(to_),
+          period: false
+        });
+      };
+      availability = availability.concat(data_.period());
+      console.log(" availability: () => ");
+      console.log(availability);
+      return orderArrayFromAttrInt(availability, "from", true);
+    },
+    period: () => {
 
+
+      let dataPeriod = [
+        {
+          tipo: 'Presencial',
+          from: '16:00',
+          to: '20:00',
+          day: 7
+        },
+        {
+          tipo: 'Presencial',
+          from: '12:00',
+          to: '13:00',
+          day: 5
+        }
+      ];
+
+      let dataRender = [];
+
+      for(let d_ of dataPeriod){
+
+        let from_h = parseInt(d_.from.split(':')[0]);
+        let from_m = parseInt(d_.from.split(':')[1]);
+
+        let to_h = parseInt(d_.to.split(':')[0]);
+        let to_m = parseInt(d_.to.split(':')[1]);
+
+        let month_ = new Date().getMonth();
+
+        let initTime =
+        new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
+        let endTime = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getTime()+
+        (60*60*24*1000)+(60*60*24*1000)*62;
+
+        while(initTime<endTime){
+
+          let day_ = new Date(initTime).getDay();
+          day_ == 0 ? day_ = 7 : null;
+
+          if(day_==d_.day){
+            dataRender.push({
+              from: new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000)),
+              to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)),
+              period: true
+            });
+          }
+
+          initTime += (60*60*24*1000);
+
+        }
+
+
+      }
+      console.log("dataRender ->");
+      console.log(dataRender);
+
+      return dataRender;
+
+
+    }
+  };
+
+
+  let getDataRenderSchedule = () => {
+
+              let availability = data_.availability();
+
+              let years = arrJoin([
+                availability.map(x=>new Date(x.from).getFullYear()),
+                availability.map(x=>new Date(x.to).getFullYear())
+              ]);
+
+              years = uniqueArray(years).map(x=>{
+                return {year: x, months: []};
+              });
+
+              for(let year of years){
+                  for(let av of availability){
+                    if(new Date(av.from).getFullYear()==year.year){
+                      year.months.push(new Date(av.from).getMonth());
+                    }
+                    if(new Date(av.to).getFullYear()==year.year){
+                      year.months.push(new Date(av.to).getMonth());
+                    }
+                  }
+                  year.months = uniqueArray(year.months);
+                  year.months = year.months.map(x=>{
+                    return {
+                      month: x,
+                      lastDate: new Date(year.year, x + 1, 0),
+                      firstDay: new Date(year.year, x, 1)
+                    };
+                  });
+              }
+
+              console.log(" getDataRenderSchedule: async () => ");
+              console.log(years);
+
+              return { years, availability };
+
+  };
+
+
+  let renderSchedule = async obj_ => {
+
+    console.log(" renderSchedule: async () => ");
+    let getD = getDataRenderSchedule();
+    let availability = getD.availability;
+    let dataRender = getD.years;
+    let meses =
+    ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+    let render = ""+spr("<br>", 7);
+
+
+
+
+    render += `
+
+
+
+
+      <style>
+
+      .sch-row {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .sch-title-month {
+
+        font-size: 20px;
+        text-align: center;
+
+      }
+
+      .sch-title-day {
+
+        text-align: center;
+        font-size: 18px;
+
+      }
+
+      .sch-node-date {
+
+        min-height: 100px;
+        font-size: 10px;
+
+      }
+
+      </style>
+
+
+    `;
+
+
+
+
+    for(let year of dataRender){
+      for(let month of year.months){
+
+        render += `
+
+                <div class='in sch-row alegreya sch-title-month'>
+
+
+                  `+meses[month.month]+` de `+year.year+`
+
+
+                </div>
+
+                `;
+
+        render += `<div class='fl sch-row alegreya'>`;
+
+        for(let date of semana){
+
+          render += `<div class='in fll sch-title-day' style=
+          '
+
+                width: `+(100/l(semana))+`%;
+
+          '
+
+          >
+
+              `+date+`
+
+          </div>`;
+
+        }
+
+        // rellenar espacios vacios
+        let limitWhiteDay = new Date(month.firstDay).getDay();
+        limitWhiteDay == 0 ? limitWhiteDay = 7:null;
+
+
+
+        for(let date of range(2, limitWhiteDay)){
+
+          render += `<div class='in fll' style=
+          '
+
+                width: `+(100/l(semana))+`%;
+
+          '
+
+          >
+
+              -
+
+          </div>`;
+
+        }
+
+        for(let date of range(1, month.lastDate.getDate())){
+
+          render += `<div class='in fll sch-node-date sch-node-date-`+date+`-`+month.month+`-`+year.year+`' style=
+          '
+
+                width: `+(100/l(semana))+`%;
+                background: `+(date%2==0?'#cccccc':'#e4e6e2')+`
+
+          '
+
+          >
+
+              `+date+`
+
+          </div>`;
+
+        }
+
+
+        render += `</div> `;
+
+      }
+
+    }
+
+    render += spr('<br>', 5);
+
+
+    setTimeout(()=>{
+      for(let dateData of availability){
+
+        append(`.sch-node-date-`
+          +dateData.from.getDate()
+          +`-`+dateData.from.getMonth()
+          +`-`+dateData.from.getFullYear(), `
+
+            <div style='background: `+(dateData.period?'blue':'red')+`; color: white;'>
+                  Point
+                  <br>
+                  From: `+dateData.from.toLocaleTimeString().slice(0,-3)+`
+                  <br>
+                  To: `+dateData.to.toLocaleTimeString().slice(0,-3)+`
+
+            </div>
+
+          `);
+
+      }
+    },0);
+
+
+
+
+    return render;
+
+  };
+
+	return await renderSchedule(obj);
+
+}
 
 
 
