@@ -450,6 +450,7 @@ let mod_key = {
 		},true);
 	}
 	/*
+	https://keycode.info/
 	mod_key.init();
 	setInterval(()=>{
 		if(mod_key.keyState[38]){
