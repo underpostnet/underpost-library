@@ -1018,63 +1018,32 @@ async function renderSchedule(obj){
     let getD = getDataRenderSchedule();
     let availability = getD.availability;
     let dataRender = getD.years;
-    let meses =
-    ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
-    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    let semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    let meses = obj_.str_months;
+    let semana = obj_.str_week;
 
-    let render = ""+spr("<br>", 7);
-
-
-
-
-    render += `
-
-
-
-
+    let render = `
       <style>
-
-      .sch-row {
-        padding-left: 10px;
-        padding-right: 10px;
+      .`+obj_.id+`-row {
+        `+obj_.style.row+`
       }
-
-      .sch-title-month {
-
-        font-size: 20px;
-        text-align: center;
-
+      .`+obj_.id+`-title-month {
+      `+obj_.style.title_month+`
       }
-
-      .sch-title-day {
-
-        text-align: center;
-        font-size: 18px;
-
+      .`+obj_.id+`-title-day {
+      `+obj_.style.title_day+`
       }
-
-      .sch-node-date {
-
-        min-height: 100px;
-        font-size: 10px;
-
+      .`+obj_.id+`-node-date {
+        `+obj_.style.node_date+`
       }
-
       </style>
-
-
     `;
-
-
-
 
     for(let year of dataRender){
       for(let month of year.months){
 
         render += `
 
-                <div class='in sch-row alegreya sch-title-month'>
+                <div class='in `+obj_.id+`-row `+obj_.style.class_font+` `+obj_.id+`-title-month'>
 
 
                   `+meses[month.month]+` de `+year.year+`
@@ -1084,11 +1053,11 @@ async function renderSchedule(obj){
 
                 `;
 
-        render += `<div class='fl sch-row alegreya'>`;
+        render += `<div class='fl `+obj_.id+`-row `+obj_.style.class_font+`'>`;
 
         for(let date of semana){
 
-          render += `<div class='in fll sch-title-day' style=
+          render += `<div class='in fll `+obj_.id+`-title-day' style=
           '
 
                 width: `+(100/l(semana))+`%;
@@ -1128,7 +1097,7 @@ async function renderSchedule(obj){
 
         for(let date of range(1, month.lastDate.getDate())){
 
-          render += `<div class='in fll sch-node-date sch-node-date-`+date+`-`+month.month+`-`+year.year+`' style=
+          render += `<div class='in fll `+obj_.id+`-node-date `+obj_.id+`-node-date-`+date+`-`+month.month+`-`+year.year+`' style=
           '
 
                 width: `+(100/l(semana))+`%;
@@ -1151,13 +1120,10 @@ async function renderSchedule(obj){
 
     }
 
-    render += spr('<br>', 5);
-
-
     setTimeout(()=>{
       for(let dateData of availability){
 
-        append(`.sch-node-date-`
+        append(`.`+obj_.id+`-node-date-`
           +dateData.from.getDate()
           +`-`+dateData.from.getMonth()
           +`-`+dateData.from.getFullYear(), `
