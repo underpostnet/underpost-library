@@ -1046,7 +1046,7 @@ async function renderSchedule(obj){
                 <div class='in `+obj_.id+`-row `+obj_.style.class_font+` `+obj_.id+`-title-month'>
 
 
-                  `+meses[month.month]+` de `+year.year+`
+                  `+meses[month.month]+` `+year.year+`
 
 
                 </div>
