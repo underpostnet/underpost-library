@@ -800,12 +800,9 @@ function renderInput(obj){
 			<`+(obj.textarea?'textarea':'input')+`
 			`+((!isOpenFalse(obj.placeholder))?`placeholder="`+obj.placeholder+`"`:'')+`
 			`+value+`
-			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill `+obj.id_input+`"
-			`+(obj.required?'required':'')+` style="
-			`+(obj.style_outline?`
-			outline: none !important;
-			border: none;`:'')+`
-			`+obj.style_input+`">`+(obj.textarea?(
+			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill
+			`+(obj.style_outline?`in-outline`:'')+` `+obj.id_input+`"
+			`+(obj.required?'required':'')+` style="`+obj.style_input+`">`+(obj.textarea?(
 				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
 			)+'</textarea>':(obj.active_label?`<`+obj.tag_label+` style="`+obj.style_label+`" >
 					`+obj.text_label+`

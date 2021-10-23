@@ -79,3 +79,8 @@ a {
 	text-align: center;
 
 }
+
+.in-outline {
+	outline: none !important;
+	border: none;
+}
