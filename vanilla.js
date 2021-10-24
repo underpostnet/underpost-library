@@ -25,8 +25,15 @@ s('html').scrollTop = s('html').scrollHeight;
 s('html').scrollTop = s(('.preg-id-'+id_last_false)).offsetTop;
 s('.'+name+'-input-focus').onmouseout
 typeof -> que tipo de var es o si existe
-s('body').onkeydown = function() {
-		let aux_key = window.event.keyCode;
+
+s('body').onkeydown = () => {
+		switch (window.event.keyCode) {
+			case 13:
+					logIn();
+				break;
+			default:
+
+		}
 };
 
 .splice(i, 1);
@@ -1151,9 +1158,58 @@ async function renderSchedule(obj){
 
 }
 
+const notifi = {
+	data: {
+		AttrImg: {}
+	},
+	load: obj =>{
+		notifi.data.AttrImg = obj.AttrImg;
+		append('body', `
+				<style>
+								notifiValidator {
 
+									`+obj.style.notifiValidator+`
 
+								}
 
+								.notifiValidator-c1 {
+
+									`+obj.style.notifiValidator_c1+`
+
+								}
+
+								.notifiValidator-c2 {
+
+									`+obj.style.notifiValidator_c2+`
+
+								}
+				</style>
+				<notifiValidator class='fix' style='display: none;'>
+							<div class='abs notifiValidator-c1'>
+							</div>
+							<div class='abs notifiValidator-c2'>
+							</div>
+				</notifiValidator>
+		`);
+	},
+	display: (color, msg, time, AttrImg) => {
+			s('notifiValidator').style.background = color;
+			htmls('.notifiValidator-c1', `
+							<div class='abs center'>
+										`+notifi.data.AttrImg[AttrImg]+`
+							</div>
+			`);
+			htmls('.notifiValidator-c2', `
+							<div class='abs center' style='width: 95%;'>
+										`+msg+`
+							</div>
+			`);
+			fadeIn(s('notifiValidator'));
+			setTimeout(()=>{
+				fadeOut(s('notifiValidator'));
+			}, time);
+	}
+};
 
 
 
