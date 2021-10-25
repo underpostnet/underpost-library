@@ -1018,7 +1018,21 @@ function isOpenFalse(value){
 }
 
 
-
+function countSecondsV1(asc, limit, size, count_, fn){
+	// limit = 60*1000*2;
+	// asc = true;
+	const update_ = () => {
+		asc ? count_ += 1000 : count_ -= 1000;
+		count_ < 0 ? count_ = limit:null;
+		count_ > limit ? count_ = 0:null;
+		let minutes_ = Math.trunc((count_/(60*1000)));
+		let seconds_ = Math.trunc(((count_%(60*1000))/1000));
+		let value_ = pad(minutes_, size)+":"+pad(seconds_, size);
+		fn(value_);
+	};
+	update_();
+	setInterval(()=>update_(), 1000);
+}
 
 
 
