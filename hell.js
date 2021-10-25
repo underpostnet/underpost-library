@@ -1,4 +1,4 @@
-`
+const hell = obj => `
 
 string
 
