@@ -958,7 +958,9 @@ async function renderSchedule(obj){
             dataRender.push({
               from: new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000)),
               to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)),
-              period: true
+              period: true,
+							tipo: d_.tipo,
+							quota: d_.quota
             });
           }
 
@@ -1137,21 +1139,32 @@ async function renderSchedule(obj){
     setTimeout(()=>{
       for(let dateData of availability){
 
-        append(`.`+obj_.id+`-node-date-`
+				let point_id = `.`+obj_.id+`-node-date-`
           +dateData.from.getDate()
           +`-`+dateData.from.getMonth()
-          +`-`+dateData.from.getFullYear(), `
+          +`-`+dateData.from.getFullYear();
 
-            <div style='background: `+(dateData.period?'blue':'red')+`; color: white;'>
+        append(point_id, `
+
+            <div style='`+
+						(dateData.period?
+							obj_.style.point_period:
+							obj_.style.point)+`'>
                   Point
                   <br>
                   From: `+dateData.from.toLocaleTimeString().slice(0,-3)+`
                   <br>
                   To: `+dateData.to.toLocaleTimeString().slice(0,-3)+`
+									<br>
+									Tipo: `+dateData.tipo+`
+									<br>
+									Cupos: `+dateData.quota+`
 
             </div>
 
           `);
+
+					obj_.pluginPoint(dateData, point_id);
 
       }
     },0);
