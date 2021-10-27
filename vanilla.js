@@ -1259,6 +1259,32 @@ function renderTableV1(dataRender, obj){
 		index_row++;
 	}
 
+	/*
+
+	append('body', renderTableV1( data_periods, {
+			style: {
+				header_row_style: header_row_style,
+				header_cell_style: header_cell_style,
+				row_style: row_style,
+				cell_style: cell_style
+			},
+			plugin: index => {
+				let render_ = `<div class='inl test-`+index+`'>
+				test `+index+`
+				</div>`;
+				setTimeout(()=>{
+					s('.test-'+index).onclick = ()=>{
+						alert("index: "+index);
+					};
+				},0);
+				return render_;
+			},
+			name_plugin: undefined
+		}
+	));
+
+	*/
+
  return render;
 
 }
