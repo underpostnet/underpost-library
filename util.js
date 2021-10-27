@@ -1018,7 +1018,7 @@ function isOpenFalse(value){
 }
 
 
-function countSecondsV1(asc, limit, size, count_, fn){
+function countSecondsV1(asc, limit, size, count_, fn, factor_){
 	// limit = 60*1000*2;
 	// asc = true;
 	const update_ = () => {
@@ -1031,7 +1031,9 @@ function countSecondsV1(asc, limit, size, count_, fn){
 		fn(value_);
 	};
 	update_();
-	setInterval(()=>update_(), 1000);
+	setInterval(()=>update_(),
+		(factor_!=undefined?1000*factor_:1000)
+	);
 }
 
 

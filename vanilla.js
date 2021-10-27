@@ -909,14 +909,15 @@ async function renderSchedule(obj){
         });
       };
       availability = availability.concat(data_.period());
-      console.log(" availability: () => ");
-      console.log(availability);
+      // console.log(" availability: () => ");
+      // console.log(availability);
       return orderArrayFromAttrInt(availability, "from", true);
     },
-    period: () => {
+    period: obj_ => {
 
 
-      let dataPeriod = [
+      let dataPeriod = obj_ != undefined ? obj_.data.periods :
+			[
         {
           tipo: 'Presencial',
           from: '16:00',
@@ -967,8 +968,8 @@ async function renderSchedule(obj){
 
 
       }
-      console.log("dataRender ->");
-      console.log(dataRender);
+      // console.log("dataRender ->");
+      // console.log(dataRender);
 
       return dataRender;
 
@@ -977,9 +978,17 @@ async function renderSchedule(obj){
   };
 
 
-  let getDataRenderSchedule = () => {
+  let getDataRenderSchedule = obj_ => {
 
-              let availability = data_.availability();
+							let availability = [];
+
+							if(obj_ != undefined){
+								availability = availability.concat(obj_.data.points);
+								availability = availability.concat(data_.period(obj_));
+								availability = orderArrayFromAttrInt(availability, "from", true);
+							}else{
+								availability = data_.availability();
+							}
 
               let years = arrJoin([
                 availability.map(x=>new Date(x.from).getFullYear()),
@@ -1009,8 +1018,8 @@ async function renderSchedule(obj){
                   });
               }
 
-              console.log(" getDataRenderSchedule: async () => ");
-              console.log(years);
+              // console.log(" getDataRenderSchedule: async () => ");
+              // console.log(years);
 
               return { years, availability };
 
@@ -1019,8 +1028,8 @@ async function renderSchedule(obj){
 
   let renderSchedule = async obj_ => {
 
-    console.log(" renderSchedule: async () => ");
-    let getD = getDataRenderSchedule();
+    // console.log(" renderSchedule: async () => ");
+    let getD = getDataRenderSchedule(obj_);
     let availability = getD.availability;
     let dataRender = getD.years;
     let meses = obj_.str_months;
@@ -1149,7 +1158,8 @@ async function renderSchedule(obj){
 
 
 
-
+		console.log('data render schedule end ->');
+		console.log(availability);
     return render;
 
   };
