@@ -1222,5 +1222,55 @@ const notifi = {
 };
 
 
+function renderTableV1(dataRender, obj){
+
+	if(obj.plugin != undefined){
+		obj.style.header_cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))+1))+'%;';
+		obj.style.cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))+1))+'%;';
+	}else{
+		obj.style.header_cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))))+'%;';
+		obj.style.cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))))+'%;';
+	}
+
+	let render = `<div class='fl' style='`+obj.style.header_row_style+`'>`;
+	for(let header_col of getAllKeys(dataRender[0])){
+		render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+header_col+`</div>`;
+	}
+	if(obj.plugin != undefined){
+		render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+
+		(obj.name_plugin!=undefined?obj.name_plugin:'')+`</div>`;
+	}
+	render += '</div>';
+
+	let index_row = 0;
+	for(let row of dataRender){
+		render += `<div class='fl' style='`+obj.style.row_style+`'>`;
+		for(let header_col of getAllKeys(dataRender[0])){
+			render += `<div class='in fll' style='`+obj.style.cell_style+`'>`
+			+row[header_col]+
+			`</div>`;
+		}
+		if(obj.plugin != undefined){
+			render += `<div class='in fll' style='`+obj.style.cell_style+`'>`
+			+obj.plugin(index_row)+
+			`</div>`;
+		}
+		render += '</div>';
+		index_row++;
+	}
+
+ return render;
+
+}
+
+
+
+
+
+
+
+// end
+
+
 
 // end
