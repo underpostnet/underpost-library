@@ -961,8 +961,7 @@ async function renderSchedule(obj){
               to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)
 							- offTime() ),
               period: true,
-							tipo: d_.tipo,
-							quota: d_.quota
+							tipo: d_.tipo
             });
           }
 
@@ -1161,8 +1160,6 @@ async function renderSchedule(obj){
 									.toLocaleTimeString().slice(0,-3)+`
 									<br>
 									Tipo: `+dateData.tipo+`
-									<br>
-									Cupos: `+dateData.quota+`
 
             </div>
 
@@ -1241,16 +1238,29 @@ const notifi = {
 
 function renderTableV1(dataRender, obj){
 
+
+	let validKeys = getKeys(dataRender[0])
+	.filter(x =>
+								(
+									(typeof(dataRender[0][x])!="object")
+									||
+									(dataRender[0][x] instanceof Date)
+								)
+	);
+
+	console.log(" validKeys ->");
+	console.log(validKeys);
+
 	if(obj.plugin != undefined){
-		obj.style.header_cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))+1))+'%;';
-		obj.style.cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))+1))+'%;';
+		obj.style.header_cell_style += 'width: '+(100/(l(validKeys)+1))+'%;';
+		obj.style.cell_style += 'width: '+(100/(l(validKeys)+1))+'%;';
 	}else{
-		obj.style.header_cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))))+'%;';
-		obj.style.cell_style += 'width: '+(100/(l(getAllKeys(dataRender[0]))))+'%;';
+		obj.style.header_cell_style += 'width: '+(100/(l(validKeys)))+'%;';
+		obj.style.cell_style += 'width: '+(100/(l(validKeys)))+'%;';
 	}
 
 	let render = `<div class='fl' style='`+obj.style.header_row_style+`'>`;
-	for(let header_col of getAllKeys(dataRender[0])){
+	for(let header_col of validKeys){
 		render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+header_col+`</div>`;
 	}
 	if(obj.plugin != undefined){
@@ -1262,7 +1272,7 @@ function renderTableV1(dataRender, obj){
 	let index_row = 0;
 	for(let row of dataRender){
 		render += `<div class='fl' style='`+obj.style.row_style+`'>`;
-		for(let header_col of getAllKeys(dataRender[0])){
+		for(let header_col of validKeys){
 			render += `<div class='in fll' style='`+obj.style.cell_style+`'>`
 			+row[header_col]+
 			`</div>`;

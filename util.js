@@ -8,6 +8,16 @@ null==undefined -> true
 
 delete person.age;  // or delete person["age"];
 
+let validKeys = getKeys(dataRender[0])
+.filter(x =>
+							(
+								(typeof(dataRender[0][x])!="object")
+								||
+								(dataRender[0][x] instanceof Date)
+							)
+);
+
+
 fetch&ajax CRUD module & (cors) ->
 GETS
 GET(OBTAIN PULL POLL)
