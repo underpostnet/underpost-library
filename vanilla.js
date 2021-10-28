@@ -956,8 +956,10 @@ async function renderSchedule(obj){
 
           if(day_==d_.day){
             dataRender.push({
-              from: new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000)),
-              to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)),
+              from: new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000)
+							- offTime() ),
+              to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)
+							- offTime() ),
               period: true,
 							tipo: d_.tipo,
 							quota: d_.quota
@@ -1152,9 +1154,11 @@ async function renderSchedule(obj){
 							obj_.style.point)+`'>
                   Point
                   <br>
-                  From: `+dateData.from.toLocaleTimeString().slice(0,-3)+`
+                  From: `+ new Date(new Date(dateData.from).getTime()+offTime())
+									.toLocaleTimeString().slice(0,-3)+`
                   <br>
-                  To: `+dateData.to.toLocaleTimeString().slice(0,-3)+`
+                  To: `+ new Date(new Date(dateData.to).getTime()+offTime())
+									.toLocaleTimeString().slice(0,-3)+`
 									<br>
 									Tipo: `+dateData.tipo+`
 									<br>
@@ -1303,6 +1307,63 @@ function renderTableV1(dataRender, obj){
 }
 
 
+		function renderFullModal(obj){
+
+
+			    let render = `
+
+			      <style>
+			        .`+obj.id_sch_content_modal+`-content-modal {
+			          `+obj.style_sch_content_modal+`
+			        }
+			      </style>
+
+			      <div class='
+						fix
+						`+obj.id_sch_content_modal+`-content-modal
+						`+obj.id_sch_content_modal+`'>
+
+						<div class='`+obj.id_content_display_data+`'>
+						</div>
+
+						`+(obj.closeButton!=undefined?`
+
+								`+((()=>{console.log('test ->');
+
+									setTimeout(()=>{
+										s('.'+obj.id_sch_content_modal+'-close-button').onclick =
+										() => {
+													console.log('close modal -> '+'.'+obj.id_sch_content_modal+'-close-button');
+
+													fadeOut(s('.'+obj.id_sch_content_modal+'-content-modal'));
+										};
+									},0);
+									return `
+
+										<div class='fix `+obj.id_sch_content_modal+`-close-button'
+										style='`+obj.closeButton.content_style+`'>
+
+														<div class='abs center'>
+
+																	`+obj.closeButton.simbol+`
+
+														</div>
+											</div>
+
+									`;
+
+
+								})())+`
+
+							`:'')+`
+
+			      </div>
+
+			    `;
+
+					return render;
+
+		}
 
 
 

@@ -423,6 +423,10 @@ function getDate(){
 
 }
 
+function offTime(){
+	return (new Date().getTimezoneOffset()*60*1000);
+}
+
 function testMail(email){
 
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
