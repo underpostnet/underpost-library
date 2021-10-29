@@ -8,6 +8,7 @@ null==undefined -> true
 
 delete person.age;  // or delete person["age"];
 
+si pertenece a una clase ->
 let validKeys = getKeys(dataRender[0])
 .filter(x =>
 							(
@@ -1048,6 +1049,34 @@ function countSecondsV1(asc, limit, size, count_, fn, factor_){
 	setInterval(()=>update_(),
 		(factor_!=undefined?1000*factor_:1000)
 	);
+}
+
+function changeKeyname(obj, oldKey, newKey){
+	obj[newKey] = newInstance(obj[oldKey]);
+	delete obj[oldKey];
+	return obj;
+}
+
+
+function setSimpleIntID(arr, nameID){
+	let current_id = -1;
+	arr.map( x => {
+		if(
+			x.hasOwnProperty(nameID)
+			&&
+			x[nameID] > current_id
+		){
+			current_id = x[nameID];
+		}
+	});
+	arr = arr.map(x=>{
+		if(!x.hasOwnProperty(nameID)){
+			x[nameID] = current_id + 1;
+			current_id++;
+		}
+		return x;
+	});
+	return arr;
 }
 
 

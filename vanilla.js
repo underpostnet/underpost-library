@@ -805,14 +805,14 @@ function renderInput(obj){
 
 	<div class="`+obj.underpostClass+` `+obj.id_content_input+`"
 	    style="`+obj.style_content_input+`">
-			<`+(obj.textarea?'textarea':'input')+`
+			<`+(obj.textarea?'textarea':'input')+` `+(obj.disabled?'disabled':'')+`
 			`+((!isOpenFalse(obj.placeholder))?`placeholder="`+obj.placeholder+`"`:'')+`
 			`+value+`
 			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill
 			`+(obj.style_outline?`in-outline`:'')+` `+obj.id_input+`"
 			`+(obj.required?'required':'')+` style="`+obj.style_input+`">`+(obj.textarea?(
 				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
-			)+'</textarea>':(obj.active_label?`<`+obj.tag_label+` style="`+obj.style_label+`" >
+			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<`+obj.tag_label+` style="`+obj.style_label+`" >
 					`+obj.text_label+`
 		  </`+obj.tag_label+`>`:''))+`
 	</div>
@@ -1372,6 +1372,25 @@ function renderTableV1(dataRender, obj){
 			    `;
 
 					return render;
+
+		}
+
+
+		function renderValueTable(obj){
+
+			let render_ = `<div class='fl' style='`+obj.style.content+`'>`;
+			for(let key_ in obj.data){
+				render_ += `
+				<div class='in fll' style='`+obj.style.key+`'>
+						`+key_+`
+				</div>
+				<div class='in fll' style='`+obj.style.value+`'>
+						`+obj.data[key_]+`
+				</div>
+				`;
+			}
+			render_ += `</div>`;
+			return render_;
 
 		}
 
