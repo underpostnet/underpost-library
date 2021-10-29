@@ -963,6 +963,24 @@ async function renderSchedule(obj){
               period: true,
 							tipo: d_.tipo
             });
+						// comprobar si esta un point y incrustar la data
+						for(let obj_p of dataPeriod){
+							for(let point_ of obj_p.points){
+								// console.log(point_);
+								if(
+										point_.month==dataRender[(l(dataRender)-1)].from.getMonth()
+										&&
+										point_.date==dataRender[(l(dataRender)-1)].from.getDate()
+								){
+									// console.warn(" period data ->");
+									// console.log(point_.data);
+									dataRender[(l(dataRender)-1)].data = newInstance(point_.data);
+									// console.log(point_.date);
+									// console.log(point_.month);
+									// console.log(dataRender[(l(dataRender)-1)]);
+								}
+							}
+						}
           }
 
           initTime += (60*60*24*1000);
@@ -1145,6 +1163,18 @@ async function renderSchedule(obj){
           +`-`+dateData.from.getMonth()
           +`-`+dateData.from.getFullYear();
 
+					if(
+
+						obj_.displayDataPoint
+						||
+						(
+							(!obj_.displayDataPoint)
+							&&
+							(!existAttr(dateData, "data"))
+						)
+
+					){
+
         append(point_id, `
 
             <div style='`+
@@ -1166,6 +1196,8 @@ async function renderSchedule(obj){
           `);
 
 					obj_.pluginPoint(dateData, point_id);
+
+					}
 
       }
     },0);
