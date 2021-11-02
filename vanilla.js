@@ -1078,7 +1078,7 @@ async function renderSchedule(obj){
 					}
 				}
 				// solo si no display data
-				if(!not_data){
+				if(!not_data && obj_.displayDataPoint == false){
 					year_.months[ind_mont] = null;
 				}
 				ind_mont++;
