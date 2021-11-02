@@ -597,10 +597,10 @@ async function ajax(type, url, obj, end){
 
 
 
-async function postData(url = '', data = {}) {
-
+async function postData(url = '', data = {}, obj) {
+	obj == undefined ? obj = { type:'POST' } : null;
   const response = await fetch(url, {
-    method: 'POST',
+    method: obj.type,
     mode: 'cors',
     cache: 'no-cache',
     credentials: 'same-origin',
@@ -610,7 +610,7 @@ async function postData(url = '', data = {}) {
     },
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
-    body: JSON.stringify(data)
+    body: data==null? undefined: JSON.stringify(data)
   });
   return response.json();
 }
@@ -1051,6 +1051,41 @@ async function renderSchedule(obj){
 
     // console.log(" renderSchedule: async () => ");
     let getD = getDataRenderSchedule(obj_);
+
+		// eliminar meses que todos tengas data
+		// todos los meses
+		// todos los años
+		// conjunto tupla
+		// si todos los de un mes del mismo año tiene data se eliminan
+		console.warn("fix filter month ->");
+		console.log(getD);
+		for(let year_ of getD.years){
+			let ind_mont = 0;
+			for(let month_ of year_.months){
+				// month_.month
+				// year_.year
+				let not_data = false;
+				for(let g_ of getD.availability){
+					// buscar al menos uno que no tenga al attr data
+					if(
+						parseInt(g_.from.getMonth())==parseInt(month_.month)
+						&&
+						parseInt(g_.from.getFullYear())==parseInt(year_.year)
+						&&
+						!existAttr(g_, "data")
+					){
+						not_data = true;
+					}
+				}
+				// solo si no display data
+				if(!not_data){
+					year_.months[ind_mont] = null;
+				}
+				ind_mont++;
+			}
+			year_.months = year_.months.filter(x=>x!=null);
+		}
+
     let availability = getD.availability;
     let dataRender = getD.years;
     let meses = obj_.str_months;
@@ -1291,15 +1326,18 @@ function renderTableV1(dataRender, obj){
 		obj.style.cell_style += 'width: '+(100/(l(validKeys)))+'%;';
 	}
 
-	let render = `<div class='fl' style='`+obj.style.header_row_style+`'>`;
-	for(let header_col of validKeys){
-		render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+header_col+`</div>`;
+	let render = ``;
+	if(obj.hiddenHeader==undefined){
+		render = `<div class='fl' style='`+obj.style.header_row_style+`'>`;
+		for(let header_col of validKeys){
+			render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+header_col+`</div>`;
+		}
+		if(obj.plugin != undefined){
+			render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+
+			(obj.name_plugin!=undefined?obj.name_plugin:'')+`</div>`;
+		}
+		render += '</div>';
 	}
-	if(obj.plugin != undefined){
-		render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+
-		(obj.name_plugin!=undefined?obj.name_plugin:'')+`</div>`;
-	}
-	render += '</div>';
 
 	let index_row = 0;
 	for(let row of dataRender){
@@ -1427,10 +1465,23 @@ function renderTableV1(dataRender, obj){
 		}
 
 
+async function getPasteContent(){
+	return new Promise(resolve => {
+		navigator.clipboard.readText().then(
+			clipText => resolve(clipText)
+		);
+	});
+}
 
 
-
-// end
+function isBase64(str) {
+    if (str ==='' || str.trim() ===''){ return false; }
+    try {
+        return btoa(atob(str)) == str;
+    } catch (err) {
+        return false;
+    }
+}
 
 
 
