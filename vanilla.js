@@ -961,7 +961,8 @@ async function renderSchedule(obj){
               to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)
 							- offTime() ),
               period: true,
-							tipo: d_.tipo
+							tipo: d_.tipo,
+							_id: d_._id
             });
 						// comprobar si esta un point y incrustar la data
 						for(let obj_p of dataPeriod){
