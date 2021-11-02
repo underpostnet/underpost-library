@@ -972,6 +972,8 @@ async function renderSchedule(obj){
 										point_.month==dataRender[(l(dataRender)-1)].from.getMonth()
 										&&
 										point_.date==dataRender[(l(dataRender)-1)].from.getDate()
+										&&
+										point_.year==dataRender[(l(dataRender)-1)].from.getFullYear()
 								){
 									// console.warn(" period data ->");
 									// console.log(point_.data);
