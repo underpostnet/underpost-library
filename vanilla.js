@@ -1487,5 +1487,26 @@ function isBase64(str) {
 }
 
 
+function renderDropDownV1(obj){
+
+	let render = `<select class="`+obj.underpostClass+` `+obj.id+`"
+	style="`+obj.style.content+`">
+	<option style='display: none; `+obj.style.option+`'
+	 value='' selected disabled>
+		`+obj.title+`
+	</option>
+	`;
+	for(let data_ of obj.data){
+		render += `
+				<option style='`+obj.style.option+`'
+				 value='`+data_.value+`'>`+data_.display+`</option>
+		`;
+	}
+	render += `</select>`;
+	return render;
+
+}
+
+
 
 // end
