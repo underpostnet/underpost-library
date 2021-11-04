@@ -974,6 +974,8 @@ async function renderSchedule(obj){
 										point_.date==dataRender[(l(dataRender)-1)].from.getDate()
 										&&
 										point_.year==dataRender[(l(dataRender)-1)].from.getFullYear()
+										&&
+										parseInt(point_._id)==parseInt(dataRender[(l(dataRender)-1)]._id)
 								){
 									// console.warn(" period data ->");
 									// console.log(point_.data);
@@ -1213,9 +1215,12 @@ async function renderSchedule(obj){
 
 					){
 
+
+				let hashID = makeid(5);
+
         append(point_id, `
 
-            <div style='`+
+            <div class="`+hashID+`" style='`+
 						(dateData.period?
 							obj_.style.point_period:
 							obj_.style.point)+`'>
@@ -1233,7 +1238,7 @@ async function renderSchedule(obj){
 
           `);
 
-					obj_.pluginPoint(dateData, point_id);
+					obj_.pluginPoint(dateData, '.'+hashID);
 
 					}
 

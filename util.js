@@ -1079,6 +1079,18 @@ function setSimpleIntID(arr, nameID){
 	return arr;
 }
 
+function makeid(length, num) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+		num ? characters += '0123456789':null;
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() *
+ charactersLength));
+   }
+   return result;
+}
+
 
 
 
