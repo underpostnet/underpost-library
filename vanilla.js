@@ -957,9 +957,9 @@ async function renderSchedule(obj){
           if(day_==d_.day){
             dataRender.push({
               from: new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000)
-							- offTime() ),
+						/*- offTime()*/ ),
               to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)
-							- offTime() ),
+						/*- offTime()*/ ),
               period: true,
 							tipo: d_.tipo,
 							_id: d_._id
@@ -1226,10 +1226,10 @@ async function renderSchedule(obj){
 							obj_.style.point)+`'>
                   Point
                   <br>
-                  From: `+ new Date(new Date(dateData.from).getTime()+offTime())
+                  From: `+ new Date(new Date(dateData.from).getTime()+(dateData.period?0:offTime()))
 									.toLocaleTimeString().slice(0,-3)+`
                   <br>
-                  To: `+ new Date(new Date(dateData.to).getTime()+offTime())
+                  To: `+ new Date(new Date(dateData.to).getTime()+(dateData.period?0:offTime()))
 									.toLocaleTimeString().slice(0,-3)+`
 									<br>
 									Tipo: `+dateData.tipo+`
