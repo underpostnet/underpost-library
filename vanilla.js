@@ -1125,6 +1125,9 @@ async function renderSchedule(obj){
 			.`+obj_.id+`-point {
         `+obj_.style.point+`
       }
+			.`+obj_.id+`-point:hover {
+        `+obj_.style.point_hover+`
+      }
       </style>
     `;
 
@@ -1267,10 +1270,9 @@ async function renderSchedule(obj){
 				*/
 
 				append(point_id, `
-
 						<div class="`+hashID+` `+(dateData.period?
 							obj_.id+'-point-period':
-							obj_.id+'-point')+`" >
+							obj_.id+'-point')+`" style="margin-top: 10px; margin-bottom: 10px" >
 
 									`+obj_.renderPoint({
 										from: new Date(new Date(dateData.from).getTime()+(dateData.period?0:offTime()))
@@ -1281,8 +1283,6 @@ async function renderSchedule(obj){
 									})+`
 
             </div>
-
-
 
           `);
 
