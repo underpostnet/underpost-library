@@ -1110,6 +1110,12 @@ async function renderSchedule(obj){
       .`+obj_.id+`-node-date {
         `+obj_.style.node_date+`
       }
+			.`+obj_.id+`-week-row {
+        `+obj_.style.rowWeek+`
+      }
+			.`+obj_.id+`-row-header-week {
+        `+obj_.style.rowHeaderWeek+`
+      }
       </style>
     `;
 
@@ -1130,8 +1136,11 @@ async function renderSchedule(obj){
 
         render += `<div class='fl `+obj_.id+`-row `+obj_.style.class_font+`'>`;
 
+				render += '<div class="fl '+obj_.id+'-row-header-week">';
         for(let date of semana){
-
+					if(date%7==0){
+															render += '</div><div class="fl '+obj_.id+'-row-header-week">';
+														}
           render += `<div class='in fll `+obj_.id+`-title-day' style=
           '
 
@@ -1146,13 +1155,15 @@ async function renderSchedule(obj){
           </div>`;
 
         }
+				render += '</div>';
 
         // rellenar espacios vacios
         let limitWhiteDay = new Date(month.firstDay).getDay();
         limitWhiteDay == 0 ? limitWhiteDay = 7:null;
 
 
-
+				let initRowFix = 0;
+				render += '<div class="fl '+obj_.id+'-week-row">';
         for(let date of range(2, limitWhiteDay)){
 
           render += `<div class='in fll' style=
@@ -1167,10 +1178,16 @@ async function renderSchedule(obj){
               -
 
           </div>`;
+					initRowFix++;
 
         }
-
+				let fixInit = false;
         for(let date of range(1, month.lastDate.getDate())){
+					if(initRowFix%7==0 && fixInit){
+										render += '</div><div class="fl '+obj_.id+'-week-row">';
+									}
+									fixInit = true;
+									initRowFix++;
 
           render += `<div class='in fll `+obj_.id+`-node-date `+obj_.id+`-node-date-`+date+`-`+month.month+`-`+year.year+`' style=
           '
@@ -1187,6 +1204,7 @@ async function renderSchedule(obj){
           </div>`;
 
         }
+				render += '</div>';
 
 
         render += `</div> `;
