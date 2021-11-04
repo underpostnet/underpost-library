@@ -1116,6 +1116,15 @@ async function renderSchedule(obj){
 			.`+obj_.id+`-row-header-week {
         `+obj_.style.rowHeaderWeek+`
       }
+			.`+obj_.id+`-point-period {
+        `+obj_.style.point_period+`
+      }
+			.`+obj_.id+`-point-period:hover {
+        `+obj_.style.point_period_hover+`
+      }
+			.`+obj_.id+`-point {
+        `+obj_.style.point+`
+      }
       </style>
     `;
 
@@ -1193,7 +1202,7 @@ async function renderSchedule(obj){
           '
 
                 width: `+(100/l(semana))+`%;
-                background: `+(date%2==0?'#cccccc':'#e4e6e2')+`
+                /* background: `+(date%2==0?'#cccccc':'#e4e6e2')+` */
 
           '
 
@@ -1235,7 +1244,7 @@ async function renderSchedule(obj){
 
 
 				let hashID = makeid(5);
-
+				/*
         append(point_id, `
 
             <div class="`+hashID+`" style='`+
@@ -1253,6 +1262,27 @@ async function renderSchedule(obj){
 									Tipo: `+dateData.tipo+`
 
             </div>
+
+          `);
+				*/
+
+				append(point_id, `
+
+						<div class="`+hashID+` `+(dateData.period?
+							obj_.id+'-point-period':
+							obj_.id+'-point')+`" >
+
+									`+obj_.renderPoint({
+										from: new Date(new Date(dateData.from).getTime()+(dateData.period?0:offTime()))
+										.toLocaleTimeString().slice(0,-3),
+										to: new Date(new Date(dateData.to).getTime()+(dateData.period?0:offTime()))
+										.toLocaleTimeString().slice(0,-3),
+										tipo: dateData.tipo
+									})+`
+
+            </div>
+
+
 
           `);
 
@@ -1331,15 +1361,14 @@ const notifi = {
 
 function renderTableV1(dataRender, obj){
 
-
-	let validKeys = getKeys(dataRender[0])
+	let validKeys = l(dataRender)>0 ? getKeys(dataRender[0])
 	.filter(x =>
 								(
 									(typeof(dataRender[0][x])!="object")
 									||
 									(dataRender[0][x] instanceof Date)
 								)
-	);
+	):[];
 
 	console.log(" validKeys ->");
 	console.log(validKeys);
