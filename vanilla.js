@@ -1506,11 +1506,13 @@ function renderTableV1(dataRender, obj){
 			let render_ = `<div class='fl' style='`+obj.style.content+`'>`;
 			for(let key_ in obj.data){
 				render_ += `
-				<div class='in fll' style='`+obj.style.key+`'>
-						`+key_+`
-				</div>
-				<div class='in fll' style='`+obj.style.value+`'>
-						`+obj.data[key_]+`
+				<div class='fl'>
+					<div class='in fll' style='`+obj.style.key+`'>
+							`+key_+`
+					</div>
+					<div class='in fll' style='`+obj.style.value+`'>
+							`+obj.data[key_]+`
+					</div>
 				</div>
 				`;
 			}
