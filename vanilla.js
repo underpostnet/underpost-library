@@ -1361,6 +1361,7 @@ const notifi = {
 
 function renderTableV1(dataRender, obj){
 
+	let id_table = makeid(4, false);
 	let validKeys = l(dataRender)>0 ? getKeys(dataRender[0])
 	.filter(x =>
 								(
@@ -1381,14 +1382,41 @@ function renderTableV1(dataRender, obj){
 		obj.style.cell_style += 'width: '+(100/(l(validKeys)))+'%;';
 	}
 
-	let render = ``;
+	let render = `
+
+			<style>
+				.`+id_table+`-header_row_style {
+					`+obj.style.header_row_style+`
+				}
+				.`+id_table+`-header_cell_style {
+					`+obj.style.header_cell_style+`
+				}
+				.`+id_table+`-header_sub_cell_style {
+					`+obj.style.header_sub_cell_style+`
+				}
+				.`+id_table+`-row_style {
+					`+obj.style.row_style+`
+				}
+				.`+id_table+`-cell_style {
+					`+obj.style.cell_style+`
+				}
+				.`+id_table+`-sub_cell_style {
+					`+obj.style.sub_cell_style+`
+				}
+			</style>
+
+	`;
 	if(obj.hiddenHeader==undefined){
-		render = `<div class='fl' style='`+obj.style.header_row_style+`'>`;
+		render += `<div class='fl `+id_table+`-header_row_style'>`;
 		for(let header_col of validKeys){
-			render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+header_col+`</div>`;
+			render += `<div class='in fll `+id_table+`-header_cell_style'>
+					<div class='in `+id_table+`-header_sub_cell_style'>
+					`+header_col+`
+					</div>
+			</div>`;
 		}
 		if(obj.plugin != undefined){
-			render += `<div class='in fll' style='`+obj.style.header_cell_style+`'>`+
+			render += `<div class='in fll `+id_table+`-header_cell_style'>`+
 			(obj.name_plugin!=undefined?obj.name_plugin:'')+`</div>`;
 		}
 		render += '</div>';
@@ -1396,14 +1424,17 @@ function renderTableV1(dataRender, obj){
 
 	let index_row = 0;
 	for(let row of dataRender){
-		render += `<div class='fl' style='`+obj.style.row_style+`'>`;
+		render += `<div class='fl `+id_table+`-row_style'>`;
 		for(let header_col of validKeys){
-			render += `<div class='in fll' style='`+obj.style.cell_style+`'>`
-			+row[header_col]+
-			`</div>`;
+			render += `<div class='in fll `+id_table+`-cell_style'>
+					<div class='in `+id_table+`-sub_cell_style'>`
+					+row[header_col]+
+					`
+					</div>
+			</div>`;
 		}
 		if(obj.plugin != undefined){
-			render += `<div class='in fll' style='`+obj.style.cell_style+`'>`
+			render += `<div class='in fll `+id_table+`-cell_style'>`
 			+obj.plugin(index_row)+
 			`</div>`;
 		}
