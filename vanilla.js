@@ -1387,6 +1387,7 @@ function renderTableV1(dataRender, obj){
 			<style>
 				.`+id_table+`-header_row_style {
 					`+obj.style.header_row_style+`
+					min-width: `+(obj.style.minWidth?obj.style.minWidth:'800px')+`;
 				}
 				.`+id_table+`-header_cell_style {
 					`+obj.style.header_cell_style+`
@@ -1396,6 +1397,7 @@ function renderTableV1(dataRender, obj){
 				}
 				.`+id_table+`-row_style {
 					`+obj.style.row_style+`
+					min-width: `+(obj.style.minWidth?obj.style.minWidth:'800px')+`;
 				}
 				.`+id_table+`-cell_style {
 					`+obj.style.cell_style+`
