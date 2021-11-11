@@ -1646,7 +1646,6 @@ function renderGridsModal(obj){
 						render +=
 						`<div class='in fll `+id_cell_+`' style='
 									width: `+(100/obj.col)+`%;
-									background: `+(col_%2==0?'gray':'none')+`;
 						'>
 										<!-- y:`+row_+` x:`+col_+` -->
 
