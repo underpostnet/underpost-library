@@ -1611,19 +1611,24 @@ function renderGridsModal(obj){
 					.content-cell-`+idGrid+`:hover {
 						`+obj.style.cell_hover+`
 					}
-
+					.main-content-cell-modal-`+idGrid+` {
+						`+obj.style.content_cell_modal+`
+					}
 					.content-cell-modal-`+idGrid+` {
 						`+obj.style.cell_modal+`
 					}
-
 					.cell-gfx-`+idGrid+` {
 						`+obj.style.cell_gfx+`
 					}
 			</style>
 
-			<div class='fix center content-cell-modal-`+idGrid+`'>
+			<div class='fix center main-content-cell-modal-`+idGrid+`'>
+
+			<div class='in content-cell-modal-`+idGrid+`'>
 
 					test
+
+			</div>
 
 			</div>
 
@@ -1637,6 +1642,7 @@ function renderGridsModal(obj){
 
 						let id_cell_ = idGrid+`-x-`+col_+`-y-`+row_;
 						let id_cell_modal_ = 'content-cell-modal-'+idGrid;
+						let id_cell_content_modal_ = 'main-'+id_cell_modal_;
 						render +=
 						`<div class='in fll `+id_cell_+`' style='
 									width: `+(100/obj.col)+`%;
@@ -1656,10 +1662,10 @@ function renderGridsModal(obj){
 
 															-->
 
-															`+(obj.dataType=='img' && obj.dataSkins[ind_cell]?
+															`+(obj.dataType=='img' && obj.dataCell[ind_cell]?
 															`
 															<img class='abs center cell-gfx-`+idGrid+`'
-															src='`+obj.dataSkins[ind_cell].path+`'>
+															src='`+obj.dataCell[ind_cell].path+`'>
 															`
 															:'')+`
 
@@ -1668,10 +1674,16 @@ function renderGridsModal(obj){
 						 </div>`;
 						 let w_f = null;
 						 let h_f = null;
+						 const ind_cell_return = newInstance(ind_cell);
 						 setTimeout(()=>{
 							 s('.'+id_cell_).onclick = () => {
 								 	console.log(id_cell_);
-									fadeIn(s('.'+id_cell_modal_));
+									if(obj.dataCell[ind_cell_return]!=undefined){
+										fadeIn(s('.'+id_cell_content_modal_));
+										obj.onCLick(obj.dataCell[ind_cell_return], id_cell_modal_);
+									}else{
+										console.log('no data cell');
+									}
 							 };
 							 const renderCell = () => {
 								 if(w_f!=window.innerWidth || h_f!=window.innerHeight){
