@@ -1595,5 +1595,104 @@ function renderDropDownV1(obj){
 }
 
 
+function renderGridsModal(obj){
+
+	console.log("renderGridsModal(obj) ->");
+	console.log(obj);
+
+	let idGrid = makeid(5, false);
+	let render = `
+
+
+			<style>
+					.content-cell-`+idGrid+` {
+						`+obj.style.cell+`
+					}
+					.content-cell-`+idGrid+`:hover {
+						`+obj.style.cell_hover+`
+					}
+
+					.content-cell-modal-`+idGrid+` {
+						`+obj.style.cell_modal+`
+					}
+
+					.cell-gfx-`+idGrid+` {
+						`+obj.style.cell_gfx+`
+					}
+			</style>
+
+			<div class='fix center content-cell-modal-`+idGrid+`'>
+
+					test
+
+			</div>
+
+			<div class='in `+idGrid+`-content'>
+			`;
+
+  let ind_cell = 0;
+	for(let row_ of range(1, obj.row)){
+		render += `<div class='fl'>`;
+			for(let col_ of range(1, obj.col)){
+
+						let id_cell_ = idGrid+`-x-`+col_+`-y-`+row_;
+						let id_cell_modal_ = 'content-cell-modal-'+idGrid;
+						render +=
+						`<div class='in fll `+id_cell_+`' style='
+									width: `+(100/obj.col)+`%;
+									background: `+(col_%2==0?'gray':'none')+`;
+						'>
+										<!-- y:`+row_+` x:`+col_+` -->
+
+												<div class='abs center content-cell-`+idGrid+`'>
+
+															<!--
+
+															<div class='abs center'>
+
+																		y:`+row_+` x:`+col_+`
+
+															</div>
+
+															-->
+
+															`+(obj.dataType=='img' && obj.dataSkins[ind_cell]?
+															`
+															<img class='abs center cell-gfx-`+idGrid+`'
+															src='`+obj.dataSkins[ind_cell].path+`'>
+															`
+															:'')+`
+
+												</div>
+
+						 </div>`;
+						 let w_f = null;
+						 let h_f = null;
+						 setTimeout(()=>{
+							 s('.'+id_cell_).onclick = () => {
+								 	console.log(id_cell_);
+									fadeIn(s('.'+id_cell_modal_));
+							 };
+							 const renderCell = () => {
+								 if(w_f!=window.innerWidth || h_f!=window.innerHeight){
+						        w_f=window.innerWidth;
+						        h_f=window.innerHeight;
+										s('.'+id_cell_).style.height = s('.'+id_cell_).clientWidth+'px';
+      					}
+							 };
+							 renderCell();setInterval(()=>renderCell(), obj.intervalRender);
+						 }, obj.delayInit);
+						 ind_cell++;
+			}
+		render += `</div>`;
+	}
+
+	render += `</div>`;
+
+	return render;
+
+}
+
+
 
 // end
