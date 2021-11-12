@@ -1620,6 +1620,12 @@ function renderGridsModal(obj){
 					.cell-gfx-`+idGrid+` {
 						`+obj.style.cell_gfx+`
 					}
+					.close-btn-content-`+idGrid+` {
+						`+obj.style.close_btn_content+`
+					}
+					.close-btn-content-`+idGrid+`:hover {
+						`+obj.style.close_btn_content_hover+`
+					}
 			</style>
 
 			<div class='fix center main-content-cell-modal-`+idGrid+`'>
@@ -1628,6 +1634,12 @@ function renderGridsModal(obj){
 
 					test
 
+			</div>
+
+			<div class='abs close-btn-content-`+idGrid+`'>
+					<div class='abs center'>
+								`+obj.style.close_btn_simbol+`
+					</div>
 			</div>
 
 			</div>
@@ -1699,6 +1711,12 @@ function renderGridsModal(obj){
 	}
 
 	render += `</div>`;
+
+	setTimeout(()=>{
+			s('.close-btn-content-'+idGrid).onclick = () => {
+				fadeOut(s('.main-content-cell-modal-'+idGrid));
+			};
+	},0);
 
 	return render;
 
