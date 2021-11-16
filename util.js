@@ -257,6 +257,17 @@ obj.paths.filter((el)=>{
 number validator ->
 isNaN("asd")
 
+
+
+Utilizar Math.round():
+
+Math.round(num * 100) / 100
+O para ser más específico y para asegurar que cosas como 1.005 redondeen correctamente, use Number.EPSILON :
+
+Math.round((num + Number.EPSILON) * 100) / 100
+
+
+
 */
 
 function aprox(num, dec){
