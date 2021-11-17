@@ -1676,7 +1676,11 @@ function renderGridsModal(obj){
 															`+(obj.dataType=='img' && obj.dataCell[ind_cell]?
 															`
 															<img class='abs center cell-gfx-`+idGrid+`'
-															src='`+obj.dataCell[ind_cell].path+`'>
+															src='`+obj.dataCell[ind_cell].path+`'
+															style='`+
+															(obj.dataCell[ind_cell].style?
+																obj.dataCell[ind_cell].style:'')+`'
+																>
 															`
 															:'')+`
 
