@@ -1661,7 +1661,7 @@ function renderGridsModal(obj){
 						'>
 										<!-- y:`+row_+` x:`+col_+` -->
 
-												<div class='abs center content-cell-`+idGrid+`'>
+												<div class='abs center content-cell-`+idGrid+` `+obj.id_cell+`-`+ind_cell+`'>
 
 															<!--
 

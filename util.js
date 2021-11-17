@@ -259,12 +259,19 @@ isNaN("asd")
 
 
 
+round->
+
 Utilizar Math.round():
 
 Math.round(num * 100) / 100
 O para ser más específico y para asegurar que cosas como 1.005 redondeen correctamente, use Number.EPSILON :
 
 Math.round((num + Number.EPSILON) * 100) / 100
+
+
+sumatoria:
+
+[1,1,1].reduce((pre, current) => pre+current); -> 3
 
 
 
