@@ -622,6 +622,12 @@ postData('https://example.com/answer', { answer: 42 })
     console.log(data); // JSON data parsed by `data.json()` call
 });
 
+.catch(function(e) {
+	console.log(" error fetch -> ");
+	console.log(e); // "oh, no!"
+	resolve(false);
+});
+
 */
 
 function notclick(div, id, state){
