@@ -413,6 +413,11 @@ function getDate(){
 	 ).getTime());
 
 
+	 new Date(2016, 11, 17)
+	 december -> 11
+	 Date.parse('12-24-2020') -> timestamp
+
+
 	*/
 
 	var f = new Date();
@@ -1107,6 +1112,16 @@ function makeid(length, num) {
  charactersLength));
    }
    return result;
+}
+
+
+function getRandomColor() {
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 
