@@ -1275,6 +1275,7 @@ async function renderSchedule(obj){
           `);
 				*/
 				dateData.from.getTime() > (+ new Date()) ?
+				((()=>{
 				append(point_id, `
 						<div class="`+hashID+` `+(dateData.period?
 							obj_.id+'-point-period':
@@ -1290,9 +1291,12 @@ async function renderSchedule(obj){
 
             </div>
 
-          `):null;
-
+          `);
 					obj_.pluginPoint(dateData, '.'+hashID);
+				})())
+					:null;
+
+
 
 					}
 
