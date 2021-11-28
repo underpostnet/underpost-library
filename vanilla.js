@@ -1638,24 +1638,29 @@ function renderGridsModal(obj){
 					}
 			</style>
 
-			<div class='fix center main-content-cell-modal-`+idGrid+`'>
-
-			<div class='in content-cell-modal-`+idGrid+`'>
-
-					test
-
-			</div>
-
-			<div class='abs close-btn-content-`+idGrid+`'>
-					<div class='abs center'>
-								`+obj.style.close_btn_simbol+`
-					</div>
-			</div>
-
-			</div>
-
 			<div class='in `+idGrid+`-content'>
 			`;
+
+
+	htmls(obj.divRenderModal, `
+
+		<div class='fix center main-content-cell-modal-`+idGrid+`'>
+
+		<div class='in content-cell-modal-`+idGrid+`'>
+
+				test
+
+		</div>
+
+		<div class='abs close-btn-content-`+idGrid+`'>
+				<div class='abs center'>
+							`+obj.style.close_btn_simbol+`
+				</div>
+		</div>
+
+		</div>
+
+	`);
 
   let ind_cell = 0;
 	for(let row_ of range(1, obj.row)){
