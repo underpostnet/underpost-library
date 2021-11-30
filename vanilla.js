@@ -501,7 +501,7 @@ function setScrollTouchX(el){
 	slider.onmousemove = function (e) {
 
 	  if (!isDown) return;
-	  e.preventDefault();
+	  // e.preventDefault();
 	  const x = e.pageX - slider.offsetLeft;
 	  const walk = x - startX;
 	  slider.scrollLeft = scrollLeft - walk;
@@ -686,12 +686,12 @@ function displayContentSlice(id_content, ref, transition){
 
 function dragDrop(div){
 
-  var object = s(div),
+  let object = s(div),
   initX, initY, firstX, firstY;
 
   object.addEventListener('mousedown', function(e) {
 
-  	e.preventDefault();
+  	// e.preventDefault();
   	initX = this.offsetLeft;
   	initY = this.offsetTop;
   	firstX = e.pageX;
@@ -707,7 +707,7 @@ function dragDrop(div){
 
   object.addEventListener('touchstart', function(e) {
 
-  	e.preventDefault();
+  	// e.preventDefault();
   	initX = this.offsetLeft;
   	initY = this.offsetTop;
   	var touch = e.touches;
@@ -717,7 +717,7 @@ function dragDrop(div){
   	this.addEventListener('touchmove', swipeIt, false);
 
   	window.addEventListener('touchend', function(e) {
-  		e.preventDefault();
+  		// e.preventDefault();
   		object.removeEventListener('touchmove', swipeIt, false);
   	}, false);
 
@@ -729,7 +729,7 @@ function dragDrop(div){
   }
 
   function swipeIt(e) {
-  	var contact = e.touches;
+  	let contact = e.touches;
   	this.style.left = initX+contact[0].pageX-firstX + 'px';
   	this.style.top = initY+contact[0].pageY-firstY + 'px';
   }
@@ -739,8 +739,8 @@ function dragDrop(div){
 
 var downloader = {
 	JSON: (exportObj, exportName) => {
-		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
-		var downloadAnchorNode = document.createElement('a');
+		let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+		let downloadAnchorNode = document.createElement('a');
 		downloadAnchorNode.setAttribute("href",     dataStr);
 		downloadAnchorNode.setAttribute("download", exportName + ".json");
 		document.body.appendChild(downloadAnchorNode); // required for firefox
@@ -1785,6 +1785,7 @@ function renderGridsModal(obj){
 			s('.close-btn-content-'+idGrid).onclick = () => {
 				fadeOut(s('.main-content-cell-modal-'+idGrid));
 			};
+			dragDrop('.main-content-cell-modal-'+idGrid);
 	},0);
 
 	return render;
