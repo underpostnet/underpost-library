@@ -1681,6 +1681,12 @@ function renderGridsModal(obj){
 	`);
 
   let ind_cell = 0;
+	let render_rows = obj.row!=null ? obj.row : ((()=>{
+		let real_ = l(obj.dataCell)/obj.col;
+		let plus_ = l(obj.dataCell)%obj.col!=0?1:0;
+		obj.row = Math.trunc(real_)+plus_;
+	})());
+
 	for(let row_ of range(1, obj.row)){
 		render += `<div class='fl'>`;
 			for(let col_ of range(1, obj.col)){
@@ -1782,6 +1788,10 @@ function renderGridsModal(obj){
 	render += `</div>`;
 
 	setTimeout(()=>{
+
+			// console.warn(ind_cell);
+			// console.warn(obj.dataCell);
+
 			s('.close-btn-content-'+idGrid).onclick = () => {
 				fadeOut(s('.main-content-cell-modal-'+idGrid));
 			};
