@@ -1652,6 +1652,24 @@ function renderGridsModal(obj){
 
 		</div>
 
+
+			<div class='abs center gm-back-btn-`+idGrid+`'
+			style='`+obj.style.cell_btn_render_back+`'>
+
+						`+obj.style.cell_btn_render_back_value+`
+
+			</div>
+
+			<div class='abs center gm-next-btn-`+idGrid+`'
+			style='`+obj.style.cell_btn_render_next+`'>
+
+						`+obj.style.cell_btn_render_next_value+`
+
+			</div>
+
+
+		<br><br>
+
 		<div class='abs close-btn-content-`+idGrid+`'>
 				<div class='abs center'>
 							`+obj.style.close_btn_simbol+`
@@ -1708,11 +1726,43 @@ function renderGridsModal(obj){
 						 setTimeout(()=>{
 							 s('.'+id_cell_).onclick = () => {
 								 	console.log(id_cell_);
+
+									ind_cell_return-1 >= 0 ?
+									s('.gm-back-btn-'+idGrid).style.opacity = '1':
+									s('.gm-back-btn-'+idGrid).style.opacity = '0';
+
+									ind_cell_return+1 >= 0 ?
+									s('.gm-next-btn-'+idGrid).style.opacity = '1':
+									s('.gm-next-btn-'+idGrid).style.opacity = '0';
+
 									if(obj.dataCell[ind_cell_return]!=undefined){
-										fadeIn(s('.'+id_cell_content_modal_));
+										// fadeIn(s('.'+id_cell_content_modal_));
+										s('.'+id_cell_content_modal_).style.display = 'block';
+										s('.'+id_cell_content_modal_).style.opacity = '1';
 										obj.onCLick(obj.dataCell[ind_cell_return], id_cell_modal_);
+
+										ind_cell_return-1 >= 0 ?
+										s('.gm-back-btn-'+idGrid).onclick = () => {
+												// console.log("back grid modal");
+												s('.gm-next-btn-'+idGrid).style.opacity = '1';
+												s('.'+obj.id_cell+'-'+(ind_cell_return-1))
+												.click();
+
+										}: s('.gm-back-btn-'+idGrid).style.opacity = '0';
+
+										ind_cell_return+1 <= (l(obj.dataCell)-1) ?
+										s('.gm-next-btn-'+idGrid).onclick = () => {
+												// console.log("next grid modal");
+												s('.gm-back-btn-'+idGrid).style.opacity = '1';
+												s('.'+obj.id_cell+'-'+(ind_cell_return+1))
+												.click();
+
+										}: s('.gm-next-btn-'+idGrid).style.opacity = '0';
+
+
 									}else{
 										console.log('no data cell');
+										s('.close-btn-content-'+idGrid).click();
 									}
 							 };
 							 const renderCell = () => {
