@@ -1793,5 +1793,16 @@ function renderGridsModal(obj){
 }
 
 
+function borderChar(px_, color_){
+	return `
+	text-shadow: `+px_+`px -`+px_+`px `+px_+`px `+color_+`,
+							 -`+px_+`px `+px_+`px `+px_+`px `+color_+`,
+							 -`+px_+`px -`+px_+`px `+px_+`px `+color_+`,
+							 `+px_+`px `+px_+`px `+px_+`px `+color_+`;
+
+	`;
+}
+
+
 
 // end
