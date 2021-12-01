@@ -993,6 +993,14 @@ function checkRut(rut) {
 
 	function decimalAdjust(type, value, exp) {
 		// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+		/*
+		`+decimalAdjust(
+			'round', // floor ceil
+			((mod_itemtoken.calculateTotalPJstats(id_test_pj))
+			/
+			(mod_itemtoken.calculateTotalPJstats(id_test_pj_max)),
+			2)+`
+			*/
     // Si el exp no está definido o es cero...
     if (typeof exp === 'undefined' || +exp === 0) {
       return Math[type](value);
