@@ -1816,5 +1816,19 @@ function borderChar(px_, color_){
 }
 
 
+function responsiveRender(interval_time, fn){
+	let r_w = null;
+	let r_h = null;
+	const render_ = ()=>{
+		if(r_w!=window.innerWidth || r_h!=window.innerHeight){
+			r_w = window.innerWidth;
+			r_h = window.innerHeight;
+			fn(r_w, r_h);
+		}
+	}
+	render_();setInterval(()=>render_(), interval_time);
+}
+
+
 
 // end

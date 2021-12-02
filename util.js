@@ -274,6 +274,12 @@ sumatoria:
 [1,1,1].reduce((pre, current) => pre+current); -> 3
 
 
+//Add element to front of array
+var numbers = ["2", "3", "4", "5"];
+numbers.unshift("1");
+//Result - numbers: ["1", "2", "3", "4", "5"]
+
+
 
 */
 
