@@ -1317,10 +1317,10 @@ async function renderSchedule(obj){
 
 const notifi = {
 	data: {
-		AttrImg: {}
+		AttrRender: {}
 	},
 	load: obj =>{
-		notifi.data.AttrImg = obj.AttrImg;
+		notifi.data.AttrRender = obj.AttrImg ? obj.AttrImg : obj.AttrRender;
 		append('body', `
 				<style>
 								notifiValidator {
@@ -1349,11 +1349,13 @@ const notifi = {
 				</notifiValidator>
 		`);
 	},
-	display: (color, msg, time, AttrImg) => {
+	display: (color, msg, time, AttrRender, arg) => {
 			s('notifiValidator').style.background = color;
 			htmls('.notifiValidator-c1', `
 							<div class='abs center'>
-										`+notifi.data.AttrImg[AttrImg]+`
+										`+(isFunction(notifi.data.AttrRender[AttrRender])?
+										notifi.data.AttrRender[AttrRender](arg):
+										notifi.data.AttrRender[AttrRender])+`
 							</div>
 			`);
 			htmls('.notifiValidator-c2', `
