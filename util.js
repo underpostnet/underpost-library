@@ -963,7 +963,7 @@ function checkRut(rut) {
 	}
 
 	function getLastElement(arr){
-		return arr[arr.length-1];
+		return newInstance(arr[arr.length-1]);
 	}
 
 	function objEq(x, y) {
