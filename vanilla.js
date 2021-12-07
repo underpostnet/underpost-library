@@ -1023,8 +1023,22 @@ async function renderSchedule(obj){
 							}
 
 							// TODO: algunos llegan con data -> period: false
-							availability = availability.filter(x=>!x.data);
-							
+							availability = availability.filter(
+								x
+								=>
+								(
+
+									(
+										new Date(x.from).getTime()
+										+
+										(x.period?0:offTime())
+									)
+
+									>=
+									(+ new Date())
+								)
+							);
+
               let years = arrJoin([
                 availability.map(x=>new Date(x.from).getFullYear()),
                 availability.map(x=>new Date(x.to).getFullYear())
