@@ -1232,6 +1232,8 @@ async function renderSchedule(obj){
     }
 
     setTimeout(()=>{
+			// TODO: algunos llegan con data -> period: false
+			availability = availability.filter(x=>!x.data);
       for(let dateData of availability){
 
 				let point_id = `.`+obj_.id+`-node-date-`

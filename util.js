@@ -279,6 +279,21 @@ var numbers = ["2", "3", "4", "5"];
 numbers.unshift("1");
 //Result - numbers: ["1", "2", "3", "4", "5"]
 
+-------------------------------------------------------
+-------------------------------------------------------
+
+reponder un mensaje de error
+de forma decente
+
+return res.status(400).json({
+					 msg: `Error`
+				 });
+
+
+
+Array(5).fill(undefined) ->
+[undefined, undefined, undefined, undefined, undefined]
+
 
 
 */
