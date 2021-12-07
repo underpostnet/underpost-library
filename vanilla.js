@@ -1022,6 +1022,9 @@ async function renderSchedule(obj){
 								availability = data_.availability();
 							}
 
+							// TODO: algunos llegan con data -> period: false
+							availability = availability.filter(x=>!x.data);
+							
               let years = arrJoin([
                 availability.map(x=>new Date(x.from).getFullYear()),
                 availability.map(x=>new Date(x.to).getFullYear())
@@ -1232,8 +1235,6 @@ async function renderSchedule(obj){
     }
 
     setTimeout(()=>{
-			// TODO: algunos llegan con data -> period: false
-			availability = availability.filter(x=>!x.data);
       for(let dateData of availability){
 
 				let point_id = `.`+obj_.id+`-node-date-`
