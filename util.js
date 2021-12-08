@@ -295,6 +295,10 @@ Array(5).fill(undefined) ->
 [undefined, undefined, undefined, undefined, undefined]
 
 
+simular error ->
+throw "msg";
+
+
 
 */
 

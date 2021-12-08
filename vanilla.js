@@ -1660,14 +1660,18 @@ function renderGridsModal(obj){
 
 
 			<div class='abs center gm-back-btn-`+idGrid+`'
-			style='`+obj.style.cell_btn_render_back+`'>
+			style='`+obj.style.cell_btn_render_back+`
+			`+(obj.disableRowNavModal&&obj.disableRowNavModal==true?'display: none;':'')+`
+			'>
 
 						`+obj.style.cell_btn_render_back_value+`
 
 			</div>
 
 			<div class='abs center gm-next-btn-`+idGrid+`'
-			style='`+obj.style.cell_btn_render_next+`'>
+			style='`+obj.style.cell_btn_render_next+`
+			`+(obj.disableRowNavModal&&obj.disableRowNavModal==true?'display: none;':'')+`
+			'>
 
 						`+obj.style.cell_btn_render_next_value+`
 
