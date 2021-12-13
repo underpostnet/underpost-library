@@ -299,6 +299,39 @@ simular error ->
 throw "msg";
 
 
+-------------------------------------------------------
+-------------------------------------------------------
+
+
+clear interval ->
+
+var prevNowPlaying = null;
+
+function initNowPlayingMeta(station) {
+    if(prevNowPlaying) {
+        clearInterval(prevNowPlaying);
+    }
+    $('#cancion').children().remove();
+    $('#cancion').load('sonando.php?emisora=' + station);
+    prevNowPlaying = setInterval(function () {
+        $('#cancion').load('sonando.php?emisora=' + station);
+    }, 5000);
+}
+
+
+-------------------------------------------------------
+-------------------------------------------------------
+
+
+order alphabetycalli
+
+[{t:"asd"}, {t:"zasdasd"}, {t:"bsd"}].sort(function(a, b){
+    if(a.t < b.t) { return -1; }
+    if(a.t > b.t) { return 1; }
+    return 0;
+});
+
+
 
 */
 
@@ -1160,6 +1193,20 @@ function getRandomColor() {
 
 function jsonWebRender(objRender){
 	return `JSON.parse(`+'`'+JSONstr(objRender)+'`'+`);`;
+}
+
+
+
+function getObJSeqKey(targetObj, stringKeys){
+	let valObj = JSON.parse(JSON.stringify(targetObj));
+	if(stringKeys.split("-").length>1){
+		for(let key_ of stringKeys.split("-")){
+			valObj = valObj[key_];
+		}
+	}else{
+		return valObj[stringKeys];
+	}
+	return valObj;
 }
 
 
