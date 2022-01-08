@@ -617,15 +617,13 @@ async function postData(url = '', data = {}, obj) {
 
 /*
 
-postData('https://example.com/answer', { answer: 42 })
-  .then(data => {
-    console.log(data); // JSON data parsed by `data.json()` call
-});
-
-.catch(function(e) {
-	console.log(" error fetch -> ");
-	console.log(e); // "oh, no!"
-	resolve(false);
+postData('/global-consistency', data)
+.then(resp => {
+		console.log(' success /global-consistency ->');
+		console.log(resp);
+}).catch( error => {
+		console.log(' error /global-consistency ->');
+		console.log(error);
 });
 
 */

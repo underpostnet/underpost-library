@@ -285,10 +285,32 @@ numbers.unshift("1");
 reponder un mensaje de error
 de forma decente
 
-return res.status(400).json({
-					 msg: `Error`
-				 });
+// si poner mejor directamente 404, y 500 en el framework
 
+return res.status(400).json({
+	msg: `Error`
+});
+
+return res.status(400).send({
+	message: 'error'
+});
+
+redirect 301 permanente
+redirect 302 temporal
+
+404 not foung
+500 server error
+
+https://developer.mozilla.org/es/docs/Web/HTTP/Status
+
+
+{ ...{1: true, 2: 23}, ...{no: 34 }, b: 98 }
+->
+{1: true, 2: 23, no: 34, b: 98}
+
+
+-------------------------------------------------------
+-------------------------------------------------------
 
 
 Array(5).fill(undefined) ->
@@ -330,6 +352,10 @@ order alphabetycalli
     if(a.t > b.t) { return 1; }
     return 0;
 });
+
+
+['a',234,true].find(x=>x==="a"); -> "a"
+['a',234,true].find(x=>x==="as"); -> undefined
 
 
 
