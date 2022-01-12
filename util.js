@@ -131,7 +131,7 @@ import { a, b, c } from 'file/abc';
 
 
 const path = require('path');
-var fs = require('fs');
+let fs = require('fs');
 
 fs.writeFileSync(
 				 (path.join(__dirname, '../../base64')+'/'+token),
@@ -175,7 +175,7 @@ asyncCall();
 
 
 
-var obj = {
+let obj = {
     'Students': [{
             "name": "Raj",
              "Age":"15",
@@ -197,7 +197,7 @@ var obj = {
         ]
 };
 
-var newArray = obj.Students.filter(function (el)
+let newArray = obj.Students.filter(function (el)
 {
   return el.Age >=15 &&
          el.RollNumber <= 200 &&
@@ -275,7 +275,7 @@ sumatoria:
 
 
 //Add element to front of array
-var numbers = ["2", "3", "4", "5"];
+let numbers = ["2", "3", "4", "5"];
 numbers.unshift("1");
 //Result - numbers: ["1", "2", "3", "4", "5"]
 
@@ -327,7 +327,7 @@ throw "msg";
 
 clear interval ->
 
-var prevNowPlaying = null;
+let prevNowPlaying = null;
 
 function initNowPlayingMeta(station) {
     if(prevNowPlaying) {
@@ -375,7 +375,7 @@ function random(min, max){
 
 function randomExep(min, max, failOn) {
     failOn = Array.isArray(failOn) ? failOn : [failOn]
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    let num = Math.floor(Math.random() * (max - min + 1)) + min;
     return failOn.includes(num) ? randomExep(min, max, failOn) : num;
 }
 
@@ -431,7 +431,7 @@ function isJSON(str) {
 }
 
 function YoutubeUrl(url) {
-	 var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+	 let p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 	 if(url.match(p)){
 			 return url.match(p)[1];
 	 }
@@ -439,7 +439,7 @@ function YoutubeUrl(url) {
 }
 
 function fDate(s) {
-  var d = new Date();
+  let d = new Date();
   s = s.split('/');
   d.setFullYear(s[2]);
   d.setMonth((s[1]-1));
@@ -466,9 +466,9 @@ function getDate(){
 	console.log(custom_date.toLocaleString());
 
 	ultimo date de un mes
-	var date = new Date();
-	var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-	var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+	let date = new Date();
+	let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+	let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
 	new Date().toISOString(); -> '2021-05-24T22:22:00.948Z'
 
@@ -504,10 +504,10 @@ function getDate(){
 
 	*/
 
-	var f = new Date();
+	let f = new Date();
 
-	var hour = f.getHours();
-	var mins = f.getMinutes();
+	let hour = f.getHours();
+	let mins = f.getMinutes();
 
 	if(hour<10){
 
@@ -521,9 +521,9 @@ function getDate(){
 
 	}
 
-	var date = f.getDate();
-	var month = (f.getMonth() +1);
-	var year = f.getFullYear();
+	let date = f.getDate();
+	let month = (f.getMonth() +1);
+	let year = f.getFullYear();
 
 	if(date<10){
 
@@ -553,8 +553,8 @@ function testMail(email){
 
 function regulartxt(txt){
 
-  var patt = new RegExp(/^[A-Za-z0-9\s]+$/g);
-  var res = patt.test(txt);
+  let patt = new RegExp(/^[A-Za-z0-9\s]+$/g);
+  let res = patt.test(txt);
 
   return res;
 
@@ -657,7 +657,7 @@ function ban(test, banArray){
 }
 
 /* fix */
-var str_test = {
+let str_test = {
   charLength: function(str) {
       if( str.length >= 8 ) {
           return true;
@@ -666,7 +666,7 @@ var str_test = {
 			}
   },
   lowercase: function(str) {
-      var regex = /^(?=.*[a-z]).+$/;
+      let regex = /^(?=.*[a-z]).+$/;
 
       if( regex.test(str) ) {
           return true;
@@ -675,7 +675,7 @@ var str_test = {
 			}
   },
   uppercase: function(str) {
-      var regex = /^(?=.*[A-Z]).+$/;
+      let regex = /^(?=.*[A-Z]).+$/;
 
       if( regex.test(str) ) {
           return true;
@@ -684,7 +684,7 @@ var str_test = {
 			}
   },
   special: function(str) {
-      var regex = /^(?=.*[0-9_\W]).+$/;
+      let regex = /^(?=.*[0-9_\W]).+$/;
 
       if( regex.test(str) ) {
           return true;
@@ -698,7 +698,7 @@ var str_test = {
 /*
 
 metodo sor y sort reverse
-var numArray = [140000, 10, 104, 99];
+let numArray = [140000, 10, 104, 99];
 .sort((a, b)=> {
       return a - b;
     });
@@ -779,25 +779,25 @@ function JSONstr(json){
 }
 
 function LightenDarkenColor(col,amt) {
-  var usePound = false;
+  let usePound = false;
   if ( col[0] == "#" ) {
       col = col.slice(1);
       usePound = true;
   }
 
-  var num = parseInt(col,16);
+  let num = parseInt(col,16);
 
-  var r = (num >> 16) + amt;
+  let r = (num >> 16) + amt;
 
   if ( r > 255 ) r = 255;
   else if  (r < 0) r = 0;
 
-  var b = ((num >> 8) & 0x00FF) + amt;
+  let b = ((num >> 8) & 0x00FF) + amt;
 
   if ( b > 255 ) b = 255;
   else if  (b < 0) b = 0;
 
-  var g = (num & 0x0000FF) + amt;
+  let g = (num & 0x0000FF) + amt;
 
   if ( g > 255 ) g = 255;
   else if  ( g < 0 ) g = 0;
@@ -813,8 +813,8 @@ function minArr(arr){
 	return Math.min.apply(null, arr);
 }
 /*
-var min = Math.min( ...arr ),
-var max = Math.max( ...arr );
+let min = Math.min( ...arr ),
+let max = Math.max( ...arr );
 */
 
 function range(ini, fin){
@@ -958,7 +958,7 @@ function checkRut(rut) {
 
 	/*
 
-	var a = [
+	let a = [
 		{
 		  a:23,
 		  b:10
@@ -1070,7 +1070,7 @@ function checkRut(rut) {
     if (!(y instanceof Object)) { return false; }
 
     // recursive object equality check
-    var p = Object.keys(x);
+    let p = Object.keys(x);
     return Object.keys(y).every(i => { return p.indexOf(i) !== -1; }) &&
         p.every(i => { return objEq(x[i], y[i]); });
 	}
@@ -1161,9 +1161,11 @@ function countSecondsV1(asc, limit, size, count_, fn, factor_){
 		fn(value_);
 	};
 	update_();
+	let intervalReturn =
 	setInterval(()=>update_(),
 		(factor_!=undefined?1000*factor_:1000)
 	);
+	return intervalReturn;
 }
 
 function changeKeyname(obj, oldKey, newKey){

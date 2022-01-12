@@ -317,7 +317,7 @@ function fadeIn(el, display){
 	el.style.display = display || "block";
 
 	(function fade() {
-		var val = parseFloat(el.style.opacity);
+		let val = parseFloat(el.style.opacity);
 		if (!((val += .1) > 1)) {
 			el.style.opacity = val;
 			requestAnimationFrame(fade);
@@ -347,6 +347,7 @@ function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y, animate
 	let stop_ = false;
 	let sli = 0;
 	let change_ = true;
+	let intervalReturn;
 	function nextV1(t_a, t_b, sum){
 		if(!stop_){
 			change_ = false;
@@ -365,7 +366,7 @@ function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y, animate
 		fadeGlobal(true, (name+sli), t_b, 'block', 'block');
 	}
 	if(animate_loop){
-		setInterval(function(){
+		intervalReturn = setInterval(function(){
 			if(!stop_){
 				nextV1(tim_x[0], tim_x[1], true);
 			}
@@ -384,6 +385,8 @@ function sliderV1(sli_l, name, time, arrow_izq, arrow_der, tim_x, tim_y, animate
 		stop_ = true;
 	};
 	/* sliderV1(5, '.testi-', 4000, '.s8-izq', '.s8-der', [1000, 2000], [500, 500]); */
+
+	return intervalReturn;
 }
 
 var mod_scroll = {
@@ -708,7 +711,7 @@ function dragDrop(div){
   	// e.preventDefault();
   	initX = this.offsetLeft;
   	initY = this.offsetTop;
-  	var touch = e.touches;
+  	let touch = e.touches;
   	firstX = touch[0].pageX;
   	firstY = touch[0].pageY;
 
@@ -1615,6 +1618,7 @@ function renderGridsModal(obj){
 	console.log(obj);
 
 	let idGrid = makeid(5, false);
+	let intervalReturn;
 	let render = `
 
 
@@ -1786,7 +1790,9 @@ function renderGridsModal(obj){
 										s('.'+id_cell_).style.height = s('.'+id_cell_).clientWidth+'px';
       					}
 							 };
-							 renderCell();setInterval(()=>renderCell(), obj.intervalRender);
+							 renderCell();
+							 intervalReturn =
+							 setInterval(()=>renderCell(), obj.intervalRender);
 						 }, obj.delayInit);
 						 ind_cell++;
 			}
@@ -1806,7 +1812,7 @@ function renderGridsModal(obj){
 			dragDrop('.main-content-cell-modal-'+idGrid);
 	},0);
 
-	return render;
+	return { render, intervalReturn };
 
 }
 
@@ -1825,6 +1831,7 @@ function borderChar(px_, color_){
 function responsiveRender(interval_time, fn){
 	let r_w = null;
 	let r_h = null;
+	let intervalReturn;
 	const render_ = ()=>{
 		if(r_w!=window.innerWidth || r_h!=window.innerHeight){
 			r_w = window.innerWidth;
@@ -1832,7 +1839,10 @@ function responsiveRender(interval_time, fn){
 			fn(r_w, r_h);
 		}
 	}
-	render_();setInterval(()=>render_(), interval_time);
+	render_();
+	intervalReturn =
+	setInterval(()=>render_(), interval_time);
+	return intervalReturn;
 }
 
 
