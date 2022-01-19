@@ -151,6 +151,12 @@ function htmls(div, html){
 
 }
 
+function htmlsa(i_, div, html){
+
+	sa(div)[i_].innerHTML = html;
+
+}
+
 function getHtml(div){
 
 	return s(div).innerHTML.trim();
