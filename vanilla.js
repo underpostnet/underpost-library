@@ -332,6 +332,7 @@ function fadeIn(el, display){
 };
 
 function fadeGlobal(fadein, div, time, from_dis, to_dis){
+	const fadeGoblalMsgError = " warn -> fadeGlobal not div";
   const total_iter = 100;
   let time_interval = time/total_iter;
   let total_time = total_iter*time_interval;
@@ -341,9 +342,12 @@ function fadeGlobal(fadein, div, time, from_dis, to_dis){
 			let por;
       if(fadein){por = (i/total_iter);}
 			else{por = 1 - (i/total_iter);}
-      s(div).style.opacity = (''+por);
-      if(i==1){s(div).style.display = from_dis;}
-			if(i==total_iter){s(div).style.display = to_dis;}
+      s(div) ? s(div).style.opacity = (''+por):
+			console.warn(fadeGoblalMsgError);
+      if(i==1){s(div) ? s(div).style.display = from_dis:
+			console.warn(fadeGoblalMsgError);}
+			if(i==total_iter){s(div) ? s(div).style.display = to_dis:
+			console.warn(fadeGoblalMsgError);}
     },time_cont);
     time_cont = time_cont + time_interval;
   }
@@ -1596,6 +1600,20 @@ function isBase64(str) {
     }
 }
 
+var enBase64 = encodedDataBase64 => btoa(encodedDataBase64); // encode a string
+var deBase64 = decodedDataBase64 => atob(decodedDataBase64); // decode the string
+
+/*
+
+"data:[mimetype];charset=utf-8," + dataEnCode
+"data:[mimetype];base64," + dataEnCode
+
+text/json
+text/csv
+
+console.log(deBase64(enBase64("hola")));
+
+*/
 
 function renderDropDownV1(obj){
 
@@ -1686,7 +1704,6 @@ function renderGridsModal(obj){
 			</div>
 
 
-		<br><br>
 
 		<div class='abs close-btn-content-`+idGrid+`'>
 				<div class='abs center'>
@@ -1738,6 +1755,12 @@ function renderGridsModal(obj){
 															(obj.dataCell[ind_cell].style?
 																obj.dataCell[ind_cell].style:'')+`'
 																>
+
+																`+
+																(obj.dataCell[ind_cell].html?
+																	obj.dataCell[ind_cell].html:'')+`
+
+
 															`
 															:'')+`
 
