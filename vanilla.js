@@ -1881,7 +1881,7 @@ function renderTooltipV1(obj_){
 				.tooltiptext-`+obj_.idTooltip+` {
 							visibility: hidden;
 							`+(obj_.transition.active===true?
-								`transition:visibility `+obj_.transition.time+` linear,opacity 0.3s linear;`
+								`transition:visibility `+obj_.transition.time+` linear,opacity `+obj_.transition.time+` linear;`
 								:'')+`
 							`+obj_.tooltipStyle+`
 				}
