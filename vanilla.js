@@ -1875,5 +1875,58 @@ function responsiveRender(interval_time, fn){
 }
 
 
+function renderTooltipV1(obj_){
+	return `
+	<style>
+				.tooltiptext-`+obj_.idTooltip+` {
+							visibility: hidden;
+							`+(obj_.transition.active===true?
+								`transition:visibility `+obj_.transition.time+` linear,opacity 0.3s linear;`
+								:'')+`
+							`+obj_.tooltipStyle+`
+				}
+				.tooltip-`+obj_.idTooltip+`:hover .tooltiptext-`+obj_.idTooltip+` {
+							visibility: visible;
+				}
+				</style>
+
+
+				<div class="`+obj_.contentUnderpostClass+` tooltip-`+obj_.idTooltip+`">
+					`+obj_.originContent+`
+							<div class="tooltiptext-`+obj_.idTooltip+`" >	`+obj_.tooltipContent+`</div>
+				</div>
+	`;
+}
+
+/*
+
+renderTooltipV1({
+		idTooltip: id_test_pj,
+		tooltipStyle: '',
+		contentUnderpostClass: 'abs center',
+		originContent:  `
+				<i class="fas fa-shield-alt"></i>
+		`,
+		tooltipContent: `
+			<div class='abs center' style='top: -18px; width: 100px;'>
+						<div class='inl' style='
+						font-size: 8px;
+						padding: 2px;
+						background: rgba(0, 0, 0, 0.82);
+						color: rgb(215, 215, 215);
+						border-radius: 3px;
+						'>
+								`+['Faction Bonus', 'Bonus de Facción'][data.users.var[0].lang=='es'?1:0]+`
+						</div>
+			</div>
+		`,
+		transition: {
+			active: false,
+			time: '.3s'
+		}
+	})
+
+	*/
+
 
 // end
