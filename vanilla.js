@@ -96,7 +96,10 @@ s('.dateTime').onchange = (event)=>{
 };
 
 
-
+// Contenido del <strong> dentro de .titulo dentro de #contenedor
+document.querySelector('#contenedor .titulo strong').textContent
+// Todos los <span> y <img> de una página
+document.querySelectorAll('span, img')
 
 */
 
