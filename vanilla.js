@@ -1590,6 +1590,18 @@ async function getPasteContent(){
 	});
 }
 
+async function copyStrClipboard(newClip){
+	return await new Promise(resolve => {
+		navigator.clipboard.writeText(newClip).then(function() {
+			 // clipboard successfully set
+			 resolve(true);
+		}, function() {
+			 // clipboard write failed
+			 resolve(false);
+		});
+	})
+}
+
 
 function isBase64(str) {
     if (str ==='' || str.trim() ===''){ return false; }
