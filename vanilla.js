@@ -1801,7 +1801,7 @@ function renderGridsModal(obj){
 										// fadeIn(s('.'+id_cell_content_modal_));
 										s('.'+id_cell_content_modal_).style.display = 'block';
 										s('.'+id_cell_content_modal_).style.opacity = '1';
-										obj.onCLick(obj.dataCell[ind_cell_return], id_cell_modal_, ind_cell_return);
+										obj.onCLick(obj.dataCell[ind_cell_return], id_cell_modal_, ind_cell_return, idGrid);
 
 										ind_cell_return-1 >= 0 ?
 										s('.gm-back-btn-'+idGrid).onclick = () => {
