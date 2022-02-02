@@ -1790,11 +1790,17 @@ function renderGridsModal(obj){
 								 	console.log(id_cell_);
 
 									ind_cell_return-1 >= 0 ?
-									s('.gm-back-btn-'+idGrid).style.opacity = '1':
+									((()=>{
+										s('.gm-back-btn-'+idGrid).style.opacity = '1';
+										s('.gm-back-btn-'+idGrid).style.display = 'block';
+									})()):
 									s('.gm-back-btn-'+idGrid).style.opacity = '0';
 
 									ind_cell_return+1 >= 0 ?
-									s('.gm-next-btn-'+idGrid).style.opacity = '1':
+									((()=>{
+										s('.gm-next-btn-'+idGrid).style.opacity = '1';
+										s('.gm-next-btn-'+idGrid).style.display = 'block';
+									})()):
 									s('.gm-next-btn-'+idGrid).style.opacity = '0';
 
 									if(obj.dataCell[ind_cell_return]!=undefined){
