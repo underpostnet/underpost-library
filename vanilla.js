@@ -1807,6 +1807,7 @@ function renderGridsModal(obj){
 										s('.gm-back-btn-'+idGrid).onclick = () => {
 												// console.log("back grid modal");
 												s('.gm-next-btn-'+idGrid).style.opacity = '1';
+												s('.gm-next-btn-'+idGrid).style.display = 'block';
 												s('.'+obj.id_cell+'-'+(ind_cell_return-1))
 												.click();
 
@@ -1816,6 +1817,7 @@ function renderGridsModal(obj){
 										s('.gm-next-btn-'+idGrid).onclick = () => {
 												// console.log("next grid modal");
 												s('.gm-back-btn-'+idGrid).style.opacity = '1';
+												s('.gm-back-btn-'+idGrid).style.display = 'block';
 												s('.'+obj.id_cell+'-'+(ind_cell_return+1))
 												.click();
 
