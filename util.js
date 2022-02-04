@@ -940,6 +940,12 @@ function checkRut(rut) {
 		}
 	}
 
+	async function iterateKeysAsync(obj, fn){
+		for(let key_ of Object.keys(obj)){
+			await fn(key_, obj[key_]);
+		}
+	}
+
 	function isLen(obj){
 		return obj.hasOwnProperty("length");
 	}
