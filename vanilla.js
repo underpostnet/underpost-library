@@ -967,7 +967,7 @@ async function renderSchedule(obj){
         let initTime =
         new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
         let endTime = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getTime()+
-        (60*60*24*1000)*30;
+        (60*60*24*1000)*62;
 
         while(initTime<endTime){
 
@@ -975,11 +975,28 @@ async function renderSchedule(obj){
           day_ == 0 ? day_ = 7 : null;
 
           if(day_==d_.day){
+						let from_ = new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000));
+						let to_ = new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000));
+
+						if(from_.getTime()>new Date(2022, 3, 2, 23, 59, 59).getTime()){
+							// cambio GMT 3 -> 4
+							const gmt = 4;
+							from_ = new Date(
+								from_.getTime()
+									-
+								((60*60*(23+(gmt-1))*1000)-offTime())
+							);
+							to_ = new Date(
+								to_.getTime()
+									-
+								((60*60*(23+(gmt-1))*1000)-offTime())
+							);
+
+						}
+
             dataRender.push({
-              from: new Date(initTime+(from_h*60*60*1000)+(from_m*60*1000)
-						/*- offTime()*/ ),
-              to: new Date(initTime+(to_h*60*60*1000)+(to_m*60*1000)
-						/*- offTime()*/ ),
+              from: from_,
+              to: to_,
               period: true,
 							tipo: d_.tipo,
 							_id: d_._id
