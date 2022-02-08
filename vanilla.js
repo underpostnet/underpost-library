@@ -967,7 +967,7 @@ async function renderSchedule(obj){
         let initTime =
         new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
         let endTime = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getTime()+
-        (60*60*24*1000)+(60*60*24*1000)*62;
+        (60*60*24*1000)*30;
 
         while(initTime<endTime){
 
