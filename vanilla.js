@@ -1,4 +1,9 @@
-/* <input type='text' class='subInputChat' spellcheck='false' autocomplete='new-password' onfocusout="mod_session.outUserNameInput();" placeholder=' . . .' value='' />
+/*
+
+			VanillaJS v1.0
+			Released into the Public Domain
+
+<input type='text' class='subInputChat' spellcheck='false' autocomplete='new-password' onfocusout="mod_session.outUserNameInput();" placeholder=' . . .' value='' />
 .split() .join()
  replace(/reemplazar todos los lugares en que este esto/g, 'por esto');
  .replaceAll('.','');
