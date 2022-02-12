@@ -1243,6 +1243,10 @@ function getObJSeqKey(targetObj, stringKeys){
 	return valObj;
 }
 
+function clearDir(dir_){
+	return dir_.replace(/\\/g, '/').replace(/\/\//g, "/");
+}
+
 
 
 
