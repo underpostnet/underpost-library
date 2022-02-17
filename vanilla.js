@@ -1629,8 +1629,8 @@ async function copyStrClipboard(newClip){
 
 
 function isBase64(str) {
-    if (str ==='' || str.trim() ===''){ return false; }
     try {
+		if (str ==='' || str.trim() ===''){ return false; }
         return btoa(atob(str)) == str;
     } catch (err) {
         return false;
