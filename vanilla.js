@@ -1963,8 +1963,27 @@ function resizeBase64Img(url, width, height, end) {
 					let result = canvas.toDataURL();
 					// console.log(result);
 					end(result);
-					// console.log(result.substr(result.indexOf(",") + 1));
-					// $('#ASSIGNEDELEMENT').val(result.substr(result.indexOf(",") + 1));
+
+					/*
+					getImgDataDOM().map(dataImg => {
+						// console.log(dataImg.src);
+						const dataImg_ = newInstance(dataImg);
+						const arrData = dataImg_.src.split(',');
+						const rawBase64 = arrData[1];
+						const format = arrData[0];
+						// console.log(
+						//   isBase64(rawBase64)
+						// );
+						if(isBase64(rawBase64)){
+							console.log('resize on ->');
+							// console.log(imageToDataUri(dataImg.src, 40, 40));
+							// sa('img')[dataImg.index].src = imageToDataUri(dataImg.src, w_, h_);
+							resizeBase64Img(dataImg.src, w_, h_, resizeImge => {
+								sa('img')[dataImg.index].src = resizeImge;
+							});
+						}
+					});
+					*/
 			};
 
 			img.src = url;
