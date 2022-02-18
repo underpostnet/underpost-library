@@ -22,3 +22,6 @@ string
 string
 
 `;
+
+! function(){ console.warn(`str`) }();
+(() => console.warn(`str`))();
