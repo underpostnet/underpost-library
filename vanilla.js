@@ -2052,15 +2052,134 @@ renderTooltipV1({
 
 	*/
 	function getAllChillNodeDataByDiv(div){
+		const TokenList = function (ids) {
+				'use strict';
+				let idsArray = [],
+						TokenList = this,
+						parse = function (id, functionName, cb) {
+								let search = id.toString();
+								if (search.split(' ').length > 1) {
+										throw new Error("Failed to execute '" + functionName + "' on 'TokenList': The token provided ('" + search + "') contains HTML space characters, which are not valid in tokens.');");
+								} else {
+										cb(search);
+								}
+						};
+
+				function triggerAttributeChange() {
+						if (TokenList.tokenChanged && typeof TokenList.tokenChanged === 'function') {
+								TokenList.tokenChanged(idsArray.toString());
+						}
+				}
+
+				if (ids && typeof ids === 'string') {
+						idsArray = ids.split(' ');
+				}
+				TokenList.item = function (index) {
+						return idsArray[index];
+				};
+
+				TokenList.contains = function (id) {
+						parse(id, 'contains', function (search) {
+								return idsArray.indexOf(search) !== -1;
+						});
+				};
+
+				TokenList.add = function (id) {
+						parse(id, 'add', function (search) {
+								if (idsArray.indexOf(search) === -1) {
+										idsArray.push(search);
+								}
+								triggerAttributeChange();
+						});
+				};
+
+				TokenList.remove = function (id) {
+						parse(id, 'remove', function (search) {
+								idsArray = idsArray.filter(function (item) {
+										return item !== id;
+								});
+								triggerAttributeChange();
+						});
+				};
+
+				TokenList.toggle = function (id) {
+						parse(id, 'toggle', function (search) {
+								if (!TokenList.contains(search)) {
+										TokenList.add(search);
+								} else {
+										TokenList.remove(search);
+								}
+						});
+				};
+
+				TokenList.tokenChanged = null;
+
+				TokenList.toString = function () {
+						let tokens = '',
+								i;
+						if (idsArray.length > 0) {
+								for (i = 0; i < idsArray.length; i = i + 1) {
+										tokens = tokens + idsArray[i] + ' ';
+								}
+								tokens = tokens.slice(0, tokens.length - 1);
+						}
+						return tokens;
+				};
+		};
+
+		const attachTokenList = function (element, prop, initialValues) {
+				'use strict';
+				let initValues = initialValues || element.prop,
+						MutationObserver = window.MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver,
+						observer,
+						config,
+						cancelMutation = false;
+
+				function createTokenList(values) {
+						let tList = new TokenList(values);
+						tList.tokenChanged = function () {
+								element.prop = element[prop].toString();
+								cancelMutation = true;
+						};
+						element[prop] = tList;
+				}
+
+				createTokenList(initValues);
+
+				observer = new MutationObserver(function (mutation) {
+						let i,
+								mutationrec,
+								newAttr;
+						if (mutation.length > 0 && !cancelMutation) {
+								for (i = 0; i < mutation.length; i = i + 1) {
+										mutationrec = mutation[i];
+										if (mutationrec.attributeName === prop && element[prop]) {
+												newAttr = element.prop;
+												createTokenList(newAttr);
+										}
+								}
+						}
+						cancelMutation = false;
+				});
+
+				config = {
+						attributes: true
+				};
+				observer.observe(element, config);
+		};
+
+		//------------------------------------------------------------------------------
+		//------------------------------------------------------------------------------
+
 		let _dataDom = [];
 		const _recursiveChillNodeIterator = nodes =>
 		nodes.forEach((itemNode, indexNode) =>
 			(() => {
 				let idClass = undefined;
 				if(!itemNode.classList){
-					itemNode.classList = [];
-				}
-				if(!itemNode.classList[0]){
+					attachTokenList(itemNode, 'underpost-child-'+makeid(5));
+					// console.log(itemNode.classList);
+				}else if(!itemNode.classList[0]){
 					idClass = 'underpost-child-'+makeid(5);
 					itemNode.classList.add(idClass);
 				}
