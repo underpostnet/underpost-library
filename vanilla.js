@@ -2201,6 +2201,23 @@ renderTooltipV1({
 			})()
 		);
 		_recursiveChillNodeIterator(sa(div));
+		/*
+
+		      this.currentsImgWithResizableDraggable = [];
+
+		         setInterval( () =>
+		         getAllChillNodeDataByDiv('.ql-editor').forEach((item, i) =>
+		            (()=>{
+		              if(item.localName=='img'||item.nodeName=='IMG'){
+		                if(!this.currentsImgWithResizableDraggable.includes(item.classList[0])){
+		                  console.warn('setResizableDraggable -> '+item.classList[0]);
+		                  this.currentsImgWithResizableDraggable.push(item.classList[0]);
+		                  this.setResizableDraggable({divContent: '.'+item.classList[0]});
+		                }
+		              }
+		            })()
+		          ), intervalTimeOnChangue);
+							*/
 		return _dataDom;
 	};
 
