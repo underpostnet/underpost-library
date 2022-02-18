@@ -2057,7 +2057,10 @@ renderTooltipV1({
 		nodes.forEach((itemNode, indexNode) =>
 			(() => {
 				let idClass = undefined;
-				if(itemNode.classList && !itemNode.classList[0]){
+				if(!itemNode.classList){
+					itemNode.classList = [];
+				}
+				if(!itemNode.classList[0]){
 					idClass = 'underpost-child-'+makeid(5);
 					itemNode.classList.add(idClass);
 				}
