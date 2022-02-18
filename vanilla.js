@@ -2052,5 +2052,30 @@ renderTooltipV1({
 
 	*/
 
+	function getAllChillNodeDataByDiv(div){
+		let _dataDom = [];
+		const _recursiveChillNodeIterator = nodes =>
+		nodes.forEach((itemNode, indexNode) =>
+			(() => {
+				// console.log('itemNode', itemNode);
+				// console.log('nodeName', itemNode.nodeName);
+				// console.log('localName', itemNode.localName);
+				// console.log('childNodes', itemNode.childNodes);
+				// console.log('children', itemNode.children);
+				// console.log('classList', itemNode.classList);
+				_dataDom.push({
+					nodeName: itemNode.nodeName,
+					localName: itemNode.localName,
+					childNodes: itemNode.childNodes,
+					children: itemNode.children,
+					classList: itemNode.classList
+				});
+				_recursiveChillNodeIterator(itemNode.childNodes);
+			})()
+		);
+		_recursiveChillNodeIterator(sa(div));
+		return _dataDom;
+	};
+
 
 // end
