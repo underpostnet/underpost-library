@@ -1951,6 +1951,39 @@ getKeys(sa('img')).map( imgDOM => true ? {
 
 /*
 
+
+existencia de clase y iterador
+
+var element = document.getElementById('element');
+element.classList.add('class-1');
+element.classList.add('class-2', 'class-3');
+element.classList.remove('class-3');
+
+getImgDataDOM().map(imgDOM => {
+	console.log(imgDOM.index);
+	if(imgDOM.index>currentIndex){
+
+				// imagen ingresada al editor
+				// console.log('img set ->');
+				// dragDrop('.resize-drag');
+				const newClass = getHash().split('-')[0];
+				this.classInsertsImg.push(newClass);
+				sa('img')[imgDOM.index].classList.add(newClass);
+
+				console.log(sa('img')[imgDOM.index].classList);
+
+				sa('img')[imgDOM.index].classList.forEach((value, key, listObj)=>{
+					console.log(value);
+				});
+	}
+});
+
+
+
+
+
+
+
 renderTooltipV1({
 		idTooltip: id_test_pj,
 		tooltipStyle: '',
