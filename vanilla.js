@@ -1943,6 +1943,12 @@ function renderTooltipV1(obj_){
 	`;
 }
 
+var getImgDataDOM = () =>
+getKeys(sa('img')).map( imgDOM => true ? {
+	src: sa('img')[imgDOM].currentSrc,
+	index: imgDOM
+}:null );
+
 /*
 
 renderTooltipV1({
