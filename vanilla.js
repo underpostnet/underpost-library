@@ -1949,6 +1949,27 @@ getKeys(sa('img')).map( imgDOM => true ? {
 	index: imgDOM
 }:null );
 
+function resizeBase64Img(url, width, height, end) {
+			let img = new Image();
+			img.setAttribute('crossOrigin', 'anonymous');
+			img.onload = function () {
+					let canvas = document.createElement("canvas");
+					canvas.style.display = 'none';
+					canvas.width = width;
+					canvas.height = height;
+					let ctx = canvas.getContext("2d");
+					ctx.scale(width/this.width,  height/this.height);
+					ctx.drawImage(this, 0, 0);
+					let result = canvas.toDataURL();
+					// console.log(result);
+					end(result);
+					// console.log(result.substr(result.indexOf(",") + 1));
+					// $('#ASSIGNEDELEMENT').val(result.substr(result.indexOf(",") + 1));
+			};
+
+			img.src = url;
+	};
+
 /*
 
 
