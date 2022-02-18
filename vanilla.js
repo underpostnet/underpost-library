@@ -2051,12 +2051,16 @@ renderTooltipV1({
 	})
 
 	*/
-
 	function getAllChillNodeDataByDiv(div){
 		let _dataDom = [];
 		const _recursiveChillNodeIterator = nodes =>
 		nodes.forEach((itemNode, indexNode) =>
 			(() => {
+				let idClass = undefined;
+				if(itemNode.classList && !itemNode.classList[0]){
+					idClass = 'underpost-child-'+makeid(5);
+					itemNode.classList.add(idClass);
+				}
 				// console.log('itemNode', itemNode);
 				// console.log('nodeName', itemNode.nodeName);
 				// console.log('localName', itemNode.localName);
@@ -2068,7 +2072,8 @@ renderTooltipV1({
 					localName: itemNode.localName,
 					childNodes: itemNode.childNodes,
 					children: itemNode.children,
-					classList: itemNode.classList
+					classList: itemNode.classList,
+					idClass
 				});
 				_recursiveChillNodeIterator(itemNode.childNodes);
 			})()
