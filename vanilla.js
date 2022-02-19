@@ -798,6 +798,10 @@ function renderInput(obj){
 	<input type="url">
 	<input type="week">
 
+	// prevent enter key in form div reload
+	s(mainCardLoginContent).onsubmit =
+	() => false;
+
 	*/
 	let value = (isOpenFalse(obj.value)?'':`value="`+obj.value+`"`);
 	let render = `
