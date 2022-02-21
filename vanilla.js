@@ -2199,6 +2199,7 @@ renderTooltipV1({
 					childNodes: itemNode.childNodes,
 					children: itemNode.children,
 					classList: itemNode.classList,
+					indexNode,
 					idClass
 				});
 				_recursiveChillNodeIterator(itemNode.childNodes);
