@@ -357,6 +357,12 @@ order alphabetycalli
 ['a',234,true].find(x=>x==="a"); -> "a"
 ['a',234,true].find(x=>x==="as"); -> undefined
 
+-------------------------------------------------------
+-------------------------------------------------------
+imageFile.mv(`${__dirname}/public/${req.body.filename}.jpg`, err => {
+ if (err) {
+	return res.status(500).send(err);
+ }
 
 
 */
