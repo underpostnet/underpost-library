@@ -4,7 +4,7 @@ string
 
 `+
 
-(true==false ?
+(obj ?
         ((()=>{
 
         console.log(true);
@@ -23,5 +23,9 @@ string
 
 `;
 
+hell();
+
 ! function(){ console.warn(`str`) }();
 (() => console.warn(`str`))();
+
+{(()=>console.warn('ins1'))(), (()=>console.warn('ins2'))()};
