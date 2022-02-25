@@ -2236,4 +2236,13 @@ renderTooltipV1({
 	};
 
 
+	function getQueryParams(){
+		const params = new URLSearchParams(window.location.search);
+		let querys_ = {};
+		for (const param of params) {
+			querys_[param[0]] = param[1];
+		}
+		return querys_;
+	};
+
 // end
