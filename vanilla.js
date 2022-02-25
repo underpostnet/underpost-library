@@ -2245,4 +2245,8 @@ renderTooltipV1({
 		return querys_;
 	};
 
+	function getRawQuery(){
+		return window.location.search;
+	}
+
 // end
