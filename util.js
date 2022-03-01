@@ -1254,6 +1254,37 @@ function clearDir(dir_){
 }
 
 
+function timeSince(date, lang, offTimeFactor) {
+
+	const setS = val => val > 1 ? "s":"";
+	let seconds = Math.floor((new Date() - date + (offTimeFactor*offTime()) ) / 1000);
+	lang = lang == 'es' ? 1:0;
+
+	let interval = seconds / 31536000;
+
+	if (interval > 1) {
+		return Math.floor(interval) + [" year"+setS(Math.floor(interval)), " año"+setS(Math.floor(interval))][lang];
+	}
+	interval = seconds / 2592000;
+	if (interval > 1) {
+		return Math.floor(interval) + [" month"+setS(Math.floor(interval)), " mese"+setS(Math.floor(interval))][lang];
+	}
+	interval = seconds / 86400;
+	if (interval > 1) {
+		return Math.floor(interval) + [" day"+setS(Math.floor(interval)), " día"+setS(Math.floor(interval))][lang];
+	}
+	interval = seconds / 3600;
+	if (interval > 1) {
+		return Math.floor(interval) + [" hour"+setS(Math.floor(interval)), " hora"+setS(Math.floor(interval))][lang];
+	}
+	interval = seconds / 60;
+	if (interval > 1) {
+		return Math.floor(interval) + [" minute"+setS(Math.floor(interval)), " minuto"+setS(Math.floor(interval))][lang];
+	}
+	return Math.floor(seconds) + [" second"+setS(Math.floor(seconds)), " segundo"+setS(Math.floor(seconds))][lang];
+}
+
+
 
 
 	// end
