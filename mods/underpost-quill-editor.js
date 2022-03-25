@@ -259,6 +259,7 @@ if(obj.table){
              // ajustar margenes de tabla manualmente
              // habilitar ql-code
              // formulas katex no funciona b64
+             // undo redo con set inreval innerHtml 
          };
 
        }, 0);

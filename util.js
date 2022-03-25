@@ -1232,7 +1232,7 @@ function getRandomColor() {
 
 
 function jsonWebRender(objRender){
-	return `JSON.parse(`+'`'+JSONstr(objRender)+'`'+`);`;
+	return `JSON.parse(`+'`'+JSONstr(objRender)+'`'+`)`;
 }
 
 

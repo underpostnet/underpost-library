@@ -839,7 +839,7 @@ function renderInput(obj){
 			`+value+`
 			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill
 			`+(obj.style_outline?`in-outline`:'')+` `+obj.id_input+`"
-			`+(obj.required?'required':'')+` style="`+obj.style_input+`">`+(obj.textarea?(
+			`+(obj.required?'required':'')+` `+(obj.type=='password'?` autocomplete="new-password"`:'')+` style="`+obj.style_input+`">`+(obj.textarea?(
 				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
 			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<`+obj.tag_label+` style="`+obj.style_label+`" >
 					`+obj.text_label+`
