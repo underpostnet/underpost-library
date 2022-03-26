@@ -2251,4 +2251,9 @@ renderTooltipV1({
 		return window.location.search;
 	}
 
+
+	function renderLang(langs){
+			return langs[s('html').lang]
+	}
+
 // end
