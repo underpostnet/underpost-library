@@ -835,6 +835,7 @@ function renderInput(obj){
 	<div class="`+obj.underpostClass+` `+obj.id_content_input+`"
 	    style="`+obj.style_content_input+`">
 			<`+(obj.textarea?'textarea':'input')+` `+(obj.disabled?'disabled':'')+`
+			id='`+obj.tag_label+`'
 			`+((!isOpenFalse(obj.placeholder))?`placeholder="`+obj.placeholder+`"`:'')+`
 			`+value+`
 			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill
@@ -843,9 +844,9 @@ function renderInput(obj){
 			`+(obj.username?` autocomplete="username"`:'')+`
 			style="`+obj.style_input+`">`+(obj.textarea?(
 				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
-			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<`+obj.tag_label+` style="`+obj.style_label+`" >
+			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<label style="`+obj.style_label+`" 	id='`+obj.tag_label+`' >
 					`+obj.text_label+`
-		  </`+obj.tag_label+`>`:''))+`
+		  </label>`:''))+`
 	</div>
 
 	`+(isOpenFalse(obj.botContent)?'':obj.botContent)+`
