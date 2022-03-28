@@ -804,9 +804,10 @@ function renderInput(obj){
 
 	*/
 	let value = (isOpenFalse(obj.value)?'':`value="`+obj.value+`"`);
+	let idR = makeid(4);
 	let render = `
 	<style>
-					.`+obj.id_content_input+` `+obj.tag_label+` {
+					.`+obj.id_content_input+` .`+obj.tag_label+` {
 
 							position: absolute;
 							top: `+obj.initLabelPos+`px;
@@ -818,7 +819,7 @@ function renderInput(obj){
 
 						}
 
-					.`+obj.id_content_input+` input:valid + `+obj.tag_label+`, .`+obj.id_content_input+` input:focus + `+obj.tag_label+` {
+					.`+obj.id_content_input+` input:valid + .`+obj.tag_label+`, .`+obj.id_content_input+` input:focus + .`+obj.tag_label+` {
 
 						-webkit-transform: translate3d(0, `+obj.endLabelPos+`px, 0);
 						transform: translate3d(0, `+obj.endLabelPos+`px, 0);
@@ -838,14 +839,14 @@ function renderInput(obj){
 			`+((!isOpenFalse(obj.placeholder))?`placeholder="`+obj.placeholder+`"`:'')+`
 			`+value+`
 			type="`+obj.type+`" class="`+obj.underpostClass+` w-fill
-			`+(obj.style_outline?`in-outline`:'')+` `+obj.id_input+`"
+			`+(obj.style_outline?`in-outline`:'')+` `+obj.id_input+`" id='`+idR+`'
 			`+(obj.required?'required':'')+` `+(obj.type=='password'?` autocomplete="new-password"`:'')+`
 			`+(obj.username?` autocomplete="username"`:'')+`
 			style="`+obj.style_input+`">`+(obj.textarea?(
 				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
-			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<`+obj.tag_label+` style="`+obj.style_label+`" >
+			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<label class='`+obj.tag_label+`' for='`+idR+`' style="`+obj.style_label+`" >
 					`+obj.text_label+`
-		  </`+obj.tag_label+`>`:''))+`
+		  </label>`:''))+`
 	</div>
 
 	`+(isOpenFalse(obj.botContent)?'':obj.botContent)+`
