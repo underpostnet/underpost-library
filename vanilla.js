@@ -806,7 +806,7 @@ function renderInput(obj){
 	let value = (isOpenFalse(obj.value)?'':`value="`+obj.value+`"`);
 	let render = `
 	<style>
-					.`+obj.id_content_input+` `+obj.tag_label+` {
+					.`+obj.id_content_input+` #`+obj.tag_label+` {
 
 							position: absolute;
 							top: `+obj.initLabelPos+`px;
@@ -818,7 +818,7 @@ function renderInput(obj){
 
 						}
 
-					.`+obj.id_content_input+` input:valid + `+obj.tag_label+`, .`+obj.id_content_input+` input:focus + `+obj.tag_label+` {
+					.`+obj.id_content_input+` input:valid + #`+obj.tag_label+`, .`+obj.id_content_input+` input:focus + #`+obj.tag_label+` {
 
 						-webkit-transform: translate3d(0, `+obj.endLabelPos+`px, 0);
 						transform: translate3d(0, `+obj.endLabelPos+`px, 0);
@@ -844,7 +844,7 @@ function renderInput(obj){
 			`+(obj.username?` autocomplete="username"`:'')+`
 			style="`+obj.style_input+`">`+(obj.textarea?(
 				isOpenFalse(value)?'':value.split('value="')[1].slice(0, -1)
-			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<label style="`+obj.style_label+`" 	id='`+obj.tag_label+`' >
+			)+'</textarea>':((obj.active_label&&!obj.disabled)?`<label style="`+obj.style_label+`" 	for='`+obj.tag_label+`' >
 					`+obj.text_label+`
 		  </label>`:''))+`
 	</div>
