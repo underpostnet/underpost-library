@@ -33,9 +33,11 @@ class UnderpostQuillEditor {
         </svg>`;
 
       append(obj.divContent, `
+        <!--
       <link rel='stylesheet' href='/quill/css/katex.css' />
       <link rel='stylesheet' href='/quill/css/monokai-sublime.min.css' />
       <link rel='stylesheet' href='/quill/css/quill.snow.css' />
+      -->
           <style>
           tr {
             `+obj.style.tr+`
@@ -259,7 +261,7 @@ if(obj.table){
              // ajustar margenes de tabla manualmente
              // habilitar ql-code
              // formulas katex no funciona b64
-             // undo redo con set inreval innerHtml 
+             // undo redo con set inreval innerHtml
          };
 
        }, 0);
