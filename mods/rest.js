@@ -12,12 +12,17 @@ class Rest {
       redirect: 'follow',
       referrerPolicy: 'no-referrer'
     };
-    const response = await fetch(url, {
-      method: method,
-      ...(options == undefined ? defaultOptions : options),
-      body: data == undefined ? undefined : JSON.stringify(data)
-    });
-    return response.json();
+    try {
+      const response = await fetch(url, {
+        method: method,
+        ...(options == undefined ? defaultOptions : options),
+        body: data == undefined ? undefined : JSON.stringify(data)
+      });
+      return response.json();
+    }catch(error){
+      console.error(error);
+      return {success: false, error }
+    }
   }
 }
 
