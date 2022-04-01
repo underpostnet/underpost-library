@@ -7,7 +7,8 @@ class Rest {
       cache: 'no-cache',
       credentials: 'same-origin',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'navigator-onLine': navigator.onLine
       },
       redirect: 'follow',
       referrerPolicy: 'no-referrer'
