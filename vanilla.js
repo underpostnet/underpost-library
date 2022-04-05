@@ -1767,7 +1767,7 @@ function renderGridsModal(obj){
 	})());
 
 	for(let row_ of range(1, obj.row)){
-		render += `<div class='fl'>`;
+		render += `<div class='fl row-content-`+row_+`-`+idGrid+`'>`;
 			for(let col_ of range(1, obj.col)){
 
 						let id_cell_ = idGrid+`-x-`+col_+`-y-`+row_;
