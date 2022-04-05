@@ -1893,7 +1893,7 @@ function renderGridsModal(obj){
 			dragDrop('.main-content-cell-modal-'+idGrid);
 	},0);
 
-	return { render, intervalReturn };
+	return { render, intervalReturn, idGrid };
 
 }
 
