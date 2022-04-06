@@ -1774,7 +1774,7 @@ function renderGridsModal(obj){
 						let id_cell_modal_ = 'content-cell-modal-'+idGrid;
 						let id_cell_content_modal_ = 'main-'+id_cell_modal_;
 						render +=
-						`<div class='in fll `+id_cell_+`' style='
+						`<div class='in fll `+id_cell_+` cell-main-content-`+ind_cell+`' style='
 									width: `+(100/obj.col)+`%;
 						'>
 										<!-- y:`+row_+` x:`+col_+` -->
