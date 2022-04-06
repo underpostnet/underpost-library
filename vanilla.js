@@ -1686,7 +1686,7 @@ function renderGridsModal(obj){
 	console.log(obj);
 
 	let idGrid = makeid(5, false);
-	let intervalReturn;
+	let intervalReturn = {};
 	let render = `
 
 
@@ -1872,7 +1872,7 @@ function renderGridsModal(obj){
       					}
 							 };
 							 renderCell();
-							 intervalReturn =
+							 intervalReturn['interval-'+obj.id_cell+'-'+id_cell_] =
 							 setInterval(()=>renderCell(), obj.intervalRender);
 						 }, obj.delayInit);
 						 ind_cell++;
