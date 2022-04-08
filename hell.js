@@ -31,7 +31,7 @@ hell();
   // only one "{}" and not use " for, if, var, ; "
 
   {
-    ((()=>{window.hell = 0})()),
+    ((()=>window.hell = 0)()),
     ((()=>hell++)()),
     ((()=>hell++)()),
     ((()=>console.log(hell))())
