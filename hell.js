@@ -28,4 +28,11 @@ hell();
 ! function(){ console.warn(`str`) }();
 (() => console.warn(`str`))();
 
-{(()=>console.warn('ins1'))(), (()=>console.warn('ins2'))()};
+  // only one "{}" and not use " for, if, var, ; "
+
+  {
+    ((()=>{window.hell = 0})()),
+    ((()=>hell++)()),
+    ((()=>hell++)()),
+    ((()=>console.log(hell))())
+  }
