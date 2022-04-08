@@ -2257,4 +2257,43 @@ renderTooltipV1({
 			return langs[s('html').lang]
 	}
 
+	function renderChecbox(obj_){
+		setTimeout( () => {
+			s('.'+obj_.id).onclick = async () => {
+				obj_.state = !obj_.state;
+				obj_.state ? fadeIn(s('.check-icon-'+obj_.id)):fadeOut(s('.check-icon-'+obj_.id));
+				await obj_.click(obj_.state);
+			};
+		}, 0);
+		return `
+						<style>
+								.`+obj_.id+`  {
+										background: `+obj_.style.background+`;
+										width: `+obj_.style.width+`px;
+										height: `+obj_.style.height+`px;
+										`+(obj_.style.radio?'border-radius: '+obj_.style.radio+';':'')+`
+										border: `+obj_.style.border+`;
+										transition: .3s;
+										`+(obj_.style.pointer===true?'cursor: pointer;':'')+`
+								}
+
+								.`+obj_.id+`:hover  {
+										`+obj_.style.hover+`
+								}
+						</style>
+					<div class='fl' style='`+obj_.style.content+`'>
+								<div class='in fll `+obj_.extraClassContent+` `+obj_.id+`'>
+											<div class='abs center check-icon-`+obj_.id+`' `+(obj_.state===true?'':`style='display: none'`)+`>
+															`+obj_.style.icon+`
+											</div>
+								</div>
+								<div class='in fll' style='height: `+obj_.style.height+`px; width: `+obj_.style.widthText+`px;'>
+											<div class='abs center'>
+														`+obj_.text+`
+											</div>
+								</div>
+					</div>
+		`;
+	}
+
 // end
