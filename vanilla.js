@@ -1894,7 +1894,7 @@ function renderGridsModal(obj){
 
 			try {
 				new Sortable(s('.'+idGrid+'-content'), {
-						// swap: true,
+						swap: (obj.swap === true ? true : undefined),
 						animation: 150,
 						group: 'grid-storage-'+idGrid,
 						// fallbackOnBody: true,
