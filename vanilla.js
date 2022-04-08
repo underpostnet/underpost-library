@@ -1891,49 +1891,6 @@ function renderGridsModal(obj){
 				fadeOut(s('.main-content-cell-modal-'+idGrid));
 			};
 			dragDrop('.main-content-cell-modal-'+idGrid);
-
-			try {
-
-				(async () => {
-
-					const Sortable = await import('/lib/sortable.complete.esm.js');
-
-					new Sortable(s('.'+idGrid+'-content'), {
-							swap: (obj.swap === true ? true : undefined),
-							animation: 150,
-							group: 'grid-storage-'+idGrid,
-							// fallbackOnBody: true,
-							// swapThreshold: 0.65
-							store: {
-								/**
-								 * Get the order of elements. Called once during initialization.
-								 * @param   {Sortable}  sortable
-								 * @returns {Array}
-								 */
-								get: function (sortable) {
-									let order = localStorage.getItem(sortable.options.group.name);
-									console.log('get menu sortable', order);
-									return order ? order.split('|') : [];
-								},
-
-								/**
-								 * Save the order of elements. Called onEnd (when the item is dropped).
-								 * @param {Sortable}  sortable
-								 */
-								set: function (sortable) {
-									let order = sortable.toArray();
-									console.log('set menu sortable', order);
-									localStorage.setItem(sortable.options.group.name, order.join('|'));
-								}
-							}
-						});
-
-				})()
-
-			}catch(err){
-				// no sortable availability
-				console.log(err);
-			}
 	},0);
 
 	return { render, intervalReturn, idGrid };
