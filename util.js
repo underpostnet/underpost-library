@@ -1013,40 +1013,13 @@ function checkRut(rut) {
 	}
 
 	function orderArrayFromAttrInt(arr, attr, type){
-		let arr_index_order = arr.map( ( x )=>{ return x[attr] } );
 		// type -> true asc
 		// type-> false desc
-		if(type){
-			arr_index_order = arr_index_order.sort((a, b)=> {
-			      return a - b;
-			});
-		}else {
-			arr_index_order = arr_index_order.sort((a, b)=> {
-			      return b - a;
-			});
+		if(type === true){
+			return arr.sort( (a, b) =>  a[attr] - b[attr] )
+		}else{
+			return arr.sort( (a, b) =>  b[attr] - a[attr] )
 		}
-		let returnArr = [];
-		let banIndex = [];
-		for(let index_ of arr_index_order){
-			let ind_=0;
-			for(let obj_ of arr){
-				let found_index = false;
-				for(let test_index of banIndex){
-					if(test_index==ind_){
-						found_index = true;
-					}
-				}
-				if(!found_index){
-					if(obj_[attr]==index_){
-						returnArr.push(obj_);
-						banIndex.push(ind_);
-						break;
-					}
-				}
-				ind_++;
-			}
-		}
-		return returnArr;
 	}
 
 
