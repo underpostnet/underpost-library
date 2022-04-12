@@ -1931,6 +1931,23 @@ function responsiveRender(interval_time, fn){
 	return intervalReturn;
 }
 
+async function responsiveRenderAsync(interval_time, fn){
+	let r_w = null;
+	let r_h = null;
+	let intervalReturn;
+	const render_ = async ()=>{
+		if(r_w!=window.innerWidth || r_h!=window.innerHeight){
+			r_w = window.innerWidth;
+			r_h = window.innerHeight;
+			await fn(r_w, r_h);
+		}
+	}
+	await render_();
+	intervalReturn =
+	setInterval(async ()=>await render_(), interval_time);
+	return intervalReturn;
+}
+
 
 function renderTooltipV1(obj_){
 	return `
