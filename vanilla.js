@@ -1465,7 +1465,7 @@ function renderTableV1(dataRender, obj){
 					`+obj.style.sub_cell_style+`
 				}
 
-				`+(obj.idMark?'.'+id_table+`-mark_row_style  {
+				`+(obj.idMark!=undefined?'.'+id_table+`-mark_row_style  {
 					`+obj.style.mark_row_style+`
 				}`:'')+`
 
@@ -1490,7 +1490,7 @@ function renderTableV1(dataRender, obj){
 
 	let index_row = 0;
 	for(let row of dataRender){
-		render += `<div class='fl `+(row.id === obj.idMark?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
+		render += `<div class='fl `+(obj.idMark!=undefined && obj.idMark.includes(row.id)?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
 		for(let header_col of validKeys){
 			render += `<div class='in fll `+id_table+`-cell_style'>
 					<div class='in `+id_table+`-sub_cell_style'>`
