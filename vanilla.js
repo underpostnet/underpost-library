@@ -2319,6 +2319,7 @@ renderTooltipV1({
 	}
 
 	function renderColorPicker(obj_){
+		// https://jscolor.com/docs/
 		return `
 		<input
 		`+(obj_.style?`style='`+obj_.style+`'`:'')+`'
