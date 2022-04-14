@@ -2318,4 +2318,26 @@ renderTooltipV1({
 		`;
 	}
 
+	function renderColorPicker(obj_){
+		return `
+		<input
+		`+(obj_.style?`style='`+obj_.style+`'`:'')+`'
+		class='`+obj_.class+`'
+		data-jscolor="
+		{
+
+			value:'`+obj_.value+`',
+			position:'`+(obj_.position?obj_.position:'bottom')+`',
+			height:`+(obj_.height?obj_.height:'80')+`,
+			backgroundColor:'`+(obj_.backgroundColor?obj_.backgroundColor:'#333')+`',
+			palette:'`+(obj_.palette?obj_.palette:'rgba(0,0,0,0) #fff #808080 #000 #996e36 #f55525 #ffe438 #88dd20 #22e0cd #269aff #bb1cd4')+`',
+			paletteCols:`+(obj_.paletteCols?obj_.paletteCols:'11')+`,
+			hideOnPaletteClick:`+(obj_.hideOnPaletteClick?obj_.hideOnPaletteClick:'true')+`
+
+		}
+		"
+										>
+		`;
+	}
+
 // end
