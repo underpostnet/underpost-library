@@ -1368,7 +1368,7 @@ const notifi = {
 	},
 	load: obj =>{
 		notifi.data.AttrRender = obj.AttrImg ? obj.AttrImg : obj.AttrRender;
-		append('body', `
+		append((obj.divContent ? obj.divContent : 'body'), `
 				<style>
 								notifiValidator {
 
