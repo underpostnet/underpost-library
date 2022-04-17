@@ -468,13 +468,13 @@ var mod_scroll = {
 };
 
 function toUpBtn(body_, btn_, limit_){
-	if(s(body_) && -1*s(body_).getBoundingClientRect().top>limit_ && s(btn_).style.display == 'none'){
+	if(-1*s(body_).getBoundingClientRect().top>limit_ && s(btn_).style.display == 'none'){
 		s(btn_).style.display = 'block';
 	}
 	mod_scroll.init(s(body_), false, scroll => {
-		if(s(body_) && scroll>limit_ && s(btn_).style.display == 'none'){
+		if(scroll>limit_ && s(btn_).style.display == 'none'){
 			fadeIn(s(btn_));
-		}else if(s(body_) && scroll <= limit_ &&  s(btn_).style.display == 'block' ){
+		}else if(scroll <= limit_ &&  s(btn_).style.display == 'block' ){
 			fadeOut(s(btn_));
 		}
 	});
