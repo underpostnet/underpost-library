@@ -1888,7 +1888,7 @@ function renderGridsModal(obj){
 								 if(s('.'+id_cell_) && (w_f!=window.innerWidth || h_f!=window.innerHeight || s('.'+id_cell_).style.height=='0px')){
 						        w_f=window.innerWidth;
 						        h_f=window.innerHeight;
-										s('.'+id_cell_).style.height = s('.'+id_cell_).clientWidth+'px';
+										s('.'+id_cell_).style.height = obj.setHeight ? obj.setHeight : s('.'+id_cell_).clientWidth+'px';
       					}
 							 };
 							 renderCell();
