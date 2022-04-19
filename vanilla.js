@@ -1514,16 +1514,17 @@ function renderTableV1(dataRender, obj){
 					</div>
 			</div>`;
 		}
+		if(obj.plugin != undefined){
+			renderRow += `<div class='in fll `+id_table+`-cell_style'>`
+			+obj.plugin(index_row)+
+			`</div>`;
+		}
+		renderRow += '</div>';
+
 		render += renderRow;
 		if(obj.onRenderDataRow){
 			obj.onRenderDataRow(renderRow);
 		}
-		if(obj.plugin != undefined){
-			render += `<div class='in fll `+id_table+`-cell_style'>`
-			+obj.plugin(index_row)+
-			`</div>`;
-		}
-		render += '</div>';
 		index_row++;
 	}
 
