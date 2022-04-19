@@ -2349,5 +2349,37 @@ renderTooltipV1({
 		`;
 	}
 
+	function renderAccordion(obj){
+		let render = `
+			<div class='fl header-`+obj.id+` `+obj.classHeader+`'>
+					<div class='in fll' style='width: `+obj.width+`%; height: `+obj.height+`;'>
+							`+obj.contentHeader+`
+					</div>
+					<div class='in fll' style='width: `+(100-obj.width)+`%; height: `+obj.height+`;'>
+							<div class='abs center'>
+										<i class='fas fa-caret-down icon-`+obj.id+`' style='`+obj.styleIcon+`'></i>
+							</div>
+					</div>
+			</div>
+		`;
+		setTimeout( () => {
+			let _open = obj.open;
+			s('.header-'+obj.id).onclick = () => {
+				_open ?
+				obj.onClose():
+				obj.onOpen();
+				_open ?
+				s('.icon-'+obj.id).style.transform = 'rotate(0deg)':
+				s('.icon-'+obj.id).style.transform = 'rotate(180deg)';
+				_open = !_open;
+			};
+			_open === true ? (()=>{
+				s('.icon-'+obj.id).style.transform = 'rotate(180deg)';
+				obj.onOpen();
+			})() : null;
+		}, 0);
+		return render;
+	};
+
 
 // end
