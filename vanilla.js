@@ -1487,6 +1487,11 @@ function renderTableV1(dataRender, obj){
 			</style>
 
 	`;
+
+	if(obj.onRenderStyle){
+		obj.onRenderStyle(newInstance(render));
+	}
+
 	if(obj.hiddenHeader==undefined){
 		render += `<div class='fl `+id_table+`-header_row_style'>`;
 		for(let header_col of validKeys){
