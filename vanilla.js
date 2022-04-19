@@ -1505,14 +1505,18 @@ function renderTableV1(dataRender, obj){
 
 	let index_row = 0;
 	for(let row of dataRender){
-		render += `<div class='fl `+(obj.idMark!=undefined && obj.idMark.includes(row.id)?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
+		let renderRow = `<div class='fl `+(obj.idMark!=undefined && obj.idMark.includes(row.id)?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
 		for(let header_col of validKeys){
-			render += `<div class='in fll `+id_table+`-cell_style'>
+			renderRow += `<div class='in fll `+id_table+`-cell_style'>
 					<div class='in `+id_table+`-sub_cell_style'>`
 					+row[header_col]+
 					`
 					</div>
 			</div>`;
+		}
+		render += renderRow;
+		if(obj.onRenderDataRow){
+			obj.onRenderDataRow(renderRow);
 		}
 		if(obj.plugin != undefined){
 			render += `<div class='in fll `+id_table+`-cell_style'>`
