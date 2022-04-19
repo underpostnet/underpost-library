@@ -1492,20 +1492,26 @@ function renderTableV1(dataRender, obj){
 		obj.onRenderStyle(newInstance(render));
 	}
 
+	let renderHeader = '';
 	if(obj.hiddenHeader==undefined){
-		render += `<div class='fl `+id_table+`-header_row_style'>`;
+		renderHeader += `<div class='fl `+id_table+`-header_row_style'>`;
 		for(let header_col of validKeys){
-			render += `<div class='in fll `+id_table+`-header_cell_style'>
+			renderHeader += `<div class='in fll `+id_table+`-header_cell_style'>
 					<div class='in `+id_table+`-header_sub_cell_style'>
 					`+header_col+`
 					</div>
 			</div>`;
 		}
 		if(obj.plugin != undefined){
-			render += `<div class='in fll `+id_table+`-header_cell_style'>`+
+			renderHeader += `<div class='in fll `+id_table+`-header_cell_style'>`+
 			(obj.name_plugin!=undefined?obj.name_plugin:'')+`</div>`;
 		}
-		render += '</div>';
+		renderHeader += '</div>';
+	}
+
+	render += renderHeader;
+	if(obj.onHeaderRender){
+		obj.onHeaderRender(newInstance(renderHeader));
 	}
 
 	let index_row = 0;
