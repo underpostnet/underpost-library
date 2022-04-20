@@ -1750,7 +1750,7 @@ function renderGridsModal(obj){
 					}
 			</style>
 
-			<div class='fl `+idGrid+`-content' style='text-align: center;'>
+			<div class='fl `+idGrid+`-content'>
 			`;
 
 
