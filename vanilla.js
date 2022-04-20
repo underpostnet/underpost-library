@@ -1534,7 +1534,7 @@ function renderTableV1(dataRender, obj){
 
 		render += renderRow;
 		if(obj.onRenderDataRow){
-			obj.onRenderDataRow(renderRow);
+			obj.onRenderDataRow(renderRow, row);
 		}
 		index_row++;
 	}
