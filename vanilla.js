@@ -467,19 +467,19 @@ var mod_scroll = {
   */
 };
 
-function toUpBtn(body_, btn_, limit_){
+function toUpBtn(btn_, limit_){
 	setTimeout(()=>{
-		if(-1*s(body_).getBoundingClientRect().top>limit_ && s(btn_).style.display == 'none'){
+		if(-1*s('html').getBoundingClientRect().top>limit_ && s(btn_).style.display == 'none'){
 			s(btn_).style.display = 'block';
 		}
 	}, 0);
-	mod_scroll.init(s(body_), false, scroll => {
+	return scroll => {
 		if(scroll>limit_ && s(btn_).style.display == 'none'){
 			fadeIn(s(btn_));
 		}else if(scroll <= limit_ &&  s(btn_).style.display == 'block' ){
 			fadeOut(s(btn_));
 		}
-	});
+	}
 };
 
 let mod_key = {
@@ -2382,42 +2382,44 @@ renderTooltipV1({
 	};
 
 
-	function setDynamicDisplay(dynamicSection, referenceDisplay, init, eventScrollReference, log){
-		const testDivScroll = (dynamicSection, referenceDisplay, scroll) => {
-			if(scroll===false){
-				return fadeIn(s(dynamicSection));
-			}
-			if( scroll >= s(referenceDisplay).offsetTop
-					&&
-					(s(dynamicSection).style.display == 'none'
-					||
-					s(dynamicSection).style.display == '')
-					&&
-					scroll < (s(referenceDisplay).offsetTop+s(referenceDisplay).offsetHeight)
-					){
-				return fadeIn(s(dynamicSection));
-			}
-			if( scroll > (s(referenceDisplay).offsetTop+s(referenceDisplay).offsetHeight)
-					&&
-					s(dynamicSection).style.display == 'block'){
-				return fadeOut(s(dynamicSection));
-			}
-			if( scroll < s(referenceDisplay).offsetTop
-					&&
-					s(dynamicSection).style.display == 'block'){
-				return fadeOut(s(dynamicSection));
-			}
-		};
-		if(init===true){
-			testDivScroll(dynamicSection, referenceDisplay, false);
-		}
-		mod_scroll.init(s(eventScrollReference), log, scroll => {
-			log == true ?
-			console.log(s(dynamicSection).style.display)
-			:null;
-			testDivScroll(dynamicSection, referenceDisplay, scroll);
-		});
-	};
+
+    function setDynamicDisplay(dynamicSection, referenceDisplay, init, log){
+  		const testDivScroll = (dynamicSection, referenceDisplay, scroll) => {
+  			if(scroll===false){
+  				return fadeIn(s(dynamicSection));
+  			}
+  			if( scroll >= s(referenceDisplay).offsetTop
+  					&&
+  					(s(dynamicSection).style.display == 'none'
+  					||
+  					s(dynamicSection).style.display == '')
+  					&&
+  					scroll < (s(referenceDisplay).offsetTop+s(referenceDisplay).offsetHeight)
+  					){
+  				return fadeIn(s(dynamicSection));
+  			}
+  			if( scroll > (s(referenceDisplay).offsetTop+s(referenceDisplay).offsetHeight)
+  					&&
+  					s(dynamicSection).style.display == 'block'){
+  				return fadeOut(s(dynamicSection));
+  			}
+  			if( scroll < s(referenceDisplay).offsetTop
+  					&&
+  					s(dynamicSection).style.display == 'block'){
+  				return fadeOut(s(dynamicSection));
+  			}
+  		};
+  		if(init===true){
+  			testDivScroll(dynamicSection, referenceDisplay, false);
+  		}
+
+      return scroll => {
+        log == true ?
+  			console.log(s(dynamicSection).style.display)
+  			:null;
+  			testDivScroll(dynamicSection, referenceDisplay, scroll);
+      }
+  	};
 
 
 // end
