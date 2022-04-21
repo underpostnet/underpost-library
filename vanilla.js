@@ -2382,4 +2382,42 @@ renderTooltipV1({
 	};
 
 
+	function setDynamicDisplay(dynamicSection, referenceDisplay, init, eventScrollReference, log){
+		const testDivScroll = (dynamicSection, referenceDisplay, scroll) => {
+			if(scroll===false){
+				return fadeIn(s(dynamicSection));
+			}
+			if( scroll >= s(referenceDisplay).offsetTop
+					&&
+					(s(dynamicSection).style.display == 'none'
+					||
+					s(dynamicSection).style.display == '')
+					&&
+					scroll < (s(referenceDisplay).offsetTop+s(referenceDisplay).offsetHeight)
+					){
+				return fadeIn(s(dynamicSection));
+			}
+			if( scroll > (s(referenceDisplay).offsetTop+s(referenceDisplay).offsetHeight)
+					&&
+					s(dynamicSection).style.display == 'block'){
+				return fadeOut(s(dynamicSection));
+			}
+			if( scroll < s(referenceDisplay).offsetTop
+					&&
+					s(dynamicSection).style.display == 'block'){
+				return fadeOut(s(dynamicSection));
+			}
+		};
+		if(init===true){
+			testDivScroll(dynamicSection, referenceDisplay, false);
+		}
+		mod_scroll.init(s(eventScrollReference), log, scroll => {
+			log == true ?
+			console.log(s(dynamicSection).style.display)
+			:null;
+			testDivScroll(dynamicSection, referenceDisplay, scroll);
+		});
+	};
+
+
 // end
