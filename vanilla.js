@@ -1526,7 +1526,7 @@ function renderTableV1(dataRender, obj){
 			</div>`;
 		}
 		if(obj.plugin != undefined){
-			renderRow += `<div class='in fll `+id_table+`-cell_style'>`
+			renderRow += `<div class='in fll `+id_table+`-cell_style' `+(obj.contentPlugStyle?`style='`+obj.contentPlugStyle+`'`:'')+`  >`
 			+obj.plugin(index_row)+
 			`</div>`;
 		}
