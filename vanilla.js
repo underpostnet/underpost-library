@@ -1721,7 +1721,7 @@ function renderGridsModal(obj){
 	console.log("renderGridsModal(obj) ->");
 	console.log(obj);
 
-	let idGrid = makeid(5, false);
+	let idGrid = obj.mainIdGrid ? obj.mainIdGrid : makeid(5, false);
 	let intervalReturn = {};
 	let render = `
 
