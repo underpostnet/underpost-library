@@ -1857,14 +1857,14 @@ function renderGridsModal(obj){
 							 s('.'+id_cell_).onclick = () => {
 								 	console.log(id_cell_);
 
-									ind_cell_return-1 >= 0 ?
+									ind_cell_return-1 >= 0 && obj.disableRowNavModal != true ?
 									((()=>{
 										s('.gm-back-btn-'+idGrid).style.opacity = '1';
 										s('.gm-back-btn-'+idGrid).style.display = 'block';
 									})()):
 									s('.gm-back-btn-'+idGrid).style.opacity = '0';
 
-									ind_cell_return+1 >= 0 ?
+									ind_cell_return+1 >= 0 && obj.disableRowNavModal != true ?
 									((()=>{
 										s('.gm-next-btn-'+idGrid).style.opacity = '1';
 										s('.gm-next-btn-'+idGrid).style.display = 'block';
