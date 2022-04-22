@@ -1870,9 +1870,9 @@ function renderGridsModal(obj){
 
 									if(obj.dataCell[ind_cell_return]!=undefined){
 										// fadeIn(s('.'+id_cell_content_modal_));
-										obj.clickRowOpenModal && obj.clickRowOpenModal === false ? null:
+										obj.clickRowOpenModal === false ? null:
 										 s('.'+id_cell_content_modal_).style.display = 'block';
-										obj.clickRowOpenModal && obj.clickRowOpenModal === false ? null:
+										obj.clickRowOpenModal === false ? null:
 										 s('.'+id_cell_content_modal_).style.opacity = '1';
 										obj.onCLick(obj.dataCell[ind_cell_return], id_cell_modal_, ind_cell_return, idGrid);
 
