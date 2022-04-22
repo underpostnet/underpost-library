@@ -1435,7 +1435,7 @@ const notifi = {
 
 function renderTableV1(dataRender, obj){
 
-	let id_table = makeid(4, false);
+	let id_table = obj.id_table ? obj.id_table : makeid(4, false);
 	let validKeys = l(dataRender)>0 ? getKeys(dataRender[0])
 	.filter(x =>
 								(
@@ -1516,7 +1516,9 @@ function renderTableV1(dataRender, obj){
 
 	let index_row = 0;
 	for(let row of dataRender){
+		let rowClickId = 'click-table-'+id_table+'-'+indexRow;
 		let renderRow = `<div class='fl `+(obj.idMark!=undefined && obj.idMark.includes(row.id)?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
+		renderRow += '<'+rowClickId+'>';
 		for(let header_col of validKeys){
 			renderRow += `<div class='in fll `+id_table+`-cell_style'>
 					<div class='in `+id_table+`-sub_cell_style'>`
@@ -1525,6 +1527,7 @@ function renderTableV1(dataRender, obj){
 					</div>
 			</div>`;
 		}
+		renderRow += '</'+rowClickId+'>';
 		if(obj.plugin != undefined){
 			renderRow += `<div class='in fll `+id_table+`-cell_style' `+(obj.style.contentPlugStyle?`style='`+obj.style.contentPlugStyle+`'`:'')+`  >`
 			+obj.plugin(index_row)+
@@ -1534,7 +1537,7 @@ function renderTableV1(dataRender, obj){
 
 		render += renderRow;
 		if(obj.onRenderDataRow){
-			obj.onRenderDataRow(renderRow, row, index_row);
+			obj.onRenderDataRow(renderRow, row, index_row, rowClickId);
 		}
 		index_row++;
 	}
