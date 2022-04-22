@@ -1516,7 +1516,7 @@ function renderTableV1(dataRender, obj){
 
 	let index_row = 0;
 	for(let row of dataRender){
-		let rowClickId = 'click-table-'+id_table+'-'+indexRow;
+		let rowClickId = 'click-table-'+id_table+'-'+index_row;
 		let renderRow = `<div class='fl `+(obj.idMark!=undefined && obj.idMark.includes(row.id)?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
 		renderRow += '<'+rowClickId+'>';
 		for(let header_col of validKeys){
