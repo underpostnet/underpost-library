@@ -1598,7 +1598,9 @@ function renderTableV1(dataRender, obj){
 										() => {
 													console.log('close modal -> '+'.'+obj.id_sch_content_modal+'-close-button');
 
-													fadeOut(s('.'+obj.id_sch_content_modal+'-content-modal'));
+													obj.clickRowOpenModal && obj.clickRowOpenModal === false ?
+													null : fadeOut(s('.'+obj.id_sch_content_modal+'-content-modal'));
+													
 										};
 									},0);
 									return `
