@@ -1874,6 +1874,7 @@ function renderGridsModal(obj){
 										 s('.'+id_cell_content_modal_).style.display = 'block';
 										obj.clickRowOpenModal === false ? null:
 										 s('.'+id_cell_content_modal_).style.opacity = '1';
+										 obj.clickRowOpenModal === false ? null:
 										obj.onCLick(obj.dataCell[ind_cell_return], id_cell_modal_, ind_cell_return, idGrid);
 
 										ind_cell_return-1 >= 0 ?
