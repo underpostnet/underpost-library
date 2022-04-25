@@ -772,6 +772,14 @@ function dragDrop(div){
 
 
 var downloader = {
+	BLOB: (nameFile, blob) => {
+		let idDownload = makeid(4);
+		append('body', `<a class='`+idDownload+`' style='display: none'></a>`);
+		s('.'+idDownload).href = window.URL.createObjectURL(blob);
+		s('.'+idDownload).download = nameFile;
+		s('.'+idDownload).click();
+		s('.'+idDownload).remove();
+	},
 	JSON: (exportObj, exportName) => {
 		let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
 		let downloadAnchorNode = document.createElement('a');
