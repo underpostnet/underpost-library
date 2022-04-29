@@ -1706,6 +1706,19 @@ console.log(deBase64(enBase64("hola")));
 
 */
 
+function fileToBase64(file){
+	return new Promise((resolve, reject) => {
+	    const reader = new FileReader();
+	    reader.readAsDataURL(file);
+	    reader.onload = () => resolve(reader.result);
+	    reader.onerror = error => reject(error);
+	});
+};
+
+function getUriPath(){
+	return '/' + location.href.split('/').pop().split('?')[0];
+}
+
 function renderDropDownV1(obj){
 
 	let render = `<select class="`+obj.underpostClass+` `+obj.id+`"
