@@ -2445,6 +2445,12 @@ renderTooltipV1({
   		}
 
       return scroll => {
+				if(!s(dynamicSection)){
+					return;
+				}
+				if(!s(referenceDisplay)){
+					return;
+				}
         log == true ?
   			console.log(s(dynamicSection).style.display)
   			:null;
