@@ -1879,6 +1879,7 @@ function renderGridsModal(obj){
 								 	console.log(id_cell_);
 
 									if(!(s('.gm-back-btn-'+idGrid) && s('.gm-next-btn-'+idGrid))){
+										console.warn('stop');
 										return;
 									}
 
