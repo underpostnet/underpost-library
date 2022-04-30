@@ -1706,7 +1706,7 @@ console.log(deBase64(enBase64("hola")));
 
 */
 
-function fileToBase64(file){
+async function fileToBase64(file){
 	return new Promise((resolve, reject) => {
 	    const reader = new FileReader();
 	    reader.readAsDataURL(file);
