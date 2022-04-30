@@ -1878,6 +1878,10 @@ function renderGridsModal(obj){
 							 s('.'+id_cell_).onclick = () => {
 								 	console.log(id_cell_);
 
+									if(!(s('.gm-back-btn-'+idGrid) && s('.gm-next-btn-'+idGrid))){
+										return;
+									}
+
 									ind_cell_return-1 >= 0 && obj.disableRowNavModal != true ?
 									((()=>{
 										s('.gm-back-btn-'+idGrid).style.opacity = '1';
@@ -2447,6 +2451,24 @@ renderTooltipV1({
   			testDivScroll(dynamicSection, referenceDisplay, scroll);
       }
   	};
+
+
+function setURI(_uri, _objData, _title){
+	return history.pushState(_objData, _title, _uri);
+}
+
+/*
+
+// receiver stat to changue view
+
+window.onpopstate = function(e){
+    if(e.state){
+        document.getElementById("content").innerHTML = e.state.html;
+        document.title = e.state.pageTitle;
+    }
+};
+
+*/
 
 
 // end
