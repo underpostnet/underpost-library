@@ -1456,12 +1456,16 @@ function renderTableV1(dataRender, obj){
 	console.log(" validKeys ->");
 	console.log(validKeys);
 
-	if(obj.plugin != undefined){
+  let rowClickWidth = '100%';
+
+  obj.style.header_cell_style += 'width: '+(100/(l(validKeys)))+'%;';
+  obj.style.cell_style += 'width: '+(100/(l(validKeys)))+'%;';
+
+  if(obj.plugin != undefined){
 		obj.style.header_cell_style += 'width: '+(100/(l(validKeys)+1))+'%;';
-		obj.style.cell_style += 'width: '+(100/(l(validKeys)+1))+'%;';
-	}else{
-		obj.style.header_cell_style += 'width: '+(100/(l(validKeys)))+'%;';
-		obj.style.cell_style += 'width: '+(100/(l(validKeys)))+'%;';
+		// obj.style.cell_style += 'width: '+(100/(l(validKeys)+1))+'%;';
+    obj.style.contentPlugStyle += 'width: '+(100/(l(validKeys)+1))+'%;';
+    rowClickWidth = (100/(l(validKeys)+1))*l(validKeys) + '%';
 	}
 
 	let render = `
@@ -1526,7 +1530,7 @@ function renderTableV1(dataRender, obj){
 	for(let row of dataRender){
 		let rowClickId = 'click-table-'+id_table+'-'+index_row;
 		let renderRow = `<div class='fl `+(obj.idMark!=undefined && obj.idMark.includes(row.id)?id_table+`-mark_row_style'>`:id_table+`-row_style'>`);
-		renderRow += '<'+rowClickId+'>';
+		renderRow += '<'+rowClickId+' class="in fll" style="width: '+rowClickWidth+'">';
 		for(let header_col of validKeys){
 			renderRow += `<div class='in fll `+id_table+`-cell_style'>
 					<div class='in `+id_table+`-sub_cell_style'>`
