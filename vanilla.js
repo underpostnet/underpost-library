@@ -2391,7 +2391,7 @@ renderTooltipV1({
 							`+obj.contentHeader+`
 					</div>
 					<div class='in fll' style='width: `+(100-obj.width)+`%; height: `+obj.height+`;'>
-							<div class='abs center'>
+							<div class='`+(obj.classIconContent?obj.classIconContent:'abs center')+`'>
 										<i class='fas fa-caret-down icon-`+obj.id+`' style='`+obj.styleIcon+`'></i>
 							</div>
 					</div>
