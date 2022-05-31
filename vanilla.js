@@ -1555,7 +1555,16 @@ function renderTableV1(dataRender, obj){
 	}
 
 	/*
-
+	append('.render-list', renderTableV1( [{ a: 'a' }, { a: 'b' }], {
+      style: {
+        header_row_style: 'border-bottom: 2px solid green;',
+        header_cell_style: '',
+        row_style: 'border-bottom: 2px solid gray;',
+        cell_style: '',
+        minWidth: 'none'
+      }
+  }));
+	
 	append('body', renderTableV1( data_periods, {
 			style: {
 				header_row_style: header_row_style,
