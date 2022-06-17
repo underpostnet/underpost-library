@@ -2503,6 +2503,91 @@ class Rest {
 	}
   }
 
+
+  function renderJoyBtn(_obj){
+
+	const idBtnJoy = _obj && _obj.id ? _obj.id : makeid(5);
+
+	return /*html*/ `
+
+	<style>
+				/* content-btn  */
+			.${idBtnJoy} { ${_obj.style.contenBtn} }
+			
+				/* btn */
+			.${idBtnJoy}__text { ${_obj.style.btn} }
+
+				/* btn bot */
+			.${idBtnJoy}__bot { ${_obj.style.btn_bot } }
+
+					/* hover */
+			.${idBtnJoy}:hover { ${_obj.style.btn_hover } }
+
+					/* Z direction */
+			.${idBtnJoy}:active .${idBtnJoy}__text { ${_obj.style.direction } }
+
+	</style>
+
+	<div class="${idBtnJoy}">
+
+			<div class="abs ${idBtnJoy}__bot"></div>
+			<div class="abs ${idBtnJoy}__text">
+			
+						<div class="abs center">
+														Add
+						</div>
+			
+			</div>
+	</div>
+
+	`;
+}
+
+/*
+
+const idTest = makeid(5);
+append("body", renderJoyBtn({
+	id: idTest,
+	style: {
+		contenBtn: `
+				display: block;
+				cursor: pointer;
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background: green;
+		
+		`,
+		btn: `
+				width: 80%;
+				height: 80%;
+				right: 10%;
+				background: pink;
+				transition: .2s;
+				border-radius: 50%;
+		`,
+		btn_bot: `
+				width: 80%;
+				height: 80%;
+				right: 10%;
+				top: 20%;
+				background: orange;
+				border-radius: 50%;
+		`,
+		btn_hover: `
+				color: red;    
+		`,
+		direction: `
+				transform: translateY(20%);
+		`
+	}
+}));
+
+s("."+idTest).onclick = () => console.warn("ok");
+
+*/
+
+
 /*
 
 // receiver stat to changue view
