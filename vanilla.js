@@ -2602,7 +2602,7 @@ function removeClass(div, _class){
 	return div.classList.remove(_class);
 }
 
-function getList(div){
+function getListClass(div){
 	return div.classList;
 }
 
