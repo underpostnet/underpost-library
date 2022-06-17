@@ -2533,9 +2533,7 @@ class Rest {
 			<div class="abs ${idBtnJoy}__bot"></div>
 			<div class="abs ${idBtnJoy}__text">
 			
-						<div class="abs center">
-														Add
-						</div>
+						${_obj.icon}
 			
 			</div>
 	</div>
@@ -2548,6 +2546,12 @@ class Rest {
 const idTest = makeid(5);
 append("body", renderJoyBtn({
 	id: idTest,
+	icon: `
+	
+						<div class="abs center">
+														Add
+						</div>
+	`,
 	style: {
 		contenBtn: `
 				display: block;
