@@ -2592,6 +2592,21 @@ s("."+idTest).onclick = () => console.warn("ok");
 */
 
 
+
+
+function addClass(div, _class){
+	return div.classList.add(_class);
+}
+
+function removeClass(div, _class){
+	return div.classList.remove(_class);
+}
+
+function getList(div){
+	return div.classList;
+}
+
+
 /*
 
 // receiver stat to changue view
