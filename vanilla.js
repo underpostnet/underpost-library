@@ -1729,10 +1729,15 @@ async function fileToBase64(file){
 };
 
 function getUriPath(){
-	return '/' + 
+	const _test = 
 	(location.href.slice(-1) == "/" ? location.href.slice(0, -1): location.href)
 	.split('/').pop()
 	.split('?')[0];
+	if(_test == location.host){
+		return "/";
+	}else{
+		return "/" + _test;
+	}
 }
 
 function renderDropDownV1(obj){
