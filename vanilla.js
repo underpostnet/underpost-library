@@ -1728,15 +1728,18 @@ async function fileToBase64(file){
 	});
 };
 
-function getUriPath(){
+function getUriPath(baseUri){
+	if(!baseUri){
+		baseUri = "";
+	}
 	const _test = 
 	(location.href.slice(-1) == "/" ? location.href.slice(0, -1): location.href)
 	.split('/').pop()
 	.split('?')[0];
-	if(_test == location.host){
-		return "/";
+	if(_test == location.host || _test == baseUri.split("/").pop()){
+		return baseUri + "/";
 	}else{
-		return "/" + _test;
+		return baseUri + "/" + _test;
 	}
 }
 
