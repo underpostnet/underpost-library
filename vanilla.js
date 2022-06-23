@@ -2602,7 +2602,25 @@ s("."+idTest).onclick = () => console.warn("ok");
 
 */
 
-
+function squareBtnSwithcIcon(obj){
+    let open = false;
+    s(obj.onclick).onclick = () => {              
+        if(open){
+            // CLOSE
+            open = false;
+            s(obj.closeIcon).style.display = "none";
+            fadeIn(s(obj.openIcon));
+            obj.onClose();
+        }else{
+            // OPEN 
+            open = true;
+            s(obj.openIcon).style.display = "none";
+            fadeIn(s(obj.closeIcon));
+            obj.onOpen();
+        }
+    };
+    obj.open ? s(obj.onclick).click() : null;
+}
 
 
 function addClass(div, _class){
