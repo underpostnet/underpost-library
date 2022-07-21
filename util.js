@@ -1260,5 +1260,7 @@ function timeSince(date, lang, offTimeFactor) {
 
 
 
-
+function clearPem(str){
+	return str.replace(/(\r\n|\n|\r)/gm, '');
+};
 	// end
