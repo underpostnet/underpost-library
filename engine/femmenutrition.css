@@ -1,0 +1,132 @@
+/* app */
+body {
+
+    background: #FFDEE1;
+    color: white;
+
+}
+
+a {
+
+    color: white;
+    text-decoration: none;
+
+}
+
+a:hover {
+
+    color: #FFD573;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+    background: #ED5C6B;
+}
+
+html,
+body,
+input,
+button,
+textarea,
+iframe,
+mini-modal,
+form {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    overflow: auto;
+    font-family: arial;
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    transition: .3s;
+    background: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    border-bottom: 3px solid #FFD573;
+    color: #FFD573;
+}
+
+.menuBtnActive {
+    border-bottom: 3px solid #FFD573;
+    color: #FFD573;
+}
+
+/*
+  placeholder
+*/
+
+::placeholder {
+    color: gray;
+    opacity: 1;
+    /* Firefox */
+    background: none;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: gray;
+    background: none;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: gray;
+    background: none;
+}
+
+/*
+    selection
+  */
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: white;
+    background: #FFD573;
+}
+
+::selection {
+    color: white;
+    background: #FFD573;
+}
+
+
+/*
+    scrollbar
+  Hide scrollbar for Chrome, Safari and Opera
+  [TAG]::-webkit-scrollbar {
+    display: none;
+  }
+  Hide scrollbar for IE, Edge and Firefox
+  [TAG] {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+  */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
