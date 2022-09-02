@@ -3,6 +3,8 @@ body {
 
     background: #FFDEE1;
     color: white;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -89,12 +91,12 @@ button:hover {
 
 ::-moz-selection {
     /* Code for Firefox */
-    color: white;
+    color: #1e1e1e;
     background: #FFD573;
 }
 
 ::selection {
-    color: white;
+    color: #1e1e1e;
     background: #FFD573;
 }
 
