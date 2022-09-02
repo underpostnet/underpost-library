@@ -51,12 +51,12 @@ button {
 }
 
 button:hover {
-    border-bottom: 3px solid #FFD573;
+    /* border-bottom: 3px solid #FFD573; */
     color: #FFD573;
 }
 
 .menuBtnActive {
-    border-bottom: 3px solid #FFD573;
+    /* border-bottom: 3px solid #FFD573; */
     color: #FFD573;
 }
 
