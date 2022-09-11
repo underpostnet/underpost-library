@@ -45,3 +45,27 @@ html {
     width: 100%;
     text-align: center
 }
+
+row {
+    display: flex;
+}
+
+.g-center {
+    justify-content: center;
+}
+
+.g-end {
+    justify-content: flex-end;
+}
+
+.g-start {
+    justify-content: flex-start;
+}
+
+.g-sa {
+    justify-content: space-around;
+}
+
+.g-sb {
+    justify-content: space-between;
+}
