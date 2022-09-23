@@ -215,7 +215,7 @@ modal {
     background: #555;
 }
 
-.fas {
+.fas, .fa-brands {
     cursor: pointer;
     padding: 3px;
 }

@@ -100,6 +100,8 @@
         notification: false,
         playList : []
       };
+
+      window["_audioplayer"] = audio;
     
       function init(options) {
     
