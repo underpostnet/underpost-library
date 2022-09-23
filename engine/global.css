@@ -220,6 +220,6 @@ modal {
     padding: 3px;
 }
 
-.fas:hover {
+.fas:hover, .fa-brands:hover {
     color: purple;
 }
