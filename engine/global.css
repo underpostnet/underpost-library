@@ -135,6 +135,17 @@ modal {
     display: none;
 }
 
+.main-card {
+    padding: 5px;
+    margin: 5px;
+    transition: .3s;
+    background: #0d0d0d;
+}
+
+.main-card:hover {
+    background: #1a1a1a;
+}
+
 /*
 
 .outline {
@@ -215,11 +226,13 @@ modal {
     background: #555;
 }
 
-.fas, .fa-brands {
+.fas,
+.fa-brands {
     cursor: pointer;
     padding: 3px;
 }
 
-.fas:hover, .fa-brands:hover {
+.fas:hover,
+.fa-brands:hover {
     color: purple;
 }
